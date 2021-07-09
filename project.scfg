@@ -1,0 +1,17 @@
+{
+    "game_title": "uniday-jam-2021",
+    "initial_scene": "scenes/init.sscn",
+    "base_resolution": {
+        "width": 800,
+        "height": 600
+    },
+    "colliders_visible": false,
+    "target_fps": 66,
+    "background_color": {
+        "red": 0.20000000298023224,
+        "green": 0.20000000298023224,
+        "blue": 0.20000000298023224
+    },
+    "assets": [],
+    "input_actions": []
+}
