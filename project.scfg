@@ -1,5 +1,5 @@
 {
-    "game_title": "uniday-jam-2021",
+    "game_title": "Cave Salamander",
     "initial_scene": "scenes/init.sscn",
     "base_resolution": {
         "width": 800,
