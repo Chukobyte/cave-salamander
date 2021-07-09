@@ -37,7 +37,7 @@
                 {
                     "transform2D": {
                         "position": {
-                            "x": 300.0,
+                            "x": 240.0,
                             "y": 200.0
                         },
                         "scale": {
@@ -53,7 +53,7 @@
                 {
                     "text_label": {
                         "text": "Uniday Jam Game",
-                        "font_path": "assets/fonts/verdana.ttf",
+                        "font_path": "assets/fonts/big_verdana.ttf",
                         "color": {
                             "red": 0.8339768052101135,
                             "green": 0.32521873712539673,

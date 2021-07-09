@@ -19,6 +19,11 @@
         },
         {
             "type": "font",
+            "file_path": "assets/fonts/big_verdana.ttf",
+            "size": 40
+        },
+        {
+            "type": "font",
             "file_path": "assets/fonts/verdana.ttf",
             "size": 20
         }
