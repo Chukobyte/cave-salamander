@@ -25,6 +25,34 @@
     ],
     "input_actions": [
         {
+            "name": "move_down",
+            "values": [
+                "s",
+                "down"
+            ]
+        },
+        {
+            "name": "move_left",
+            "values": [
+                "a",
+                "left"
+            ]
+        },
+        {
+            "name": "move_right",
+            "values": [
+                "d",
+                "right"
+            ]
+        },
+        {
+            "name": "move_up",
+            "values": [
+                "w",
+                "up"
+            ]
+        },
+        {
             "name": "ui_menu_confirm",
             "values": [
                 "return"
