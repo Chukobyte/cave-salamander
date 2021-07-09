@@ -1,0 +1,106 @@
+{
+    "name": "TitleScreen",
+    "type": "Node2D",
+    "tags": [],
+    "external_scene_source": "",
+    "components": [
+        {
+            "transform2D": {
+                "position": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "scale": {
+                    "x": 1.0,
+                    "y": 1.0
+                },
+                "rotation": 0.0,
+                "z_index": 0,
+                "z_index_relative_to_parent": true,
+                "ignore_camera": false
+            }
+        },
+        {
+            "scriptable_class": {
+                "class_path": "src.title_screen",
+                "class_name": "Title_screen"
+            }
+        }
+    ],
+    "children": [
+        {
+            "name": "TitleLabel",
+            "type": "TextLabel",
+            "tags": [],
+            "external_scene_source": "",
+            "components": [
+                {
+                    "transform2D": {
+                        "position": {
+                            "x": 300.0,
+                            "y": 200.0
+                        },
+                        "scale": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "rotation": 0.0,
+                        "z_index": 0,
+                        "z_index_relative_to_parent": true,
+                        "ignore_camera": false
+                    }
+                },
+                {
+                    "text_label": {
+                        "text": "Uniday Jam Game",
+                        "font_path": "assets/fonts/verdana.ttf",
+                        "color": {
+                            "red": 0.8339768052101135,
+                            "green": 0.32521873712539673,
+                            "blue": 0.32521873712539673,
+                            "alpha": 1.0
+                        }
+                    }
+                }
+            ],
+            "children": []
+        },
+        {
+            "name": "InstructionLabel",
+            "type": "TextLabel",
+            "tags": [],
+            "external_scene_source": "",
+            "components": [
+                {
+                    "transform2D": {
+                        "position": {
+                            "x": 298.0,
+                            "y": 318.0
+                        },
+                        "scale": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "rotation": 0.0,
+                        "z_index": 0,
+                        "z_index_relative_to_parent": true,
+                        "ignore_camera": false
+                    }
+                },
+                {
+                    "text_label": {
+                        "text": "Press Enter to Play!",
+                        "font_path": "assets/fonts/verdana.ttf",
+                        "color": {
+                            "red": 1.0,
+                            "green": 1.0,
+                            "blue": 1.0,
+                            "alpha": 1.0
+                        }
+                    }
+                }
+            ],
+            "children": []
+        }
+    ]
+}

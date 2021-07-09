@@ -8,10 +8,33 @@
     "colliders_visible": false,
     "target_fps": 66,
     "background_color": {
-        "red": 0.20000000298023224,
-        "green": 0.20000000298023224,
-        "blue": 0.20000000298023224
+        "red": 0.0,
+        "green": 0.0,
+        "blue": 0.0
     },
-    "assets": [],
-    "input_actions": []
+    "assets": [
+        {
+            "type": "texture",
+            "file_path": "assets/images/frog/frog.png"
+        },
+        {
+            "type": "font",
+            "file_path": "assets/fonts/verdana.ttf",
+            "size": 20
+        }
+    ],
+    "input_actions": [
+        {
+            "name": "ui_menu_confirm",
+            "values": [
+                "return"
+            ]
+        },
+        {
+            "name": "ui_quit",
+            "values": [
+                "esc"
+            ]
+        }
+    ]
 }

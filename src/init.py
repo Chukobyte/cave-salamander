@@ -1,5 +1,6 @@
 from seika.node import Node2D
+from seika.scene import SceneTree
 
 class Init(Node2D):
    def _start(self) -> None:
-       print("Uniday Jam!")
+       SceneTree.change_scene(scene_path="scenes/title_screen.sscn")
