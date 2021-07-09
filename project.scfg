@@ -28,40 +28,50 @@
             "name": "move_down",
             "values": [
                 "s",
-                "down"
+                "down",
+                "joystick_left_analog_down",
+                "joystick_keypad_down"
             ]
         },
         {
             "name": "move_left",
             "values": [
                 "a",
-                "left"
+                "left",
+                "joystick_left_analog_left",
+                "joystick_keypad_left"
             ]
         },
         {
             "name": "move_right",
             "values": [
                 "d",
-                "right"
+                "right",
+                "joystick_left_analog_right",
+                "joystick_keypad_right"
             ]
         },
         {
             "name": "move_up",
             "values": [
                 "w",
-                "up"
+                "up",
+                "joystick_left_analog_up",
+                "joystick_keypad_up"
             ]
         },
         {
             "name": "ui_menu_confirm",
             "values": [
-                "return"
+                "return",
+                "joystick_button_start"
             ]
         },
         {
             "name": "ui_quit",
             "values": [
-                "esc"
+                "esc",
+                "joystick_button_back"
             ]
         }
     ]
