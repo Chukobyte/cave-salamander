@@ -7,6 +7,14 @@ from src.stats import PlayerStats
 from src.util.util import Timer
 
 
+class TopGUI:
+    def __init__(self, score_label: TextLabel):
+        self.score_label = score_label
+
+    def update(self, player_stats: PlayerStats) -> None:
+        self.score_label.text = f"{player_stats.score}"
+
+
 class BottomGUI:
     def __init__(self, time_label: TextLabel):
         self.time_label = time_label
@@ -23,7 +31,7 @@ class BottomGUI:
             source_rect=Rect2(0, 0, 2, 2),
             dest_rect=Rect2(0, 550, 800, 100),
             z_index=-1,
-            color=Color(0.2, 0.2, 0.2)
+            color=Color(0.2, 0.2, 0.2),
         )
 
         # TIME
@@ -42,3 +50,16 @@ class BottomGUI:
                     self.lives_size_scaled.y,
                 ),
             )
+
+
+class GUI:
+    def __init__(
+        self, score_label: TextLabel, time_label: TextLabel, player_stats: PlayerStats
+    ):
+        self._top_gui = TopGUI(score_label=score_label)
+        self._bottom_gui = BottomGUI(time_label=time_label)
+        self.player_stats = player_stats
+
+    def update(self) -> None:
+        self._top_gui.update(player_stats=self.player_stats)
+        self._bottom_gui.update(player_stats=self.player_stats)
