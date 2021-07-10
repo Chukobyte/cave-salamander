@@ -42,6 +42,12 @@
     ],
     "input_actions": [
         {
+            "name": "RESET",
+            "values": [
+                "r"
+            ]
+        },
+        {
             "name": "move_down",
             "values": [
                 "s",

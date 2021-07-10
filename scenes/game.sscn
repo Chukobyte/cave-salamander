@@ -30,7 +30,7 @@
     "children": [
         {
             "name": "Frog",
-            "type": "Sprite",
+            "type": "AnimatedSprite",
             "tags": [],
             "external_scene_source": "",
             "components": [
@@ -38,7 +38,7 @@
                     "transform2D": {
                         "position": {
                             "x": 192.0,
-                            "y": 230.0
+                            "y": 256.0
                         },
                         "scale": {
                             "x": 1.0,
@@ -51,14 +51,9 @@
                     }
                 },
                 {
-                    "sprite": {
-                        "texture_path": "assets/images/frog/frog.png",
-                        "draw_source": {
-                            "x": 0.0,
-                            "y": 0.0,
-                            "width": 16.0,
-                            "height": 16.0
-                        },
+                    "animated_sprite": {
+                        "current_animation": "default",
+                        "is_playing": false,
                         "flip_x": false,
                         "flip_y": false,
                         "modulate": {
@@ -66,7 +61,35 @@
                             "green": 1.0,
                             "blue": 1.0,
                             "alpha": 1.0
-                        }
+                        },
+                        "animations": [
+                            {
+                                "name": "default",
+                                "speed": 2,
+                                "frames": [
+                                    {
+                                        "frame": 0,
+                                        "texture_path": "assets/images/frog/frog.png",
+                                        "draw_source": {
+                                            "x": 0.0,
+                                            "y": 0.0,
+                                            "width": 16.0,
+                                            "height": 16.0
+                                        }
+                                    },
+                                    {
+                                        "frame": 1,
+                                        "texture_path": "assets/images/frog/frog.png",
+                                        "draw_source": {
+                                            "x": 16.0,
+                                            "y": 0.0,
+                                            "width": 16.0,
+                                            "height": 16.0
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
                     }
                 }
             ],

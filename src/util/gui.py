@@ -16,6 +16,9 @@ class TopGUI:
 
 
 class BottomGUI:
+    RECT_WIDTH =800
+    RECT_HEIGHT=100
+
     def __init__(self, time_label: TextLabel):
         self.time_label = time_label
         self.timer = Timer(time_in_millis=120000)
@@ -29,7 +32,7 @@ class BottomGUI:
         Renderer.draw_texture(
             texture_path="assets/images/white_square.png",
             source_rect=Rect2(0, 0, 2, 2),
-            dest_rect=Rect2(0, 550, 800, 100),
+            dest_rect=Rect2(0, 550, self.RECT_WIDTH, self.RECT_HEIGHT),
             z_index=-1,
             color=Color(0.2, 0.2, 0.2),
         )
@@ -56,10 +59,10 @@ class GUI:
     def __init__(
         self, score_label: TextLabel, time_label: TextLabel, player_stats: PlayerStats
     ):
-        self._top_gui = TopGUI(score_label=score_label)
-        self._bottom_gui = BottomGUI(time_label=time_label)
+        self.top_gui = TopGUI(score_label=score_label)
+        self.bottom_gui = BottomGUI(time_label=time_label)
         self.player_stats = player_stats
 
     def update(self) -> None:
-        self._top_gui.update(player_stats=self.player_stats)
-        self._bottom_gui.update(player_stats=self.player_stats)
+        self.top_gui.update(player_stats=self.player_stats)
+        self.bottom_gui.update(player_stats=self.player_stats)
