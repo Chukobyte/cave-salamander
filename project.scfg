@@ -30,6 +30,14 @@
             "type": "font",
             "file_path": "assets/fonts/verdana.ttf",
             "size": 20
+        },
+        {
+            "type": "music",
+            "file_path": "assets/audio/music/cave_salamander_theme.wav"
+        },
+        {
+            "type": "sound",
+            "file_path": "assets/audio/sound_effect/frog_move_sound.wav"
         }
     ],
     "input_actions": [
