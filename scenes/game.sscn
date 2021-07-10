@@ -329,6 +329,132 @@
                     "children": []
                 }
             ]
+        },
+        {
+            "name": "GameObjects",
+            "type": "Node2D",
+            "tags": [],
+            "external_scene_source": "",
+            "components": [
+                {
+                    "transform2D": {
+                        "position": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "scale": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "rotation": 0.0,
+                        "z_index": 0,
+                        "z_index_relative_to_parent": true,
+                        "ignore_camera": false
+                    }
+                }
+            ],
+            "children": [
+                {
+                    "name": "Snake0",
+                    "type": "Sprite",
+                    "tags": [],
+                    "external_scene_source": "",
+                    "components": [
+                        {
+                            "transform2D": {
+                                "position": {
+                                    "x": -1000.0,
+                                    "y": -1000.0
+                                },
+                                "scale": {
+                                    "x": 10.0,
+                                    "y": 10.0
+                                },
+                                "rotation": 0.0,
+                                "z_index": 0,
+                                "z_index_relative_to_parent": true,
+                                "ignore_camera": false
+                            }
+                        },
+                        {
+                            "sprite": {
+                                "texture_path": "assets/images/white_square.png",
+                                "draw_source": {
+                                    "x": 0.0,
+                                    "y": 0.0,
+                                    "width": 2.0,
+                                    "height": 2.0
+                                },
+                                "flip_x": false,
+                                "flip_y": false,
+                                "modulate": {
+                                    "red": 1.0,
+                                    "green": 1.0,
+                                    "blue": 1.0,
+                                    "alpha": 1.0
+                                }
+                            }
+                        },
+                        {
+                            "scriptable_class": {
+                                "class_path": "src.game_object",
+                                "class_name": "GameObject"
+                            }
+                        }
+                    ],
+                    "children": []
+                },
+                {
+                    "name": "Snake1",
+                    "type": "Sprite",
+                    "tags": [],
+                    "external_scene_source": "",
+                    "components": [
+                        {
+                            "transform2D": {
+                                "position": {
+                                    "x": -2000.0,
+                                    "y": -2000.0
+                                },
+                                "scale": {
+                                    "x": 10.0,
+                                    "y": 10.0
+                                },
+                                "rotation": 0.0,
+                                "z_index": 0,
+                                "z_index_relative_to_parent": true,
+                                "ignore_camera": false
+                            }
+                        },
+                        {
+                            "sprite": {
+                                "texture_path": "assets/images/white_square.png",
+                                "draw_source": {
+                                    "x": 0.0,
+                                    "y": 0.0,
+                                    "width": 2.0,
+                                    "height": 2.0
+                                },
+                                "flip_x": false,
+                                "flip_y": false,
+                                "modulate": {
+                                    "red": 1.0,
+                                    "green": 1.0,
+                                    "blue": 1.0,
+                                    "alpha": 1.0
+                                }
+                            }
+                        },
+                        {
+                            "scriptable_class": {
+                                "class_path": "src.game_object",
+                                "class_name": "GameObject"
+                            }
+                        }
+                    ],
+                    "children": []
+                }
+            ]
         }
     ]
 }

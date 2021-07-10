@@ -5,8 +5,10 @@ from seika.math import Vector2, Rect2
 from seika.camera import Camera
 from seika.physics import Collision
 
+from src.game_object import GameObjectType
 from src.stats import PlayerStats
 from src.util.gui import GUI
+from src.util.game_object_pool import GameObjectPool
 
 
 class Game(Node2D):
@@ -21,7 +23,12 @@ class Game(Node2D):
             time_label=self.get_node(name="TimeLabel"),
             player_stats=self.player_stats,
         )
+        self.game_object_pool = GameObjectPool(
+            game=self, snake_node_names=["Snake0", "Snake1"]
+        )
         Camera.set_zoom(zoom=Vector2(2, 2))
+
+        self.spawn_test_game_objects()
 
     def _physics_process(self, delta_time: float) -> None:
         if Input.is_action_just_pressed(action_name="ui_quit"):
@@ -46,7 +53,15 @@ class Game(Node2D):
     def process_collisions(self) -> None:
         collided_nodes = Collision.get_collided_nodes(node=self.frogger_collider)
         for collided_node in collided_nodes:
-            # print(f"collided with node with entity id = {collided_node.entity_id}")
             self.player_stats.score += 10
             self.frogger.position = self.frog_initial_position
             break
+
+    # TODO: Test function for spawning.  Move logic into proper place!
+    def spawn_test_game_objects(self) -> None:
+        snake0 = self.game_object_pool.create(type=GameObjectType.SNAKE)
+        snake0.position = Vector2(100, 100)
+        print(f"snake = {snake0.entity_id}")
+        snake1 = self.game_object_pool.create(type=GameObjectType.SNAKE)
+        snake1.position = Vector2(200, 200)
+        print(f"snake = {snake1.entity_id}")
