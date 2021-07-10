@@ -34,7 +34,7 @@ class Game(Node2D):
         )
         zoom_vector = Vector2(2, 2)
         Camera.set_zoom(zoom=zoom_vector)
-
+        self.total_frogger_frames = self.frogger.animation_frames
         Audio.play_music(music_id="assets/audio/music/cave_salamander_theme.wav")
 
         self.spawn_test_game_objects()
