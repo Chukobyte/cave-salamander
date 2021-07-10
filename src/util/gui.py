@@ -16,8 +16,8 @@ class TopGUI:
 
 
 class BottomGUI:
-    RECT_WIDTH =800
-    RECT_HEIGHT=100
+    RECT_WIDTH = 800
+    RECT_HEIGHT = 100
 
     def __init__(self, time_label: TextLabel):
         self.time_label = time_label
@@ -44,7 +44,7 @@ class BottomGUI:
         # LIVES
         for life_count in range(player_stats.lives):
             Renderer.draw_texture(
-                texture_path="assets/images/frog/frog.png",
+                texture_path="assets/images/salamander.png",
                 source_rect=Rect2(0, 0, self.lives_size.x, self.lives_size.y),
                 dest_rect=Rect2(
                     self.lives_position.x + (life_count * 32),

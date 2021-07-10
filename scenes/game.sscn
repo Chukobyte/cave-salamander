@@ -29,7 +29,7 @@
     ],
     "children": [
         {
-            "name": "Frog",
+            "name": "Salamander",
             "type": "AnimatedSprite",
             "tags": [],
             "external_scene_source": "",
@@ -52,7 +52,7 @@
                 },
                 {
                     "animated_sprite": {
-                        "current_animation": "default",
+                        "current_animation": "walk",
                         "is_playing": false,
                         "flip_x": false,
                         "flip_y": false,
@@ -64,12 +64,12 @@
                         },
                         "animations": [
                             {
-                                "name": "default",
+                                "name": "walk",
                                 "speed": 2,
                                 "frames": [
                                     {
                                         "frame": 0,
-                                        "texture_path": "assets/images/frog/frog.png",
+                                        "texture_path": "assets/images/salamander.png",
                                         "draw_source": {
                                             "x": 0.0,
                                             "y": 0.0,
@@ -79,7 +79,7 @@
                                     },
                                     {
                                         "frame": 1,
-                                        "texture_path": "assets/images/frog/frog.png",
+                                        "texture_path": "assets/images/salamander.png",
                                         "draw_source": {
                                             "x": 16.0,
                                             "y": 0.0,
@@ -95,7 +95,7 @@
             ],
             "children": [
                 {
-                    "name": "FrogCollider",
+                    "name": "SalamanderCollider",
                     "type": "CollisionShape2D",
                     "tags": [],
                     "external_scene_source": "",

@@ -15,7 +15,7 @@
     "assets": [
         {
             "type": "texture",
-            "file_path": "assets/images/frog/frog.png"
+            "file_path": "assets/images/salamander.png"
         },
         {
             "type": "texture",
