@@ -11,7 +11,7 @@ class Game(Node2D):
         self.frogger_collider = self.get_node(name="FrogCollider")
         self.frog_initial_position = self.frogger.position
         self.grid_size = Vector2(16, 16)
-        Camera.set_zoom(zoom=Vector2(4, 4))
+        Camera.set_zoom(zoom=Vector2(2, 2))
 
     def _physics_process(self, delta_time: float) -> None:
         if Input.is_action_just_pressed(action_name="ui_quit"):
