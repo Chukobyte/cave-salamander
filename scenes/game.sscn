@@ -60,7 +60,13 @@
                             "height": 16.0
                         },
                         "flip_x": false,
-                        "flip_y": false
+                        "flip_y": false,
+                        "modulate": {
+                            "red": 1.0,
+                            "green": 1.0,
+                            "blue": 1.0,
+                            "alpha": 1.0
+                        }
                     }
                 }
             ],
