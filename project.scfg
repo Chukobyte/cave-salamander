@@ -18,6 +18,10 @@
             "file_path": "assets/images/frog/frog.png"
         },
         {
+            "type": "texture",
+            "file_path": "assets/images/white_square.png"
+        },
+        {
             "type": "font",
             "file_path": "assets/fonts/big_verdana.ttf",
             "size": 40
