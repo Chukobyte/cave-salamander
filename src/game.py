@@ -1,9 +1,12 @@
-from seika.node import Node2D
+from seika.node import Node2D, TextLabel
 from seika.input import Input
 from seika.engine import Engine
 from seika.math import Vector2
 from seika.camera import Camera
 from seika.physics import Collision
+
+from src.util.bottom_gui import BottomGUI
+
 
 class Game(Node2D):
     def _start(self) -> None:
@@ -11,6 +14,7 @@ class Game(Node2D):
         self.frogger_collider = self.get_node(name="FrogCollider")
         self.frog_initial_position = self.frogger.position
         self.grid_size = Vector2(16, 16)
+        self.bottom_gui = BottomGUI(time_label=self.get_node(name="TimeLabel"))
         Camera.set_zoom(zoom=Vector2(2, 2))
 
     def _physics_process(self, delta_time: float) -> None:
@@ -20,6 +24,8 @@ class Game(Node2D):
         self.handle_game_input()
 
         self.process_collisions()
+
+        self.bottom_gui.update()
 
     def handle_game_input(self) -> None:
         if Input.is_action_just_pressed(action_name="move_left"):
