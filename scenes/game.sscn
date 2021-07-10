@@ -37,8 +37,8 @@
                 {
                     "transform2D": {
                         "position": {
-                            "x": 0.0,
-                            "y": 0.0
+                            "x": 80.0,
+                            "y": 130.0
                         },
                         "scale": {
                             "x": 1.0,
@@ -64,7 +64,128 @@
                     }
                 }
             ],
-            "children": []
+            "children": [
+                {
+                    "name": "FrogCollider",
+                    "type": "CollisionShape2D",
+                    "tags": [],
+                    "external_scene_source": "",
+                    "components": [
+                        {
+                            "transform2D": {
+                                "position": {
+                                    "x": 1.0,
+                                    "y": 1.0
+                                },
+                                "scale": {
+                                    "x": 1.0,
+                                    "y": 1.0
+                                },
+                                "rotation": 0.0,
+                                "z_index": 0,
+                                "z_index_relative_to_parent": true,
+                                "ignore_camera": false
+                            }
+                        },
+                        {
+                            "collider": {
+                                "rectangle": {
+                                    "x": 0.0,
+                                    "y": 0.0,
+                                    "width": 14.0,
+                                    "height": 14.0
+                                },
+                                "color": {
+                                    "red": 0.37254902720451355,
+                                    "green": 0.8039215803146362,
+                                    "blue": 0.8941176533699036,
+                                    "alpha": 0.75
+                                }
+                            }
+                        }
+                    ],
+                    "children": []
+                }
+            ]
+        },
+        {
+            "name": "EndGoalLabel",
+            "type": "TextLabel",
+            "tags": [],
+            "external_scene_source": "",
+            "components": [
+                {
+                    "transform2D": {
+                        "position": {
+                            "x": 90.0,
+                            "y": 10.0
+                        },
+                        "scale": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "rotation": 0.0,
+                        "z_index": 0,
+                        "z_index_relative_to_parent": true,
+                        "ignore_camera": false
+                    }
+                },
+                {
+                    "text_label": {
+                        "text": "G",
+                        "font_path": "assets/fonts/verdana.ttf",
+                        "color": {
+                            "red": 1.0,
+                            "green": 1.0,
+                            "blue": 1.0,
+                            "alpha": 1.0
+                        }
+                    }
+                }
+            ],
+            "children": [
+                {
+                    "name": "CollisionShape2D",
+                    "type": "CollisionShape2D",
+                    "tags": [],
+                    "external_scene_source": "",
+                    "components": [
+                        {
+                            "transform2D": {
+                                "position": {
+                                    "x": 0.0,
+                                    "y": 0.0
+                                },
+                                "scale": {
+                                    "x": 1.0,
+                                    "y": 1.0
+                                },
+                                "rotation": 0.0,
+                                "z_index": 0,
+                                "z_index_relative_to_parent": true,
+                                "ignore_camera": false
+                            }
+                        },
+                        {
+                            "collider": {
+                                "rectangle": {
+                                    "x": 0.0,
+                                    "y": 0.0,
+                                    "width": 16.0,
+                                    "height": 16.0
+                                },
+                                "color": {
+                                    "red": 0.37254902720451355,
+                                    "green": 0.8039215803146362,
+                                    "blue": 0.8941176533699036,
+                                    "alpha": 0.75
+                                }
+                            }
+                        }
+                    ],
+                    "children": []
+                }
+            ]
         }
     ]
 }
