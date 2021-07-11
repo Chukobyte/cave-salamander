@@ -147,7 +147,7 @@
                     "transform2D": {
                         "position": {
                             "x": 192.0,
-                            "y": 6.0
+                            "y": 4.0
                         },
                         "scale": {
                             "x": 1.0,
@@ -165,8 +165,8 @@
                         "draw_source": {
                             "x": 0.0,
                             "y": 0.0,
-                            "width": 16.0,
-                            "height": 16.0
+                            "width": 14.0,
+                            "height": 14.0
                         },
                         "flip_x": false,
                         "flip_y": false,
@@ -235,7 +235,7 @@
                     "transform2D": {
                         "position": {
                             "x": 115.0,
-                            "y": 6.0
+                            "y": 4.0
                         },
                         "scale": {
                             "x": 1.0,
@@ -253,8 +253,8 @@
                         "draw_source": {
                             "x": 0.0,
                             "y": 0.0,
-                            "width": 16.0,
-                            "height": 16.0
+                            "width": 14.0,
+                            "height": 14.0
                         },
                         "flip_x": false,
                         "flip_y": false,
@@ -323,7 +323,7 @@
                     "transform2D": {
                         "position": {
                             "x": 40.0,
-                            "y": 6.0
+                            "y": 4.0
                         },
                         "scale": {
                             "x": 1.0,
@@ -341,8 +341,8 @@
                         "draw_source": {
                             "x": 0.0,
                             "y": 0.0,
-                            "width": 16.0,
-                            "height": 16.0
+                            "width": 14.0,
+                            "height": 14.0
                         },
                         "flip_x": false,
                         "flip_y": false,
@@ -411,7 +411,7 @@
                     "transform2D": {
                         "position": {
                             "x": 270.0,
-                            "y": 6.0
+                            "y": 4.0
                         },
                         "scale": {
                             "x": 1.0,
@@ -429,8 +429,8 @@
                         "draw_source": {
                             "x": 0.0,
                             "y": 0.0,
-                            "width": 16.0,
-                            "height": 16.0
+                            "width": 14.0,
+                            "height": 14.0
                         },
                         "flip_x": false,
                         "flip_y": false,
@@ -499,7 +499,7 @@
                     "transform2D": {
                         "position": {
                             "x": 340.0,
-                            "y": 6.0
+                            "y": 4.0
                         },
                         "scale": {
                             "x": 1.0,
@@ -517,8 +517,8 @@
                         "draw_source": {
                             "x": 0.0,
                             "y": 0.0,
-                            "width": 16.0,
-                            "height": 16.0
+                            "width": 14.0,
+                            "height": 14.0
                         },
                         "flip_x": false,
                         "flip_y": false,
