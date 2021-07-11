@@ -5,6 +5,7 @@ from seika.math import Vector2, Rect2
 from seika.camera import Camera
 from seika.physics import Collision
 from seika.audio import Audio
+from seika.scene import SceneTree
 
 from src.game_object import GameObjectType
 from src.stats import PlayerStats
@@ -21,9 +22,8 @@ class Game(Node2D):
     def _start(self) -> None:
         self.salamander = self.get_node(name="Salamander")
         self.salamander_collider = self.get_node(name="SalamanderCollider")
-        self.frog_initial_position = (
-            self.salamander.position
-        )  # This position should be divisible by the grid size
+        # This position should be divisible by the grid size
+        self.salamander_initial_position = self.salamander.position
         self.grid_size = Vector2(16, 16)  # the sprite's size
         self.player_stats = PlayerStats()
         self.game_gui = GUI(
@@ -46,7 +46,6 @@ class Game(Node2D):
         # scaled refers considers zoom level
         self.screen_width_scaled = self.SCREEN_WIDTH / zoom_vector.x
 
-        print(self.game_gui.bottom_gui.RECT_HEIGHT)
         self.screen_height_scaled = ((self.SCREEN_HEIGHT) / zoom_vector.y) - (
             self.game_gui.bottom_gui.RECT_HEIGHT / 3
         )
@@ -56,9 +55,7 @@ class Game(Node2D):
             Engine.exit()
 
         self.handle_game_input()
-
         self.process_collisions()
-
         self.game_gui.update()
 
     def handle_game_input(self) -> None:
@@ -78,8 +75,18 @@ class Game(Node2D):
         elif Input.is_action_just_pressed(
             action_name="RESET"
         ):  # pressing 'r' for debugging
-            self.salamander.position = self.frog_initial_position
+            self.salamander.position = self.salamander_initial_position
             player_moved = False
+            self.player_stats.reset()
+            SceneTree.change_scene(scene_path="scenes/title_screen.sscn")
+        elif Input.is_action_just_pressed(
+            action_name="End"
+        ):  # pressing 'r' for debugging
+            SceneTree.change_scene(scene_path="scenes/end_screen.sscn")
+        elif Input.is_action_just_pressed(
+            action_name="Score"
+        ):  # pressing 'm' for adding to score points
+            self.player_stats.score = (self.player_stats.score + 1) % 10
         else:
             player_moved = False
 
@@ -100,13 +107,13 @@ class Game(Node2D):
             or curr_y > self.screen_height_scaled
         ):
             # reset position if somehow outside of screen
-            self.salamander.position = self.frog_initial_position
+            self.salamander.position = self.salamander_initial_position
 
     def process_collisions(self) -> None:
         collided_nodes = Collision.get_collided_nodes(node=self.salamander_collider)
         for collided_node in collided_nodes:
             self.player_stats.score += 10
-            self.salamander.position = self.frog_initial_position
+            self.salamander.position = self.salamander_initial_position
             break
 
     # TODO: Test function for spawning.  Move logic into proper place!
@@ -119,5 +126,7 @@ class Game(Node2D):
         print(f"snake = {snake1.entity_id}")
 
     def cycle_frogger_animation(self):
-        self.salamander.frame = (self.salamander.frame + 1) % self.total_salamander_frames
+        self.salamander.frame = (
+            self.salamander.frame + 1
+        ) % self.total_salamander_frames
         Audio.play_sound(sound_id="assets/audio/sound_effect/frog_move_sound.wav")
