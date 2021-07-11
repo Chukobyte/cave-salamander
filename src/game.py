@@ -59,7 +59,7 @@ class Game(Node2D):
 
         self.game_gui.update()
 
-        self.lane_manager.process()
+        self.lane_manager.process(delta_time=delta_time)
 
         self.process_collisions()
 

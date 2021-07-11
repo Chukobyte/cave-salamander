@@ -27,32 +27,32 @@ class GameObjectPool:
                 for spider_node_name in spider_node_names
             ],
         }
-        self._live_pool = []
+        self.live_pool = []
         # self._spawn_manager = SpawnLaneManger(gameNode=game)
 
     def process(self) -> None:
         self.attempt_spawn(type=GameObjectType.SPIDER)
 
-    def attempt_spawn(self, type: str) -> bool:
+    def attempt_spawn(self, type: str) -> GameObject:
         if len(self._object_pools[type]) > 0:
             game_object = self._spawn_object(type=type)
             game_object.position = Vector2(100, 100)
-            return True
-        return False
+            return game_object
+        return None
 
     def _spawn_object(self, type: str) -> GameObject:
         game_object = self._object_pools[type].pop()
         game_object.type = type
         game_object.active = True
         game_object.update_properties_based_on_type()
-        self._live_pool.append(game_object)
+        self.live_pool.append(game_object)
         return game_object
 
     def remove_object(self, game_object: GameObject) -> None:
-        negative_space_separator = 100 * (MAX_LIVE_OBJECTS - len(self._live_pool))
+        negative_space_separator = 100 * (MAX_LIVE_OBJECTS - len(self.live_pool))
         game_object.position = Vector2(
             -500 + -negative_space_separator, -500 + -negative_space_separator
         )
         game_object.active = False
-        self._live_pool.remove(game_object)
+        self.live_pool.remove(game_object)
         self._object_pools[game_object.type].append(game_object)

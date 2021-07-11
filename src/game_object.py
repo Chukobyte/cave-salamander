@@ -31,7 +31,7 @@ class DefaultGameObjectProperties:
             w=2, h=2, s=Vector2(8, 8), t=0.01, v=Vector2(-8, 0)
         ),
         GameObjectType.SPIDER: GameObjectProperties(
-            w=2, h=2, s=Vector2(8, 8), t=0.01, v=Vector2(-8, 0)
+            w=2, h=2, s=Vector2(8, 8), t=0.01, v=Vector2(8, 0)
         ),
     }
 
@@ -57,9 +57,9 @@ class GameObject(Sprite):
             self.timer = self.properties.walk_timer
             self.velocity = self.properties.velocity
 
-    def move_object(self, deletatime) -> None:
+    def move_object(self, delta_time: float) -> None:
         if self.timer > 0:
-            self.timer -= deletatime
+            self.timer -= delta_time
         else:
             self.timer = self.properties.walk_timer
             curr_x = self.get_position().x
