@@ -54,6 +54,7 @@ class Game(Node2D):
 
         self.handle_game_input()
         self.process_collisions()
+        self.death_check()
         self.game_gui.update()
         self.game_object_pool.move_gameobjects_in_pool(deltatime=delta_time)
 
@@ -141,3 +142,7 @@ class Game(Node2D):
             self.salamander.frame + 1
         ) % self.total_salamander_frames
         Audio.play_sound(sound_id="assets/audio/sound_effect/frog_move_sound.wav")
+
+    def death_check(self):
+        if self.player_stats.lives<= 0:
+            SceneTree.change_scene(scene_path="scenes/end_screen.sscn")
