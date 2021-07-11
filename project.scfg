@@ -36,8 +36,8 @@
             "file_path": "assets/audio/music/cave_salamander_theme.wav"
         },
         {
-            "type": "sound",
-            "file_path": "assets/audio/sound_effect/end_game_jingle.wav"
+            "type": "music",
+            "file_path": "assets/audio/music/end_game_jingle.wav"
         },
         {
             "type": "sound",

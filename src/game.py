@@ -38,7 +38,7 @@ class Game(Node2D):
         zoom_vector = GameScreen().getZoom()  # Vector2(2, 2)
         Camera.set_zoom(zoom=zoom_vector)
         self.total_salamander_frames = self.salamander.animation_frames
-        Audio.play_music(music_id="assets/audio/music/cave_salamander_theme.wav")
+        Audio.play_music(music_id="assets/audio/music/cave_salamander_theme.wav", loops=True)
 
         # self.spawn_test_game_objects()
         # z = dir(Camera)
