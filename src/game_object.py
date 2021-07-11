@@ -23,7 +23,7 @@ class GameObjectProperties:
 
 class DefaultGameObjectProperties:
     default_properties = {
-        GameObjectType.SNAKE: GameObjectProperties(w=2, h=2, x_s=8, y_s=8, t=0.1, v=Vector2(-8,0)),
+        GameObjectType.SNAKE: GameObjectProperties(w=2, h=2, x_s=8, y_s=8, t=0.01, v=Vector2(-8,0)),
         GameObjectType.ROCK: GameObjectProperties(w=16,h=16,x_s=1,y_s=1,v=Vector2(-16,0))
     }
 

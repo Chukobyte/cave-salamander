@@ -176,7 +176,7 @@
                 {
                     "name": "CollisionShape2D",
                     "type": "CollisionShape2D",
-                    "tags": ["goal"],
+                    "tags": [],
                     "external_scene_source": "",
                     "components": [
                         {
@@ -429,7 +429,7 @@
                         {
                             "name": "Snake0Collider",
                             "type": "CollisionShape2D",
-                            "tags": ["enemy"],
+                            "tags": [],
                             "external_scene_source": "",
                             "components": [
                                 {
@@ -521,7 +521,7 @@
                         {
                             "name": "Snake1Collider",
                             "type": "CollisionShape2D",
-                            "tags": ["enemy"],
+                            "tags": [],
                             "external_scene_source": "",
                             "components": [
                                 {

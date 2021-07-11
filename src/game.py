@@ -40,13 +40,14 @@ class Game(Node2D):
         self.total_salamander_frames = self.salamander.animation_frames
         Audio.play_music(music_id="assets/audio/music/cave_salamander_theme.wav")
 
-        self.spawn_test_game_objects()
+        #self.spawn_test_game_objects()
         # z = dir(Camera)
         # for x in z:
         #     print(x)
 
         self.screen_width_scaled = GameScreen().getScreenScaled().x
         self.screen_height_scaled = GameScreen().getScreenScaled().y
+        #self.game_object_pool.spawn(type=GameObjectType.SNAKE)
 
     def _physics_process(self, delta_time: float) -> None:
         if Input.is_action_just_pressed(action_name="ui_quit"):
@@ -57,6 +58,7 @@ class Game(Node2D):
         self.death_check()
         self.game_gui.update()
         self.game_object_pool.move_gameobjects_in_pool(deltatime=delta_time)
+        self.game_object_pool.spawn(type=GameObjectType.SNAKE)
 
     def handle_game_input(self) -> None:
         player_moved = True
@@ -126,18 +128,6 @@ class Game(Node2D):
             if reset_position:
                 self.salamander.position = self.salamander_initial_position
             break
-
-    # TODO: Test function for spawning.  Move logic into proper place!
-    def spawn_test_game_objects(self) -> None:
-        # snake0 = self.game_object_pool.create(type=GameObjectType.SNAKE)
-        # snake0.position = Vector2(GameScreen().SCREEN_WIDTH_SCALED, 100)
-        # snake0.velocity = Vector2(-10, 0)
-        # print(f"snake = {snake0.entity_id}")
-        # snake1 = self.game_object_pool.create(type=GameObjectType.SNAKE)
-        # snake1.position = Vector2(0-(snake1.properties.width*2), 200)
-        # snake1.velocity = Vector2(10, 0)
-        # print(f"snake = {snake1.entity_id}")
-        self.game_object_pool.spawn(type=GameObjectType.SNAKE)
 
     def cycle_salamander_animation(self):
         self.salamander.frame = (
