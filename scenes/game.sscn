@@ -890,6 +890,100 @@
                             "children": []
                         }
                     ]
+                },
+                {
+                    "name": "Spider0",
+                    "type": "Sprite",
+                    "tags": [],
+                    "external_scene_source": "",
+                    "components": [
+                        {
+                            "transform2D": {
+                                "position": {
+                                    "x": -1000.0,
+                                    "y": -1000.0
+                                },
+                                "scale": {
+                                    "x": 8.0,
+                                    "y": 8.0
+                                },
+                                "rotation": 0.0,
+                                "z_index": 0,
+                                "z_index_relative_to_parent": true,
+                                "ignore_camera": false
+                            }
+                        },
+                        {
+                            "sprite": {
+                                "texture_path": "assets/images/white_square.png",
+                                "draw_source": {
+                                    "x": 0.0,
+                                    "y": 0.0,
+                                    "width": 2.0,
+                                    "height": 2.0
+                                },
+                                "flip_x": false,
+                                "flip_y": false,
+                                "modulate": {
+                                    "red": 1.0,
+                                    "green": 1.0,
+                                    "blue": 1.0,
+                                    "alpha": 1.0
+                                }
+                            }
+                        },
+                        {
+                            "scriptable_class": {
+                                "class_path": "src.game_object",
+                                "class_name": "GameObject"
+                            }
+                        }
+                    ],
+                    "children": [
+                        {
+                            "name": "Spider0Collider",
+                            "type": "CollisionShape2D",
+                            "tags": [
+                                "enemy"
+                            ],
+                            "external_scene_source": "",
+                            "components": [
+                                {
+                                    "transform2D": {
+                                        "position": {
+                                            "x": 0.0,
+                                            "y": 0.0
+                                        },
+                                        "scale": {
+                                            "x": 1.0,
+                                            "y": 1.0
+                                        },
+                                        "rotation": 0.0,
+                                        "z_index": 0,
+                                        "z_index_relative_to_parent": true,
+                                        "ignore_camera": false
+                                    }
+                                },
+                                {
+                                    "collider": {
+                                        "rectangle": {
+                                            "x": 0.0,
+                                            "y": 0.0,
+                                            "width": 2.0,
+                                            "height": 2.0
+                                        },
+                                        "color": {
+                                            "red": 0.41018596291542053,
+                                            "green": 0.9729729890823364,
+                                            "blue": 0.06761974096298218,
+                                            "alpha": 0.75
+                                        }
+                                    }
+                                }
+                            ],
+                            "children": []
+                        }
+                    ]
                 }
             ]
         },

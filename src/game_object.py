@@ -4,31 +4,34 @@ from src.util.util import GameScreen
 
 
 class GameObjectType:
-    SNAKE = "Snake"
     ROCK = "Rock"
+    SNAKE = "Snake"
+    SPIDER = "Spider"
 
 
 class GameObjectProperties:
     # The properties are based on the game object's sprite properties (which we can not directly get)
-    def __init__(self, w=0, h=0, x_s=1, y_s=1, t=2, v=Vector2(-8, 0)):
+    def __init__(self, w=0, h=0, s=Vector2(1, 1), t=2.0, v=Vector2(-8, 0)):
         self.width = w
         self.height = h
-        self.x_scale = x_s
-        self.y_scale = y_s
+        self.scale = s
         self.walk_timer = t  # in seconds; time it takes to make one step
         self.velocity = v
 
     def __str__(self):
-        return f"\nWidth: {self.width} Height: {self.height}\nX Scale: {self.x_scale} Y Scale: {self.y_scale}\nWalking Timer: {self.walk_timer}\n"
+        return f"\nWidth: {self.width} Height: {self.height}\nX Scale: {self.scale.x} Y Scale: {self.scale.y}\nWalking Timer: {self.walk_timer}\n"
 
 
 class DefaultGameObjectProperties:
     default_properties = {
-        GameObjectType.SNAKE: GameObjectProperties(
-            w=2, h=2, x_s=8, y_s=8, t=0.01, v=Vector2(-8, 0)
-        ),
         GameObjectType.ROCK: GameObjectProperties(
-            w=16, h=16, x_s=1, y_s=1, v=Vector2(-16, 0)
+            w=16, h=16, s=Vector2(1, 1), v=Vector2(-16, 0)
+        ),
+        GameObjectType.SNAKE: GameObjectProperties(
+            w=2, h=2, s=Vector2(8, 8), t=0.01, v=Vector2(-8, 0)
+        ),
+        GameObjectType.SPIDER: GameObjectProperties(
+            w=2, h=2, s=Vector2(8, 8), t=0.01, v=Vector2(-8, 0)
         ),
     }
 
@@ -65,8 +68,8 @@ class GameObject(Sprite):
             velocity_x = self.velocity.x
             velocity_y = self.velocity.y
 
-            width = self.properties.width * self.properties.x_scale
-            height = self.properties.height * self.properties.y_scale
+            width = self.properties.width * self.properties.scale.x
+            height = self.properties.height * self.properties.scale.y
 
             new_x = curr_x + velocity_x
             new_y = curr_y + velocity_y

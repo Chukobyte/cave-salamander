@@ -8,9 +8,10 @@ from seika.audio import Audio
 from seika.scene import SceneTree
 
 from src.game_object import GameObjectType
+from src.lane_manager import LaneManager
 from src.stats import PlayerStats
 from src.util.gui import GUI, BottomGUI
-from src.util.game_object_pool import GameObjectPool
+from src.util.new_game_object_pool import GameObjectPool
 from src.util.util import GameScreen
 
 
@@ -32,9 +33,6 @@ class Game(Node2D):
             time_label=self.get_node(name="TimeLabel"),
             player_stats=self.player_stats,
         )
-        self.game_object_pool = GameObjectPool(
-            game=self, snake_node_names=["Snake0", "Snake1"]
-        )
         zoom_vector = GameScreen().getZoom()  # Vector2(2, 2)
         Camera.set_zoom(zoom=zoom_vector)
         self.total_salamander_frames = self.salamander.animation_frames
@@ -42,22 +40,31 @@ class Game(Node2D):
             music_id="assets/audio/music/cave_salamander_theme.wav", loops=True
         )
 
-        # self.spawn_test_game_objects()
-        # z = dir(Camera)
-        # for x in z:
-        #     print(x)
-
         self.screen_width_scaled = GameScreen().getScreenScaled().x
         self.screen_height_scaled = GameScreen().getScreenScaled().y
+
+        self.lane_manager = LaneManager(
+            game_object_pool=GameObjectPool(
+                game=self,
+                snake_node_names=["Snake0", "Snake1"],
+                spider_node_names=["Spider0"],
+            )
+        )
 
     def _physics_process(self, delta_time: float) -> None:
         if Input.is_action_just_pressed(action_name="ui_quit"):
             Engine.exit()
 
         self.handle_game_input()
-        self.process_collisions()
-        self.death_check()
+
         self.game_gui.update()
+
+        self.lane_manager.process()
+
+        self.process_collisions()
+
+        self.death_check()
+
         # self.game_object_pool.move_gameobjects_in_pool(deltatime=delta_time)
         # self.game_object_pool.spawn(type=GameObjectType.SNAKE)
 
