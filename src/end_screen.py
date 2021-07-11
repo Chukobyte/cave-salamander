@@ -7,7 +7,6 @@ from seika.camera import Camera
 from seika.math import Vector2
 from src.stats import PlayerStats
 from src.util.gui import GUI
-from seika.node import Node
 
 
 class EndScreen(Node2D):

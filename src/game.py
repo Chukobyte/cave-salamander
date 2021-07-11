@@ -38,7 +38,9 @@ class Game(Node2D):
         zoom_vector = GameScreen().getZoom()  # Vector2(2, 2)
         Camera.set_zoom(zoom=zoom_vector)
         self.total_salamander_frames = self.salamander.animation_frames
-        Audio.play_music(music_id="assets/audio/music/cave_salamander_theme.wav", loops=True)
+        Audio.play_music(
+            music_id="assets/audio/music/cave_salamander_theme.wav", loops=True
+        )
 
         # self.spawn_test_game_objects()
         # z = dir(Camera)
@@ -56,8 +58,8 @@ class Game(Node2D):
         self.process_collisions()
         self.death_check()
         self.game_gui.update()
-        self.game_object_pool.move_gameobjects_in_pool(deltatime=delta_time)
-        self.game_object_pool.spawn(type=GameObjectType.SNAKE)
+        # self.game_object_pool.move_gameobjects_in_pool(deltatime=delta_time)
+        # self.game_object_pool.spawn(type=GameObjectType.SNAKE)
 
     def handle_game_input(self) -> None:
         player_moved = True
