@@ -716,8 +716,8 @@
                                     "y": -1000.0
                                 },
                                 "scale": {
-                                    "x": 8.0,
-                                    "y": 8.0
+                                    "x": 1.0,
+                                    "y": 1.0
                                 },
                                 "rotation": 0.0,
                                 "z_index": 0,
@@ -727,12 +727,12 @@
                         },
                         {
                             "sprite": {
-                                "texture_path": "assets/images/white_square.png",
+                                "texture_path": "assets/images/snake.png",
                                 "draw_source": {
                                     "x": 0.0,
                                     "y": 0.0,
-                                    "width": 2.0,
-                                    "height": 2.0
+                                    "width": 32.0,
+                                    "height": 12.0
                                 },
                                 "flip_x": false,
                                 "flip_y": false,
@@ -781,8 +781,8 @@
                                         "rectangle": {
                                             "x": 0.0,
                                             "y": 0.0,
-                                            "width": 2.0,
-                                            "height": 2.0
+                                            "width": 32.0,
+                                            "height": 12.0
                                         },
                                         "color": {
                                             "red": 0.9729729890823364,
@@ -810,8 +810,8 @@
                                     "y": -2000.0
                                 },
                                 "scale": {
-                                    "x": 8.0,
-                                    "y": 8.0
+                                    "x": 1.0,
+                                    "y": 1.0
                                 },
                                 "rotation": 0.0,
                                 "z_index": 0,
@@ -821,12 +821,12 @@
                         },
                         {
                             "sprite": {
-                                "texture_path": "assets/images/white_square.png",
+                                "texture_path": "assets/images/snake.png",
                                 "draw_source": {
                                     "x": 0.0,
                                     "y": 0.0,
-                                    "width": 2.0,
-                                    "height": 2.0
+                                    "width": 32.0,
+                                    "height": 12.0
                                 },
                                 "flip_x": false,
                                 "flip_y": false,
@@ -875,8 +875,8 @@
                                         "rectangle": {
                                             "x": 0.0,
                                             "y": 0.0,
-                                            "width": 2.0,
-                                            "height": 2.0
+                                            "width": 32.0,
+                                            "height": 12.0
                                         },
                                         "color": {
                                             "red": 0.9729999899864197,
