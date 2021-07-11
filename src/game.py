@@ -11,7 +11,7 @@ from src.game_object import GameObjectType
 from src.lane_manager import LaneManager
 from src.stats import PlayerStats
 from src.util.gui import GUI, BottomGUI
-from src.util.new_game_object_pool import GameObjectPool
+from src.util.game_object_pool import GameObjectPool
 from src.util.util import GameScreen
 
 

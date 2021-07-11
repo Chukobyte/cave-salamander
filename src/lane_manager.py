@@ -1,7 +1,7 @@
 from seika.math import Vector2
 
 from src.game_object import GameObjectType
-from src.util.new_game_object_pool import GameObjectPool
+from src.util.game_object_pool import GameObjectPool
 
 
 class Lane:
