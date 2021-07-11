@@ -16,12 +16,15 @@ class GameObjectPool:
             ],
         }
         self.live_objects = 0
+        self._live_pool= []
 
     def create(self, type: str) -> GameObject:
         self.live_objects += 1
         game_object = self._object_pools[type].pop()
         game_object.type = type
         game_object.active = True
+        game_object.update_properties_based_on_type()
+        self._live_pool.append(game_object)
         return game_object
 
     def remove(self, game_object: GameObject) -> None:
@@ -31,4 +34,12 @@ class GameObjectPool:
             -500 + -negative_space_separator, -500 + -negative_space_separator
         )
         game_object.active = False
+        del self._live_pool[game_object]
         self._object_pools[game_object.type].append(game_object)
+
+    def update_velecoity(self, game_object: GameObject, velocity: Vector2) -> None:
+        game_object.velocity = velocity
+
+    def move_gameobjects_in_pool(self):
+        for gameobject in self._live_pool:
+            gameobject.move_object()

@@ -3,7 +3,6 @@ class PlayerStats:
 
     def __new__(cls, *args, **kwargs):
         if not cls._instance:
-            print("new132")
             cls._instance = object.__new__(cls)
             cls.lives = 3
             cls.score = 0

@@ -23,7 +23,7 @@
         {
             "scriptable_class": {
                 "class_path": "src.end_screen",
-                "class_name": "End_screen"
+                "class_name": "EndScreen"
             }
         }
     ],

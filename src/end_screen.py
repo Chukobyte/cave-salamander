@@ -10,7 +10,7 @@ from src.util.gui import GUI
 from seika.node import Node
 
 
-class End_screen(Node2D):
+class EndScreen(Node2D):
     def _start(self):
         Camera.set_zoom(Vector2(1, 1))
         Audio.stop_music()
@@ -28,7 +28,6 @@ class End_screen(Node2D):
 
     def _physics_process(self, delta_time: float) -> None:
         if Input.is_action_just_pressed(action_name="ui_menu_confirm"):
-            End_screen.Game_Node = None  # Clears game node instance.
             self.player_stats.reset()
             SceneTree.change_scene(scene_path="scenes/title_screen.sscn")
 

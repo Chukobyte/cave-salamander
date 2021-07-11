@@ -9,22 +9,21 @@ from seika.scene import SceneTree
 
 from src.game_object import GameObjectType
 from src.stats import PlayerStats
-from src.util.gui import GUI
+from src.util.gui import GUI, BottomGUI
 from src.util.game_object_pool import GameObjectPool
+from src.util.util import GameScreen
 
 
 class Game(Node2D):
-    # TODO: Is there a better way to check for Project's resolution/screensize?
-    # A project's resolution is also it's size?
-    SCREEN_WIDTH = 800
-    SCREEN_HEIGHT = 600
-
     def _start(self) -> None:
+        #GameScreen().BOTTOM_UI_BUFFER = BottomGUI.RECT_HEIGHT
+        GameScreen().setBottomBuffer(buffer=BottomGUI.RECT_HEIGHT)
+
         self.salamander = self.get_node(name="Salamander")
         self.salamander_collider = self.get_node(name="SalamanderCollider")
         # This position should be divisible by the grid size
         self.salamander_initial_position = self.salamander.position
-        self.grid_size = Vector2(16, 16)  # the sprite's size
+        self.grid_size = GameScreen().getGridSize()#Vector2(16, 16)  # the sprite's size
         self.player_stats = PlayerStats()
         self.game_gui = GUI(
             score_label=self.get_node(name="ScoreValueLabel"),
@@ -34,7 +33,7 @@ class Game(Node2D):
         self.game_object_pool = GameObjectPool(
             game=self, snake_node_names=["Snake0", "Snake1"]
         )
-        zoom_vector = Vector2(2, 2)
+        zoom_vector = GameScreen().getZoom()#Vector2(2, 2)
         Camera.set_zoom(zoom=zoom_vector)
         self.total_salamander_frames = self.salamander.animation_frames
         Audio.play_music(music_id="assets/audio/music/cave_salamander_theme.wav")
@@ -44,11 +43,13 @@ class Game(Node2D):
         # for x in z:
         #     print(x)
         # scaled refers considers zoom level
-        self.screen_width_scaled = self.SCREEN_WIDTH / zoom_vector.x
-
-        self.screen_height_scaled = ((self.SCREEN_HEIGHT) / zoom_vector.y) - (
-            self.game_gui.bottom_gui.RECT_HEIGHT / 3
-        )
+        # self.screen_width_scaled = self.SCREEN_WIDTH / zoom_vector.x
+        #
+        # self.screen_height_scaled = ((self.SCREEN_HEIGHT) / zoom_vector.y) - (
+        #     self.game_gui.bottom_gui.RECT_HEIGHT / 3
+        # )
+        self.screen_width_scaled = GameScreen().getScreenScaled().x
+        self.screen_height_scaled = GameScreen().getScreenScaled().y
 
     def _physics_process(self, delta_time: float) -> None:
         if Input.is_action_just_pressed(action_name="ui_quit"):
@@ -87,6 +88,7 @@ class Game(Node2D):
             action_name="Score"
         ):  # pressing 'm' for adding to score points
             self.player_stats.score = (self.player_stats.score + 1) % 10
+            self.game_object_pool.move_gameobjects_in_pool()
         else:
             player_moved = False
 
@@ -99,7 +101,7 @@ class Game(Node2D):
             and player_moved
         ):
             self.salamander.add_to_position(Vector2(new_x, new_y))
-            self.cycle_frogger_animation()
+            self.cycle_salamander_animation()
         elif (
             curr_x < 0
             or curr_y < 0
@@ -120,12 +122,15 @@ class Game(Node2D):
     def spawn_test_game_objects(self) -> None:
         snake0 = self.game_object_pool.create(type=GameObjectType.SNAKE)
         snake0.position = Vector2(100, 100)
+        snake0.velocity = Vector2(-10,0)
         print(f"snake = {snake0.entity_id}")
         snake1 = self.game_object_pool.create(type=GameObjectType.SNAKE)
         snake1.position = Vector2(200, 200)
+        snake1.velocity = Vector2(10,0)
         print(f"snake = {snake1.entity_id}")
 
-    def cycle_frogger_animation(self):
+
+    def cycle_salamander_animation(self):
         self.salamander.frame = (
             self.salamander.frame + 1
         ) % self.total_salamander_frames
