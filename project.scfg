@@ -37,6 +37,10 @@
         },
         {
             "type": "sound",
+            "file_path": "assets/audio/sound_effect/end_game_jingle.wav"
+        },
+        {
+            "type": "sound",
             "file_path": "assets/audio/sound_effect/frog_move_sound.wav"
         }
     ],
