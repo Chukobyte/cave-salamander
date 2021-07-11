@@ -77,7 +77,7 @@ class LaneManager:
                 game_object.spawn_lane_index = lane.index
                 lane.capacity -= 1
 
-            # Movement
+        # Movement
         dead_game_object_pool = []
         for live_game_object in self._game_object_pool.live_pool:
             live_game_object.move_object(delta_time=delta_time)
