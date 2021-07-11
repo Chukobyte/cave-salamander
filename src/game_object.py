@@ -19,13 +19,8 @@ class GameObjectProperties:
     def __str__(self):
         return f"\nWidth: {self.width} Height: {self.height}\nX Scale: {self.x_scale} Y Scale: {self.y_scale}\nWalking Timer: {self.walk_timer}\n"
 
-    # @staticmethod
-    # def get_default_properties(self):
-    #     return GameObjectProperties(w=2,h=2,s_x=8,s_y=8)
-
-
 class DefaultGameObjectProperties:
-    default_properties = {"Snake": GameObjectProperties(w=2, h=2, x_s=8, y_s=8, t=0.5)}
+    default_properties = {GameObjectType.SNAKE: GameObjectProperties(w=2, h=2, x_s=8, y_s=8, t=0.5)}
 
 
 class GameObject(Sprite):
