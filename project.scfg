@@ -5,7 +5,7 @@
         "width": 800,
         "height": 450
     },
-    "colliders_visible": true,
+    "colliders_visible": false,
     "target_fps": 66,
     "background_color": {
         "red": 0.0,
@@ -16,6 +16,10 @@
         {
             "type": "texture",
             "file_path": "assets/images/salamander.png"
+        },
+        {
+            "type": "texture",
+            "file_path": "assets/images/spider.png"
         },
         {
             "type": "texture",
