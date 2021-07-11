@@ -46,9 +46,21 @@
     ],
     "input_actions": [
         {
+            "name": "End",
+            "values": [
+                "e"
+            ]
+        },
+        {
             "name": "RESET",
             "values": [
                 "r"
+            ]
+        },
+        {
+            "name": "Score",
+            "values": [
+                "m"
             ]
         },
         {

@@ -14,6 +14,10 @@ class TopGUI:
     def update(self, player_stats: PlayerStats) -> None:
         self.score_label.text = f"{player_stats.score}"
 
+    # a more direct update
+    def update_text(self, text) -> None:
+        self.score_label.text = text
+
 
 class BottomGUI:
     RECT_WIDTH = 800
@@ -57,7 +61,10 @@ class BottomGUI:
 
 class GUI:
     def __init__(
-        self, score_label: TextLabel, time_label: TextLabel, player_stats: PlayerStats
+        self,
+        score_label: TextLabel = None,
+        time_label: TextLabel = None,
+        player_stats: PlayerStats = None,
     ):
         self.top_gui = TopGUI(score_label=score_label)
         self.bottom_gui = BottomGUI(time_label=time_label)
