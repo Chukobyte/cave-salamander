@@ -15,7 +15,7 @@
                     "y": 1.0
                 },
                 "rotation": 0.0,
-                "z_index": 0,
+                "z_index": 1,
                 "z_index_relative_to_parent": true,
                 "ignore_camera": false
             }
@@ -45,7 +45,7 @@
                             "y": 1.0
                         },
                         "rotation": 0.0,
-                        "z_index": 0,
+                        "z_index": 1,
                         "z_index_relative_to_parent": true,
                         "ignore_camera": false
                     }
@@ -111,7 +111,7 @@
                                     "y": 1.0
                                 },
                                 "rotation": 0.0,
-                                "z_index": 0,
+                                "z_index": 1,
                                 "z_index_relative_to_parent": true,
                                 "ignore_camera": false
                             }
@@ -147,14 +147,14 @@
                     "transform2D": {
                         "position": {
                             "x": 192.0,
-                            "y": 60.0
+                            "y": 30.0
                         },
                         "scale": {
                             "x": 1.0,
                             "y": 1.0
                         },
                         "rotation": 0.0,
-                        "z_index": 0,
+                        "z_index": 1,
                         "z_index_relative_to_parent": true,
                         "ignore_camera": false
                     }
@@ -192,7 +192,7 @@
                                     "y": 1.0
                                 },
                                 "rotation": 0.0,
-                                "z_index": 0,
+                                "z_index": 1,
                                 "z_index_relative_to_parent": true,
                                 "ignore_camera": false
                             }
@@ -228,14 +228,14 @@
                     "transform2D": {
                         "position": {
                             "x": 115.0,
-                            "y": 60.0
+                            "y": 30.0
                         },
                         "scale": {
                             "x": 1.0,
                             "y": 1.0
                         },
                         "rotation": 0.0,
-                        "z_index": 0,
+                        "z_index": 1,
                         "z_index_relative_to_parent": true,
                         "ignore_camera": false
                     }
@@ -273,7 +273,7 @@
                                     "y": 1.0
                                 },
                                 "rotation": 0.0,
-                                "z_index": 0,
+                                "z_index": 1,
                                 "z_index_relative_to_parent": true,
                                 "ignore_camera": false
                             }
@@ -309,14 +309,14 @@
                     "transform2D": {
                         "position": {
                             "x": 40.0,
-                            "y": 60.0
+                            "y": 30.0
                         },
                         "scale": {
                             "x": 1.0,
                             "y": 1.0
                         },
                         "rotation": 0.0,
-                        "z_index": 0,
+                        "z_index": 1,
                         "z_index_relative_to_parent": true,
                         "ignore_camera": false
                     }
@@ -354,7 +354,7 @@
                                     "y": 1.0
                                 },
                                 "rotation": 0.0,
-                                "z_index": 0,
+                                "z_index": 1,
                                 "z_index_relative_to_parent": true,
                                 "ignore_camera": false
                             }
@@ -390,14 +390,14 @@
                     "transform2D": {
                         "position": {
                             "x": 270.0,
-                            "y": 60.0
+                            "y": 30.0
                         },
                         "scale": {
                             "x": 1.0,
                             "y": 1.0
                         },
                         "rotation": 0.0,
-                        "z_index": 0,
+                        "z_index": 1,
                         "z_index_relative_to_parent": true,
                         "ignore_camera": false
                     }
@@ -435,7 +435,7 @@
                                     "y": 1.0
                                 },
                                 "rotation": 0.0,
-                                "z_index": 0,
+                                "z_index": 1,
                                 "z_index_relative_to_parent": true,
                                 "ignore_camera": false
                             }
@@ -471,14 +471,14 @@
                     "transform2D": {
                         "position": {
                             "x": 340.0,
-                            "y": 60.0
+                            "y": 30.0
                         },
                         "scale": {
                             "x": 1.0,
                             "y": 1.0
                         },
                         "rotation": 0.0,
-                        "z_index": 0,
+                        "z_index": 1,
                         "z_index_relative_to_parent": true,
                         "ignore_camera": false
                     }
@@ -516,7 +516,7 @@
                                     "y": 1.0
                                 },
                                 "rotation": 0.0,
-                                "z_index": 0,
+                                "z_index": 1,
                                 "z_index_relative_to_parent": true,
                                 "ignore_camera": false
                             }
@@ -559,7 +559,7 @@
                             "y": 1.0
                         },
                         "rotation": 0.0,
-                        "z_index": 0,
+                        "z_index": 1,
                         "z_index_relative_to_parent": true,
                         "ignore_camera": true
                     }
@@ -583,7 +583,7 @@
                                     "y": 1.0
                                 },
                                 "rotation": 0.0,
-                                "z_index": 0,
+                                "z_index": 3,
                                 "z_index_relative_to_parent": true,
                                 "ignore_camera": true
                             }
@@ -612,15 +612,15 @@
                         {
                             "transform2D": {
                                 "position": {
-                                    "x": 380.0,
-                                    "y": -20.0
+                                    "x": 250.0,
+                                    "y": 710.0
                                 },
                                 "scale": {
                                     "x": 1.0,
                                     "y": 1.0
                                 },
                                 "rotation": 0.0,
-                                "z_index": 0,
+                                "z_index": 3,
                                 "z_index_relative_to_parent": true,
                                 "ignore_camera": true
                             }
@@ -649,15 +649,15 @@
                         {
                             "transform2D": {
                                 "position": {
-                                    "x": 400.0,
-                                    "y": 15.0
+                                    "x": 320.0,
+                                    "y": 710.0
                                 },
                                 "scale": {
                                     "x": 1.0,
                                     "y": 1.0
                                 },
                                 "rotation": 0.0,
-                                "z_index": 0,
+                                "z_index": 3,
                                 "z_index_relative_to_parent": true,
                                 "ignore_camera": true
                             }
@@ -696,7 +696,7 @@
                             "y": 1.0
                         },
                         "rotation": 0.0,
-                        "z_index": 0,
+                        "z_index": 1,
                         "z_index_relative_to_parent": true,
                         "ignore_camera": false
                     }
@@ -720,7 +720,7 @@
                                     "y": 1.0
                                 },
                                 "rotation": 0.0,
-                                "z_index": 0,
+                                "z_index": 1,
                                 "z_index_relative_to_parent": true,
                                 "ignore_camera": false
                             }
@@ -771,7 +771,7 @@
                                             "y": 1.0
                                         },
                                         "rotation": 0.0,
-                                        "z_index": 0,
+                                        "z_index": 1,
                                         "z_index_relative_to_parent": true,
                                         "ignore_camera": false
                                     }
@@ -814,7 +814,7 @@
                                     "y": 1.0
                                 },
                                 "rotation": 0.0,
-                                "z_index": 0,
+                                "z_index": 1,
                                 "z_index_relative_to_parent": true,
                                 "ignore_camera": false
                             }
@@ -865,7 +865,7 @@
                                             "y": 1.0
                                         },
                                         "rotation": 0.0,
-                                        "z_index": 0,
+                                        "z_index": 1,
                                         "z_index_relative_to_parent": true,
                                         "ignore_camera": false
                                     }
@@ -908,7 +908,7 @@
                                     "y": 1.0
                                 },
                                 "rotation": 0.0,
-                                "z_index": 0,
+                                "z_index": 1,
                                 "z_index_relative_to_parent": true,
                                 "ignore_camera": false
                             }
@@ -959,7 +959,7 @@
                                             "y": 1.0
                                         },
                                         "rotation": 0.0,
-                                        "z_index": 0,
+                                        "z_index": 1,
                                         "z_index_relative_to_parent": true,
                                         "ignore_camera": false
                                     }
@@ -1002,7 +1002,7 @@
                                     "y": 1.0
                                 },
                                 "rotation": 0.0,
-                                "z_index": 0,
+                                "z_index": 1,
                                 "z_index_relative_to_parent": true,
                                 "ignore_camera": false
                             }
@@ -1053,7 +1053,7 @@
                                             "y": 1.0
                                         },
                                         "rotation": 0.0,
-                                        "z_index": 0,
+                                        "z_index": 1,
                                         "z_index_relative_to_parent": true,
                                         "ignore_camera": false
                                     }
@@ -1096,7 +1096,7 @@
                                     "y": 1.0
                                 },
                                 "rotation": 0.0,
-                                "z_index": 0,
+                                "z_index": 1,
                                 "z_index_relative_to_parent": true,
                                 "ignore_camera": false
                             }
@@ -1147,7 +1147,7 @@
                                             "y": 1.0
                                         },
                                         "rotation": 0.0,
-                                        "z_index": 0,
+                                        "z_index": 1,
                                         "z_index_relative_to_parent": true,
                                         "ignore_camera": false
                                     }
@@ -1174,6 +1174,50 @@
                     ]
                 }
             ]
+        },
+        {
+            "name": "CaveBackground",
+            "type": "Sprite",
+            "tags": [],
+            "external_scene_source": "",
+            "components": [
+                {
+                    "transform2D": {
+                        "position": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "scale": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "rotation": 0.0,
+                        "z_index": 0,
+                        "z_index_relative_to_parent": true,
+                        "ignore_camera": false
+                    }
+                },
+                {
+                    "sprite": {
+                        "texture_path": "assets/images/cave_background.png",
+                        "draw_source": {
+                            "x": 0.0,
+                            "y": 0.0,
+                            "width": 400.0,
+                            "height": 225.0
+                        },
+                        "flip_x": false,
+                        "flip_y": false,
+                        "modulate": {
+                            "red": 1.0,
+                            "green": 1.0,
+                            "blue": 1.0,
+                            "alpha": 1.0
+                        }
+                    }
+                }
+            ],
+            "children": []
         }
     ]
 }

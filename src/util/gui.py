@@ -7,6 +7,8 @@ from src.stats import PlayerStats
 from src.util.util import Timer
 
 
+GUI_Z_INDEX = 2
+
 class TopGUI:
     def __init__(self, score_label: TextLabel):
         self.score_label = score_label
@@ -40,7 +42,7 @@ class BottomGUI:
             dest_rect=Rect2(
                 self.position.x, self.position.y, self.RECT_WIDTH, self.RECT_HEIGHT
             ),
-            z_index=-1,
+            z_index=GUI_Z_INDEX,
             color=Color(0.2, 0.2, 0.2),
         )
 
@@ -59,6 +61,7 @@ class BottomGUI:
                     self.lives_size_scaled.x,
                     self.lives_size_scaled.y,
                 ),
+                z_index=GUI_Z_INDEX + 1,
             )
 
 
