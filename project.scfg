@@ -3,9 +3,9 @@
     "initial_scene": "scenes/init.sscn",
     "base_resolution": {
         "width": 800,
-        "height": 600
+        "height": 450
     },
-    "colliders_visible": true,
+    "colliders_visible": false,
     "target_fps": 66,
     "background_color": {
         "red": 0.0,
@@ -15,7 +15,19 @@
     "assets": [
         {
             "type": "texture",
+            "file_path": "assets/images/rock_small.png"
+        },
+        {
+            "type": "texture",
             "file_path": "assets/images/salamander.png"
+        },
+        {
+            "type": "texture",
+            "file_path": "assets/images/snake.png"
+        },
+        {
+            "type": "texture",
+            "file_path": "assets/images/spider.png"
         },
         {
             "type": "texture",
@@ -36,8 +48,8 @@
             "file_path": "assets/audio/music/cave_salamander_theme.wav"
         },
         {
-            "type": "sound",
-            "file_path": "assets/audio/sound_effect/end_game_jingle.wav"
+            "type": "music",
+            "file_path": "assets/audio/music/end_game_jingle.wav"
         },
         {
             "type": "sound",

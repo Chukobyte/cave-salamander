@@ -8,46 +8,48 @@ from seika.audio import Audio
 from seika.scene import SceneTree
 
 from src.game_object import GameObjectType
+from src.lane_manager import LaneManager
 from src.stats import PlayerStats
-from src.util.gui import GUI
+from src.util.gui import GUI, BottomGUI
 from src.util.game_object_pool import GameObjectPool
+from src.util.util import GameScreen
 
 
 class Game(Node2D):
-    # TODO: Is there a better way to check for Project's resolution/screensize?
-    # A project's resolution is also it's size?
-    SCREEN_WIDTH = 800
-    SCREEN_HEIGHT = 600
-
     def _start(self) -> None:
+        # GameScreen().BOTTOM_UI_BUFFER = BottomGUI.RECT_HEIGHT
+        GameScreen().setBottomBuffer(buffer=BottomGUI.RECT_HEIGHT)
+
         self.salamander = self.get_node(name="Salamander")
         self.salamander_collider = self.get_node(name="SalamanderCollider")
         # This position should be divisible by the grid size
         self.salamander_initial_position = self.salamander.position
-        self.grid_size = Vector2(16, 16)  # the sprite's size
+        self.grid_size = (
+            GameScreen().getGridSize()
+        )  # Vector2(16, 16)  # the sprite's size
         self.player_stats = PlayerStats()
         self.game_gui = GUI(
             score_label=self.get_node(name="ScoreValueLabel"),
             time_label=self.get_node(name="TimeLabel"),
             player_stats=self.player_stats,
         )
-        self.game_object_pool = GameObjectPool(
-            game=self, snake_node_names=["Snake0", "Snake1"]
-        )
-        zoom_vector = Vector2(2, 2)
+        zoom_vector = GameScreen().getZoom()  # Vector2(2, 2)
         Camera.set_zoom(zoom=zoom_vector)
         self.total_salamander_frames = self.salamander.animation_frames
-        Audio.play_music(music_id="assets/audio/music/cave_salamander_theme.wav")
+        Audio.play_music(
+            music_id="assets/audio/music/cave_salamander_theme.wav", loops=True
+        )
 
-        self.spawn_test_game_objects()
-        # z = dir(Camera)
-        # for x in z:
-        #     print(x)
-        # scaled refers considers zoom level
-        self.screen_width_scaled = self.SCREEN_WIDTH / zoom_vector.x
+        self.screen_width_scaled = GameScreen().getScreenScaled().x
+        self.screen_height_scaled = GameScreen().getScreenScaled().y
 
-        self.screen_height_scaled = ((self.SCREEN_HEIGHT) / zoom_vector.y) - (
-            self.game_gui.bottom_gui.RECT_HEIGHT / 3
+        self.lane_manager = LaneManager(
+            game_object_pool=GameObjectPool(
+                game=self,
+                rock_node_names=["SmallRock0"],
+                snake_node_names=["Snake0", "Snake1"],
+                spider_node_names=["Spider0", "Spider1"],
+            )
         )
 
     def _physics_process(self, delta_time: float) -> None:
@@ -55,8 +57,14 @@ class Game(Node2D):
             Engine.exit()
 
         self.handle_game_input()
-        self.process_collisions()
+
         self.game_gui.update()
+
+        self.lane_manager.process(delta_time=delta_time)
+
+        self.process_collisions()
+
+        self.death_check()
 
     def handle_game_input(self) -> None:
         player_moved = True
@@ -87,6 +95,7 @@ class Game(Node2D):
             action_name="Score"
         ):  # pressing 'm' for adding to score points
             self.player_stats.score = (self.player_stats.score + 1) % 10
+            self.game_object_pool.move_gameobjects_in_pool()
         else:
             player_moved = False
 
@@ -99,7 +108,7 @@ class Game(Node2D):
             and player_moved
         ):
             self.salamander.add_to_position(Vector2(new_x, new_y))
-            self.cycle_frogger_animation()
+            self.cycle_salamander_animation()
         elif (
             curr_x < 0
             or curr_y < 0
@@ -112,21 +121,26 @@ class Game(Node2D):
     def process_collisions(self) -> None:
         collided_nodes = Collision.get_collided_nodes(node=self.salamander_collider)
         for collided_node in collided_nodes:
-            self.player_stats.score += 10
-            self.salamander.position = self.salamander_initial_position
+            reset_position = False
+
+            if "enemy" in collided_node.tags:
+                reset_position = True
+                self.player_stats.lives -= 1
+            elif "goal" in collided_node.tags:
+                reset_position = True
+                points = int(self.game_gui.bottom_gui.timer.time / 1000)
+                self.player_stats.score += points
+
+            if reset_position:
+                self.salamander.position = self.salamander_initial_position
             break
 
-    # TODO: Test function for spawning.  Move logic into proper place!
-    def spawn_test_game_objects(self) -> None:
-        snake0 = self.game_object_pool.create(type=GameObjectType.SNAKE)
-        snake0.position = Vector2(100, 100)
-        print(f"snake = {snake0.entity_id}")
-        snake1 = self.game_object_pool.create(type=GameObjectType.SNAKE)
-        snake1.position = Vector2(200, 200)
-        print(f"snake = {snake1.entity_id}")
-
-    def cycle_frogger_animation(self):
+    def cycle_salamander_animation(self):
         self.salamander.frame = (
             self.salamander.frame + 1
         ) % self.total_salamander_frames
         Audio.play_sound(sound_id="assets/audio/sound_effect/frog_move_sound.wav")
+
+    def death_check(self):
+        if self.player_stats.lives <= 0 or self.game_gui.bottom_gui.timer.time <= 0:
+            SceneTree.change_scene(scene_path="scenes/end_screen.sscn")

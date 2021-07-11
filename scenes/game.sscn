@@ -38,7 +38,7 @@
                     "transform2D": {
                         "position": {
                             "x": 192.0,
-                            "y": 256.0
+                            "y": 184.0
                         },
                         "scale": {
                             "x": 1.0,
@@ -138,7 +138,7 @@
             ]
         },
         {
-            "name": "EndGoalLabel",
+            "name": "EndGoalLabel0",
             "type": "TextLabel",
             "tags": [],
             "external_scene_source": "",
@@ -147,7 +147,7 @@
                     "transform2D": {
                         "position": {
                             "x": 192.0,
-                            "y": 70.0
+                            "y": 60.0
                         },
                         "scale": {
                             "x": 1.0,
@@ -174,16 +174,342 @@
             ],
             "children": [
                 {
-                    "name": "CollisionShape2D",
+                    "name": "EndGoalCollider0",
                     "type": "CollisionShape2D",
-                    "tags": [],
+                    "tags": [
+                        "goal"
+                    ],
                     "external_scene_source": "",
                     "components": [
                         {
                             "transform2D": {
                                 "position": {
                                     "x": 0.0,
-                                    "y": 0.0
+                                    "y": -28.0
+                                },
+                                "scale": {
+                                    "x": 1.0,
+                                    "y": 1.0
+                                },
+                                "rotation": 0.0,
+                                "z_index": 0,
+                                "z_index_relative_to_parent": true,
+                                "ignore_camera": false
+                            }
+                        },
+                        {
+                            "collider": {
+                                "rectangle": {
+                                    "x": 0.0,
+                                    "y": 0.0,
+                                    "width": 16.0,
+                                    "height": 16.0
+                                },
+                                "color": {
+                                    "red": 0.37254902720451355,
+                                    "green": 0.8039215803146362,
+                                    "blue": 0.8941176533699036,
+                                    "alpha": 0.75
+                                }
+                            }
+                        }
+                    ],
+                    "children": []
+                }
+            ]
+        },
+        {
+            "name": "EndGoalLabel1",
+            "type": "TextLabel",
+            "tags": [],
+            "external_scene_source": "",
+            "components": [
+                {
+                    "transform2D": {
+                        "position": {
+                            "x": 115.0,
+                            "y": 60.0
+                        },
+                        "scale": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "rotation": 0.0,
+                        "z_index": 0,
+                        "z_index_relative_to_parent": true,
+                        "ignore_camera": false
+                    }
+                },
+                {
+                    "text_label": {
+                        "text": "G",
+                        "font_path": "assets/fonts/verdana.ttf",
+                        "color": {
+                            "red": 1.0,
+                            "green": 1.0,
+                            "blue": 1.0,
+                            "alpha": 1.0
+                        }
+                    }
+                }
+            ],
+            "children": [
+                {
+                    "name": "EndGoalCollider1",
+                    "type": "CollisionShape2D",
+                    "tags": [
+                        "goal"
+                    ],
+                    "external_scene_source": "",
+                    "components": [
+                        {
+                            "transform2D": {
+                                "position": {
+                                    "x": 0.0,
+                                    "y": -28.0
+                                },
+                                "scale": {
+                                    "x": 1.0,
+                                    "y": 1.0
+                                },
+                                "rotation": 0.0,
+                                "z_index": 0,
+                                "z_index_relative_to_parent": true,
+                                "ignore_camera": false
+                            }
+                        },
+                        {
+                            "collider": {
+                                "rectangle": {
+                                    "x": 0.0,
+                                    "y": 0.0,
+                                    "width": 16.0,
+                                    "height": 16.0
+                                },
+                                "color": {
+                                    "red": 0.37254902720451355,
+                                    "green": 0.8039215803146362,
+                                    "blue": 0.8941176533699036,
+                                    "alpha": 0.75
+                                }
+                            }
+                        }
+                    ],
+                    "children": []
+                }
+            ]
+        },
+        {
+            "name": "EndGoalLabel2",
+            "type": "TextLabel",
+            "tags": [],
+            "external_scene_source": "",
+            "components": [
+                {
+                    "transform2D": {
+                        "position": {
+                            "x": 40.0,
+                            "y": 60.0
+                        },
+                        "scale": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "rotation": 0.0,
+                        "z_index": 0,
+                        "z_index_relative_to_parent": true,
+                        "ignore_camera": false
+                    }
+                },
+                {
+                    "text_label": {
+                        "text": "G",
+                        "font_path": "assets/fonts/verdana.ttf",
+                        "color": {
+                            "red": 1.0,
+                            "green": 1.0,
+                            "blue": 1.0,
+                            "alpha": 1.0
+                        }
+                    }
+                }
+            ],
+            "children": [
+                {
+                    "name": "EndGoalCollider2",
+                    "type": "CollisionShape2D",
+                    "tags": [
+                        "goal"
+                    ],
+                    "external_scene_source": "",
+                    "components": [
+                        {
+                            "transform2D": {
+                                "position": {
+                                    "x": 0.0,
+                                    "y": -28.0
+                                },
+                                "scale": {
+                                    "x": 1.0,
+                                    "y": 1.0
+                                },
+                                "rotation": 0.0,
+                                "z_index": 0,
+                                "z_index_relative_to_parent": true,
+                                "ignore_camera": false
+                            }
+                        },
+                        {
+                            "collider": {
+                                "rectangle": {
+                                    "x": 0.0,
+                                    "y": 0.0,
+                                    "width": 16.0,
+                                    "height": 16.0
+                                },
+                                "color": {
+                                    "red": 0.37254902720451355,
+                                    "green": 0.8039215803146362,
+                                    "blue": 0.8941176533699036,
+                                    "alpha": 0.75
+                                }
+                            }
+                        }
+                    ],
+                    "children": []
+                }
+            ]
+        },
+        {
+            "name": "EndGoalLabel3",
+            "type": "TextLabel",
+            "tags": [],
+            "external_scene_source": "",
+            "components": [
+                {
+                    "transform2D": {
+                        "position": {
+                            "x": 270.0,
+                            "y": 60.0
+                        },
+                        "scale": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "rotation": 0.0,
+                        "z_index": 0,
+                        "z_index_relative_to_parent": true,
+                        "ignore_camera": false
+                    }
+                },
+                {
+                    "text_label": {
+                        "text": "G",
+                        "font_path": "assets/fonts/verdana.ttf",
+                        "color": {
+                            "red": 1.0,
+                            "green": 1.0,
+                            "blue": 1.0,
+                            "alpha": 1.0
+                        }
+                    }
+                }
+            ],
+            "children": [
+                {
+                    "name": "EndGoalCollider3",
+                    "type": "CollisionShape2D",
+                    "tags": [
+                        "goal"
+                    ],
+                    "external_scene_source": "",
+                    "components": [
+                        {
+                            "transform2D": {
+                                "position": {
+                                    "x": 0.0,
+                                    "y": -28.0
+                                },
+                                "scale": {
+                                    "x": 1.0,
+                                    "y": 1.0
+                                },
+                                "rotation": 0.0,
+                                "z_index": 0,
+                                "z_index_relative_to_parent": true,
+                                "ignore_camera": false
+                            }
+                        },
+                        {
+                            "collider": {
+                                "rectangle": {
+                                    "x": 0.0,
+                                    "y": 0.0,
+                                    "width": 16.0,
+                                    "height": 16.0
+                                },
+                                "color": {
+                                    "red": 0.37254902720451355,
+                                    "green": 0.8039215803146362,
+                                    "blue": 0.8941176533699036,
+                                    "alpha": 0.75
+                                }
+                            }
+                        }
+                    ],
+                    "children": []
+                }
+            ]
+        },
+        {
+            "name": "EndGoalLabel4",
+            "type": "TextLabel",
+            "tags": [],
+            "external_scene_source": "",
+            "components": [
+                {
+                    "transform2D": {
+                        "position": {
+                            "x": 340.0,
+                            "y": 60.0
+                        },
+                        "scale": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "rotation": 0.0,
+                        "z_index": 0,
+                        "z_index_relative_to_parent": true,
+                        "ignore_camera": false
+                    }
+                },
+                {
+                    "text_label": {
+                        "text": "G",
+                        "font_path": "assets/fonts/verdana.ttf",
+                        "color": {
+                            "red": 1.0,
+                            "green": 1.0,
+                            "blue": 1.0,
+                            "alpha": 1.0
+                        }
+                    }
+                }
+            ],
+            "children": [
+                {
+                    "name": "EndGoalCollider4",
+                    "type": "CollisionShape2D",
+                    "tags": [
+                        "goal"
+                    ],
+                    "external_scene_source": "",
+                    "components": [
+                        {
+                            "transform2D": {
+                                "position": {
+                                    "x": 0.0,
+                                    "y": -28.0
                                 },
                                 "scale": {
                                     "x": 1.0,
@@ -390,8 +716,8 @@
                                     "y": -1000.0
                                 },
                                 "scale": {
-                                    "x": 10.0,
-                                    "y": 10.0
+                                    "x": 1.0,
+                                    "y": 1.0
                                 },
                                 "rotation": 0.0,
                                 "z_index": 0,
@@ -401,12 +727,12 @@
                         },
                         {
                             "sprite": {
-                                "texture_path": "assets/images/white_square.png",
+                                "texture_path": "assets/images/snake.png",
                                 "draw_source": {
                                     "x": 0.0,
                                     "y": 0.0,
-                                    "width": 2.0,
-                                    "height": 2.0
+                                    "width": 32.0,
+                                    "height": 12.0
                                 },
                                 "flip_x": false,
                                 "flip_y": false,
@@ -425,7 +751,51 @@
                             }
                         }
                     ],
-                    "children": []
+                    "children": [
+                        {
+                            "name": "Snake0Collider",
+                            "type": "CollisionShape2D",
+                            "tags": [
+                                "enemy"
+                            ],
+                            "external_scene_source": "",
+                            "components": [
+                                {
+                                    "transform2D": {
+                                        "position": {
+                                            "x": 0.0,
+                                            "y": 0.0
+                                        },
+                                        "scale": {
+                                            "x": 1.0,
+                                            "y": 1.0
+                                        },
+                                        "rotation": 0.0,
+                                        "z_index": 0,
+                                        "z_index_relative_to_parent": true,
+                                        "ignore_camera": false
+                                    }
+                                },
+                                {
+                                    "collider": {
+                                        "rectangle": {
+                                            "x": 0.0,
+                                            "y": 0.0,
+                                            "width": 32.0,
+                                            "height": 12.0
+                                        },
+                                        "color": {
+                                            "red": 0.9729729890823364,
+                                            "green": 0.21443361043930054,
+                                            "blue": 0.06761974096298218,
+                                            "alpha": 0.75
+                                        }
+                                    }
+                                }
+                            ],
+                            "children": []
+                        }
+                    ]
                 },
                 {
                     "name": "Snake1",
@@ -440,8 +810,8 @@
                                     "y": -2000.0
                                 },
                                 "scale": {
-                                    "x": 10.0,
-                                    "y": 10.0
+                                    "x": 1.0,
+                                    "y": 1.0
                                 },
                                 "rotation": 0.0,
                                 "z_index": 0,
@@ -451,12 +821,12 @@
                         },
                         {
                             "sprite": {
-                                "texture_path": "assets/images/white_square.png",
+                                "texture_path": "assets/images/snake.png",
                                 "draw_source": {
                                     "x": 0.0,
                                     "y": 0.0,
-                                    "width": 2.0,
-                                    "height": 2.0
+                                    "width": 32.0,
+                                    "height": 12.0
                                 },
                                 "flip_x": false,
                                 "flip_y": false,
@@ -475,7 +845,333 @@
                             }
                         }
                     ],
-                    "children": []
+                    "children": [
+                        {
+                            "name": "Snake1Collider",
+                            "type": "CollisionShape2D",
+                            "tags": [
+                                "enemy"
+                            ],
+                            "external_scene_source": "",
+                            "components": [
+                                {
+                                    "transform2D": {
+                                        "position": {
+                                            "x": 0.0,
+                                            "y": 0.0
+                                        },
+                                        "scale": {
+                                            "x": 1.0,
+                                            "y": 1.0
+                                        },
+                                        "rotation": 0.0,
+                                        "z_index": 0,
+                                        "z_index_relative_to_parent": true,
+                                        "ignore_camera": false
+                                    }
+                                },
+                                {
+                                    "collider": {
+                                        "rectangle": {
+                                            "x": 0.0,
+                                            "y": 0.0,
+                                            "width": 32.0,
+                                            "height": 12.0
+                                        },
+                                        "color": {
+                                            "red": 0.9729999899864197,
+                                            "green": 0.21400000154972076,
+                                            "blue": 0.06800000369548798,
+                                            "alpha": 0.75
+                                        }
+                                    }
+                                }
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "name": "Spider0",
+                    "type": "Sprite",
+                    "tags": [],
+                    "external_scene_source": "",
+                    "components": [
+                        {
+                            "transform2D": {
+                                "position": {
+                                    "x": -1000.0,
+                                    "y": -1000.0
+                                },
+                                "scale": {
+                                    "x": 1.0,
+                                    "y": 1.0
+                                },
+                                "rotation": 0.0,
+                                "z_index": 0,
+                                "z_index_relative_to_parent": true,
+                                "ignore_camera": false
+                            }
+                        },
+                        {
+                            "sprite": {
+                                "texture_path": "assets/images/spider.png",
+                                "draw_source": {
+                                    "x": 0.0,
+                                    "y": 0.0,
+                                    "width": 16.0,
+                                    "height": 16.0
+                                },
+                                "flip_x": false,
+                                "flip_y": false,
+                                "modulate": {
+                                    "red": 1.0,
+                                    "green": 1.0,
+                                    "blue": 1.0,
+                                    "alpha": 1.0
+                                }
+                            }
+                        },
+                        {
+                            "scriptable_class": {
+                                "class_path": "src.game_object",
+                                "class_name": "GameObject"
+                            }
+                        }
+                    ],
+                    "children": [
+                        {
+                            "name": "Spider0Collider",
+                            "type": "CollisionShape2D",
+                            "tags": [
+                                "enemy"
+                            ],
+                            "external_scene_source": "",
+                            "components": [
+                                {
+                                    "transform2D": {
+                                        "position": {
+                                            "x": 0.0,
+                                            "y": 0.0
+                                        },
+                                        "scale": {
+                                            "x": 1.0,
+                                            "y": 1.0
+                                        },
+                                        "rotation": 0.0,
+                                        "z_index": 0,
+                                        "z_index_relative_to_parent": true,
+                                        "ignore_camera": false
+                                    }
+                                },
+                                {
+                                    "collider": {
+                                        "rectangle": {
+                                            "x": 0.0,
+                                            "y": 0.0,
+                                            "width": 16.0,
+                                            "height": 16.0
+                                        },
+                                        "color": {
+                                            "red": 0.41018596291542053,
+                                            "green": 0.9729729890823364,
+                                            "blue": 0.06761974096298218,
+                                            "alpha": 0.75
+                                        }
+                                    }
+                                }
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "name": "Spider1",
+                    "type": "Sprite",
+                    "tags": [],
+                    "external_scene_source": "",
+                    "components": [
+                        {
+                            "transform2D": {
+                                "position": {
+                                    "x": -1100.0,
+                                    "y": -1100.0
+                                },
+                                "scale": {
+                                    "x": 1.0,
+                                    "y": 1.0
+                                },
+                                "rotation": 0.0,
+                                "z_index": 0,
+                                "z_index_relative_to_parent": true,
+                                "ignore_camera": false
+                            }
+                        },
+                        {
+                            "sprite": {
+                                "texture_path": "assets/images/spider.png",
+                                "draw_source": {
+                                    "x": 0.0,
+                                    "y": 0.0,
+                                    "width": 16.0,
+                                    "height": 16.0
+                                },
+                                "flip_x": false,
+                                "flip_y": false,
+                                "modulate": {
+                                    "red": 1.0,
+                                    "green": 1.0,
+                                    "blue": 1.0,
+                                    "alpha": 1.0
+                                }
+                            }
+                        },
+                        {
+                            "scriptable_class": {
+                                "class_path": "src.game_object",
+                                "class_name": "GameObject"
+                            }
+                        }
+                    ],
+                    "children": [
+                        {
+                            "name": "Spider1Collider",
+                            "type": "CollisionShape2D",
+                            "tags": [
+                                "enemy"
+                            ],
+                            "external_scene_source": "",
+                            "components": [
+                                {
+                                    "transform2D": {
+                                        "position": {
+                                            "x": 0.0,
+                                            "y": 0.0
+                                        },
+                                        "scale": {
+                                            "x": 1.0,
+                                            "y": 1.0
+                                        },
+                                        "rotation": 0.0,
+                                        "z_index": 0,
+                                        "z_index_relative_to_parent": true,
+                                        "ignore_camera": false
+                                    }
+                                },
+                                {
+                                    "collider": {
+                                        "rectangle": {
+                                            "x": 0.0,
+                                            "y": 0.0,
+                                            "width": 16.0,
+                                            "height": 16.0
+                                        },
+                                        "color": {
+                                            "red": 0.41018596291542053,
+                                            "green": 0.9729729890823364,
+                                            "blue": 0.06761974096298218,
+                                            "alpha": 0.75
+                                        }
+                                    }
+                                }
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "name": "SmallRock0",
+                    "type": "Sprite",
+                    "tags": [],
+                    "external_scene_source": "",
+                    "components": [
+                        {
+                            "transform2D": {
+                                "position": {
+                                    "x": -1200.0,
+                                    "y": -1200.0
+                                },
+                                "scale": {
+                                    "x": 1.0,
+                                    "y": 1.0
+                                },
+                                "rotation": 0.0,
+                                "z_index": 0,
+                                "z_index_relative_to_parent": true,
+                                "ignore_camera": false
+                            }
+                        },
+                        {
+                            "sprite": {
+                                "texture_path": "assets/images/rock_small.png",
+                                "draw_source": {
+                                    "x": 0.0,
+                                    "y": 0.0,
+                                    "width": 16.0,
+                                    "height": 16.0
+                                },
+                                "flip_x": false,
+                                "flip_y": false,
+                                "modulate": {
+                                    "red": 1.0,
+                                    "green": 1.0,
+                                    "blue": 1.0,
+                                    "alpha": 1.0
+                                }
+                            }
+                        },
+                        {
+                            "scriptable_class": {
+                                "class_path": "src.game_object",
+                                "class_name": "GameObject"
+                            }
+                        }
+                    ],
+                    "children": [
+                        {
+                            "name": "SmallRock0Collider",
+                            "type": "CollisionShape2D",
+                            "tags": [
+                                "enemy"
+                            ],
+                            "external_scene_source": "",
+                            "components": [
+                                {
+                                    "transform2D": {
+                                        "position": {
+                                            "x": 0.0,
+                                            "y": 0.0
+                                        },
+                                        "scale": {
+                                            "x": 1.0,
+                                            "y": 1.0
+                                        },
+                                        "rotation": 0.0,
+                                        "z_index": 0,
+                                        "z_index_relative_to_parent": true,
+                                        "ignore_camera": false
+                                    }
+                                },
+                                {
+                                    "collider": {
+                                        "rectangle": {
+                                            "x": 0.0,
+                                            "y": 0.0,
+                                            "width": 16.0,
+                                            "height": 16.0
+                                        },
+                                        "color": {
+                                            "red": 0.41018596291542053,
+                                            "green": 0.9729729890823364,
+                                            "blue": 0.06761974096298218,
+                                            "alpha": 0.75
+                                        }
+                                    }
+                                }
+                            ],
+                            "children": []
+                        }
+                    ]
                 }
             ]
         }
