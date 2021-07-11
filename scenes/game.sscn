@@ -562,6 +562,296 @@
                     ]
                 }
             ]
+        },
+        {
+            "name": "SpawnObjects",
+            "type": "Node2D",
+            "tags": [],
+            "external_scene_source": "",
+            "components": [
+                {
+                    "transform2D": {
+                        "position": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "scale": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "rotation": 0.0,
+                        "z_index": 0,
+                        "z_index_relative_to_parent": true,
+                        "ignore_camera": false
+                    }
+                }
+            ],
+            "children": [
+                {
+                    "name": "Spawn_lane_01",
+                    "type": "Sprite",
+                    "tags": [],
+                    "external_scene_source": "",
+                    "components": [
+                        {
+                            "transform2D": {
+                                "position": {
+                                    "x": 0.0,
+                                    "y": 240.0
+                                },
+                                "scale": {
+                                    "x": 8.0,
+                                    "y": 8.0
+                                },
+                                "rotation": 0.0,
+                                "z_index": 0,
+                                "z_index_relative_to_parent": true,
+                                "ignore_camera": false
+                            }
+                        },
+                        {
+                            "sprite": {
+                                "texture_path": "assets/images/white_square.png",
+                                "draw_source": {
+                                    "x": 0.0,
+                                    "y": 0.0,
+                                    "width": 2.0,
+                                    "height": 2.0
+                                },
+                                "flip_x": false,
+                                "flip_y": false,
+                                "modulate": {
+                                    "red": 1.0,
+                                    "green": 1.0,
+                                    "blue": 1.0,
+                                    "alpha": 1.0
+                                }
+                            }
+                        }
+                    ],
+                    "children": []
+                },
+                {
+                    "name": "Spawn_lane_02",
+                    "type": "Sprite",
+                    "tags": [],
+                    "external_scene_source": "",
+                    "components": [
+                        {
+                            "transform2D": {
+                                "position": {
+                                    "x": 384.0,
+                                    "y": 224.0
+                                },
+                                "scale": {
+                                    "x": 8.0,
+                                    "y": 8.0
+                                },
+                                "rotation": 0.0,
+                                "z_index": 0,
+                                "z_index_relative_to_parent": true,
+                                "ignore_camera": false
+                            }
+                        },
+                        {
+                            "sprite": {
+                                "texture_path": "assets/images/white_square.png",
+                                "draw_source": {
+                                    "x": 0.0,
+                                    "y": 0.0,
+                                    "width": 2.0,
+                                    "height": 2.0
+                                },
+                                "flip_x": false,
+                                "flip_y": false,
+                                "modulate": {
+                                    "red": 1.0,
+                                    "green": 1.0,
+                                    "blue": 1.0,
+                                    "alpha": 1.0
+                                }
+                            }
+                        }
+                    ],
+                    "children": []
+                },
+                {
+                    "name": "Spawn_lane_03",
+                    "type": "Sprite",
+                    "tags": [],
+                    "external_scene_source": "",
+                    "components": [
+                        {
+                            "transform2D": {
+                                "position": {
+                                    "x": 0.0,
+                                    "y": 208.0
+                                },
+                                "scale": {
+                                    "x": 8.0,
+                                    "y": 8.0
+                                },
+                                "rotation": 0.0,
+                                "z_index": 0,
+                                "z_index_relative_to_parent": true,
+                                "ignore_camera": false
+                            }
+                        },
+                        {
+                            "sprite": {
+                                "texture_path": "assets/images/white_square.png",
+                                "draw_source": {
+                                    "x": 0.0,
+                                    "y": 0.0,
+                                    "width": 2.0,
+                                    "height": 2.0
+                                },
+                                "flip_x": false,
+                                "flip_y": false,
+                                "modulate": {
+                                    "red": 1.0,
+                                    "green": 1.0,
+                                    "blue": 1.0,
+                                    "alpha": 1.0
+                                }
+                            }
+                        }
+                    ],
+                    "children": []
+                },
+                {
+                    "name": "Spawn_lane_04",
+                    "type": "Sprite",
+                    "tags": [],
+                    "external_scene_source": "",
+                    "components": [
+                        {
+                            "transform2D": {
+                                "position": {
+                                    "x": 384.0,
+                                    "y": 192.0
+                                },
+                                "scale": {
+                                    "x": 8.0,
+                                    "y": 8.0
+                                },
+                                "rotation": 0.0,
+                                "z_index": 0,
+                                "z_index_relative_to_parent": true,
+                                "ignore_camera": false
+                            }
+                        },
+                        {
+                            "sprite": {
+                                "texture_path": "assets/images/white_square.png",
+                                "draw_source": {
+                                    "x": 0.0,
+                                    "y": 0.0,
+                                    "width": 2.0,
+                                    "height": 2.0
+                                },
+                                "flip_x": false,
+                                "flip_y": false,
+                                "modulate": {
+                                    "red": 1.0,
+                                    "green": 1.0,
+                                    "blue": 1.0,
+                                    "alpha": 1.0
+                                }
+                            }
+                        }
+                    ],
+                    "children": []
+                },
+                {
+                    "name": "Spawn_lane_05",
+                    "type": "Sprite",
+                    "tags": [],
+                    "external_scene_source": "",
+                    "components": [
+                        {
+                            "transform2D": {
+                                "position": {
+                                    "x": 0.0,
+                                    "y": 176.0
+                                },
+                                "scale": {
+                                    "x": 8.0,
+                                    "y": 8.0
+                                },
+                                "rotation": 0.0,
+                                "z_index": 0,
+                                "z_index_relative_to_parent": true,
+                                "ignore_camera": false
+                            }
+                        },
+                        {
+                            "sprite": {
+                                "texture_path": "assets/images/white_square.png",
+                                "draw_source": {
+                                    "x": 0.0,
+                                    "y": 0.0,
+                                    "width": 2.0,
+                                    "height": 2.0
+                                },
+                                "flip_x": false,
+                                "flip_y": false,
+                                "modulate": {
+                                    "red": 1.0,
+                                    "green": 1.0,
+                                    "blue": 1.0,
+                                    "alpha": 1.0
+                                }
+                            }
+                        }
+                    ],
+                    "children": []
+                },
+                {
+                    "name": "Spawn_lane_06",
+                    "type": "Sprite",
+                    "tags": [],
+                    "external_scene_source": "",
+                    "components": [
+                        {
+                            "transform2D": {
+                                "position": {
+                                    "x": 384.0,
+                                    "y": 160.0
+                                },
+                                "scale": {
+                                    "x": 8.0,
+                                    "y": 8.0
+                                },
+                                "rotation": 0.0,
+                                "z_index": 0,
+                                "z_index_relative_to_parent": true,
+                                "ignore_camera": false
+                            }
+                        },
+                        {
+                            "sprite": {
+                                "texture_path": "assets/images/white_square.png",
+                                "draw_source": {
+                                    "x": 0.0,
+                                    "y": 0.0,
+                                    "width": 2.0,
+                                    "height": 2.0
+                                },
+                                "flip_x": false,
+                                "flip_y": false,
+                                "modulate": {
+                                    "red": 1.0,
+                                    "green": 1.0,
+                                    "blue": 1.0,
+                                    "alpha": 1.0
+                                }
+                            }
+                        }
+                    ],
+                    "children": []
+                }
+            ]
         }
     ]
 }

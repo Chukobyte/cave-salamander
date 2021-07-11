@@ -129,14 +129,15 @@ class Game(Node2D):
 
     # TODO: Test function for spawning.  Move logic into proper place!
     def spawn_test_game_objects(self) -> None:
-        snake0 = self.game_object_pool.create(type=GameObjectType.SNAKE)
-        snake0.position = Vector2(100, 100)
-        snake0.velocity = Vector2(-10, 0)
-        print(f"snake = {snake0.entity_id}")
-        snake1 = self.game_object_pool.create(type=GameObjectType.SNAKE)
-        snake1.position = Vector2(200, 200)
-        snake1.velocity = Vector2(10, 0)
-        print(f"snake = {snake1.entity_id}")
+        # snake0 = self.game_object_pool.create(type=GameObjectType.SNAKE)
+        # snake0.position = Vector2(GameScreen().SCREEN_WIDTH_SCALED, 100)
+        # snake0.velocity = Vector2(-10, 0)
+        # print(f"snake = {snake0.entity_id}")
+        # snake1 = self.game_object_pool.create(type=GameObjectType.SNAKE)
+        # snake1.position = Vector2(0-(snake1.properties.width*2), 200)
+        # snake1.velocity = Vector2(10, 0)
+        # print(f"snake = {snake1.entity_id}")
+        self.game_object_pool.spawn(type=GameObjectType.SNAKE)
 
     def cycle_salamander_animation(self):
         self.salamander.frame = (
