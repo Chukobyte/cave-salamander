@@ -25,8 +25,8 @@ class BottomGUI:
 
     def __init__(self, time_label: TextLabel):
         self.time_label = time_label
-        self.timer = Timer(time_in_millis=120000)
         self.time = 120000
+        self.timer = Timer(time_in_millis=self.time)
         self.lives_position = Vector2(500, 560)
         self.lives_size = Vector2(16, 16)
         self.lives_size_scaled = self.lives_size * Vector2(2, 2)

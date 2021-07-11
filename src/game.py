@@ -120,7 +120,8 @@ class Game(Node2D):
                 self.player_stats.lives -= 1
             elif 'goal' in collided_node.tags:
                 reset_position = True
-                self.player_stats.score += 10
+                points = int(self.game_gui.bottom_gui.timer.time/ 1000)
+                self.player_stats.score += points
 
             if reset_position:
                 self.salamander.position = self.salamander_initial_position
@@ -144,5 +145,5 @@ class Game(Node2D):
         Audio.play_sound(sound_id="assets/audio/sound_effect/frog_move_sound.wav")
 
     def death_check(self):
-        if self.player_stats.lives<= 0:
+        if self.player_stats.lives<= 0 or self.game_gui.bottom_gui.timer.time <= 0:
             SceneTree.change_scene(scene_path="scenes/end_screen.sscn")
