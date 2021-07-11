@@ -16,14 +16,16 @@ from src.util.util import GameScreen
 
 class Game(Node2D):
     def _start(self) -> None:
-        #GameScreen().BOTTOM_UI_BUFFER = BottomGUI.RECT_HEIGHT
+        # GameScreen().BOTTOM_UI_BUFFER = BottomGUI.RECT_HEIGHT
         GameScreen().setBottomBuffer(buffer=BottomGUI.RECT_HEIGHT)
 
         self.salamander = self.get_node(name="Salamander")
         self.salamander_collider = self.get_node(name="SalamanderCollider")
         # This position should be divisible by the grid size
         self.salamander_initial_position = self.salamander.position
-        self.grid_size = GameScreen().getGridSize()#Vector2(16, 16)  # the sprite's size
+        self.grid_size = (
+            GameScreen().getGridSize()
+        )  # Vector2(16, 16)  # the sprite's size
         self.player_stats = PlayerStats()
         self.game_gui = GUI(
             score_label=self.get_node(name="ScoreValueLabel"),
@@ -33,7 +35,7 @@ class Game(Node2D):
         self.game_object_pool = GameObjectPool(
             game=self, snake_node_names=["Snake0", "Snake1"]
         )
-        zoom_vector = GameScreen().getZoom()#Vector2(2, 2)
+        zoom_vector = GameScreen().getZoom()  # Vector2(2, 2)
         Camera.set_zoom(zoom=zoom_vector)
         self.total_salamander_frames = self.salamander.animation_frames
         Audio.play_music(music_id="assets/audio/music/cave_salamander_theme.wav")
@@ -42,12 +44,7 @@ class Game(Node2D):
         # z = dir(Camera)
         # for x in z:
         #     print(x)
-        # scaled refers considers zoom level
-        # self.screen_width_scaled = self.SCREEN_WIDTH / zoom_vector.x
-        #
-        # self.screen_height_scaled = ((self.SCREEN_HEIGHT) / zoom_vector.y) - (
-        #     self.game_gui.bottom_gui.RECT_HEIGHT / 3
-        # )
+
         self.screen_width_scaled = GameScreen().getScreenScaled().x
         self.screen_height_scaled = GameScreen().getScreenScaled().y
 
@@ -58,6 +55,7 @@ class Game(Node2D):
         self.handle_game_input()
         self.process_collisions()
         self.game_gui.update()
+        self.game_object_pool.move_gameobjects_in_pool(deltatime=delta_time)
 
     def handle_game_input(self) -> None:
         player_moved = True
@@ -122,13 +120,12 @@ class Game(Node2D):
     def spawn_test_game_objects(self) -> None:
         snake0 = self.game_object_pool.create(type=GameObjectType.SNAKE)
         snake0.position = Vector2(100, 100)
-        snake0.velocity = Vector2(-10,0)
+        snake0.velocity = Vector2(-10, 0)
         print(f"snake = {snake0.entity_id}")
         snake1 = self.game_object_pool.create(type=GameObjectType.SNAKE)
         snake1.position = Vector2(200, 200)
-        snake1.velocity = Vector2(10,0)
+        snake1.velocity = Vector2(10, 0)
         print(f"snake = {snake1.entity_id}")
-
 
     def cycle_salamander_animation(self):
         self.salamander.frame = (

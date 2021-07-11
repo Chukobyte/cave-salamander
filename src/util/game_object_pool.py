@@ -16,7 +16,7 @@ class GameObjectPool:
             ],
         }
         self.live_objects = 0
-        self._live_pool= []
+        self._live_pool = []
 
     def create(self, type: str) -> GameObject:
         self.live_objects += 1
@@ -40,6 +40,6 @@ class GameObjectPool:
     def update_velecoity(self, game_object: GameObject, velocity: Vector2) -> None:
         game_object.velocity = velocity
 
-    def move_gameobjects_in_pool(self):
+    def move_gameobjects_in_pool(self, deltatime):
         for gameobject in self._live_pool:
-            gameobject.move_object()
+            gameobject.move_object(deletatime=deltatime)
