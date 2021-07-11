@@ -431,7 +431,9 @@
                         {
                             "name": "Snake0Collider",
                             "type": "CollisionShape2D",
-                            "tags": ["enemy"],
+                            "tags": [
+                                "enemy"
+                            ],
                             "external_scene_source": "",
                             "components": [
                                 {
@@ -523,7 +525,9 @@
                         {
                             "name": "Snake1Collider",
                             "type": "CollisionShape2D",
-                            "tags": ["enemy"],
+                            "tags": [
+                                "enemy"
+                            ],
                             "external_scene_source": "",
                             "components": [
                                 {
@@ -854,31 +858,6 @@
                     "children": []
                 }
             ]
-        },
-        {
-            "name": "Node2D",
-            "type": "Node2D",
-            "tags": [],
-            "external_scene_source": "",
-            "components": [
-                {
-                    "transform2D": {
-                        "position": {
-                            "x": 0.0,
-                            "y": 0.0
-                        },
-                        "scale": {
-                            "x": 1.0,
-                            "y": 1.0
-                        },
-                        "rotation": 0.0,
-                        "z_index": 0,
-                        "z_index_relative_to_parent": true,
-                        "ignore_camera": false
-                    }
-                }
-            ],
-            "children": []
         }
     ]
 }
