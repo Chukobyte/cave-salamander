@@ -30,7 +30,7 @@ class BottomGUI:
         self.time_label = time_label
         self.time = 120000
         self.timer = Timer(time_in_millis=self.time)
-        self.lives_position = self.position + Vector2(560, 10)
+        self.lives_position = self.position + Vector2(25, 10)
         self.lives_size = Vector2(16, 16)
         self.lives_size_scaled = self.lives_size * Vector2(2, 2)
 

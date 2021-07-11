@@ -19,6 +19,10 @@
         },
         {
             "type": "texture",
+            "file_path": "assets/images/fruit.png"
+        },
+        {
+            "type": "texture",
             "file_path": "assets/images/rock_small.png"
         },
         {
