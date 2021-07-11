@@ -3,7 +3,7 @@
     "initial_scene": "scenes/init.sscn",
     "base_resolution": {
         "width": 800,
-        "height": 600
+        "height": 450
     },
     "colliders_visible": true,
     "target_fps": 66,

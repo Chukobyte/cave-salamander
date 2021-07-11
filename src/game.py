@@ -17,7 +17,7 @@ class Game(Node2D):
     # TODO: Is there a better way to check for Project's resolution/screensize?
     # A project's resolution is also it's size?
     SCREEN_WIDTH = 800
-    SCREEN_HEIGHT = 600
+    SCREEN_HEIGHT = 450 - 16
 
     def _start(self) -> None:
         self.salamander = self.get_node(name="Salamander")
@@ -39,10 +39,11 @@ class Game(Node2D):
         self.total_salamander_frames = self.salamander.animation_frames
         Audio.play_music(music_id="assets/audio/music/cave_salamander_theme.wav")
 
-        self.spawn_test_game_objects()
+        # self.spawn_test_game_objects()
         # z = dir(Camera)
         # for x in z:
         #     print(x)
+
         # scaled refers considers zoom level
         self.screen_width_scaled = self.SCREEN_WIDTH / zoom_vector.x
 
