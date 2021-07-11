@@ -25,13 +25,13 @@ class GameObjectProperties:
 class DefaultGameObjectProperties:
     default_properties = {
         GameObjectType.ROCK: GameObjectProperties(
-            w=16, h=16, s=Vector2(1, 1), v=Vector2(-16, 0)
+            w=16, h=16, s=Vector2(1, 1), t=0.1, v=Vector2(-16, 0)
         ),
         GameObjectType.SNAKE: GameObjectProperties(
-            w=2, h=2, s=Vector2(8, 8), t=0.01, v=Vector2(-8, 0)
+            w=2, h=2, s=Vector2(8, 8), t=0.02, v=Vector2(-8, 0)
         ),
         GameObjectType.SPIDER: GameObjectProperties(
-            w=2, h=2, s=Vector2(8, 8), t=0.01, v=Vector2(8, 0)
+            w=2, h=2, s=Vector2(1, 1), t=0.01, v=Vector2(8, 0)
         ),
     }
 

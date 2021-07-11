@@ -15,6 +15,10 @@
     "assets": [
         {
             "type": "texture",
+            "file_path": "assets/images/rock_small.png"
+        },
+        {
+            "type": "texture",
             "file_path": "assets/images/salamander.png"
         },
         {

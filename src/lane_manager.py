@@ -60,7 +60,7 @@ class LaneManager:
                 position=Vector2(384, 120),
                 capacity=1,
                 index=3,
-                game_object_type=GameObjectType.SNAKE,
+                game_object_type=GameObjectType.ROCK,
             ),
         }
 

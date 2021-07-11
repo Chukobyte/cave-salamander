@@ -46,6 +46,7 @@ class Game(Node2D):
         self.lane_manager = LaneManager(
             game_object_pool=GameObjectPool(
                 game=self,
+                rock_node_names=["SmallRock0"],
                 snake_node_names=["Snake0", "Snake1"],
                 spider_node_names=["Spider0", "Spider1"],
             )
@@ -64,9 +65,6 @@ class Game(Node2D):
         self.process_collisions()
 
         self.death_check()
-
-        # self.game_object_pool.move_gameobjects_in_pool(deltatime=delta_time)
-        # self.game_object_pool.spawn(type=GameObjectType.SNAKE)
 
     def handle_game_input(self) -> None:
         player_moved = True
