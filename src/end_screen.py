@@ -14,6 +14,7 @@ class EndScreen(Node2D):
     def _start(self):
         Camera.set_zoom(Vector2(1, 1))
         Audio.stop_music()
+        Audio.play_music(music_id="assets/audio/music/end_game_jingle.wav", loops=False)
         self.player_stats = PlayerStats()
         self.update_screen()
 
