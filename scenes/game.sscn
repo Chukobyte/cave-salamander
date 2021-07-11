@@ -176,7 +176,7 @@
                 {
                     "name": "CollisionShape2D",
                     "type": "CollisionShape2D",
-                    "tags": [],
+                    "tags": ["goal"],
                     "external_scene_source": "",
                     "components": [
                         {
@@ -425,7 +425,49 @@
                             }
                         }
                     ],
-                    "children": []
+                    "children": [
+                        {
+                            "name": "Snake0Collider",
+                            "type": "CollisionShape2D",
+                            "tags": ["enemy"],
+                            "external_scene_source": "",
+                            "components": [
+                                {
+                                    "transform2D": {
+                                        "position": {
+                                            "x": 0.0,
+                                            "y": 0.0
+                                        },
+                                        "scale": {
+                                            "x": 1.0,
+                                            "y": 1.0
+                                        },
+                                        "rotation": 0.0,
+                                        "z_index": 0,
+                                        "z_index_relative_to_parent": true,
+                                        "ignore_camera": false
+                                    }
+                                },
+                                {
+                                    "collider": {
+                                        "rectangle": {
+                                            "x": 0.0,
+                                            "y": 0.0,
+                                            "width": 2.0,
+                                            "height": 2.0
+                                        },
+                                        "color": {
+                                            "red": 0.9729729890823364,
+                                            "green": 0.21443361043930054,
+                                            "blue": 0.06761974096298218,
+                                            "alpha": 0.75
+                                        }
+                                    }
+                                }
+                            ],
+                            "children": []
+                        }
+                    ]
                 },
                 {
                     "name": "Snake1",
@@ -475,7 +517,49 @@
                             }
                         }
                     ],
-                    "children": []
+                    "children": [
+                        {
+                            "name": "Snake1Collider",
+                            "type": "CollisionShape2D",
+                            "tags": ["enemy"],
+                            "external_scene_source": "",
+                            "components": [
+                                {
+                                    "transform2D": {
+                                        "position": {
+                                            "x": 0.0,
+                                            "y": 0.0
+                                        },
+                                        "scale": {
+                                            "x": 1.0,
+                                            "y": 1.0
+                                        },
+                                        "rotation": 0.0,
+                                        "z_index": 0,
+                                        "z_index_relative_to_parent": true,
+                                        "ignore_camera": false
+                                    }
+                                },
+                                {
+                                    "collider": {
+                                        "rectangle": {
+                                            "x": 0.0,
+                                            "y": 0.0,
+                                            "width": 2.0,
+                                            "height": 2.0
+                                        },
+                                        "color": {
+                                            "red": 0.9729999899864197,
+                                            "green": 0.21400000154972076,
+                                            "blue": 0.06800000369548798,
+                                            "alpha": 0.75
+                                        }
+                                    }
+                                }
+                            ],
+                            "children": []
+                        }
+                    ]
                 }
             ]
         }

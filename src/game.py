@@ -112,8 +112,17 @@ class Game(Node2D):
     def process_collisions(self) -> None:
         collided_nodes = Collision.get_collided_nodes(node=self.salamander_collider)
         for collided_node in collided_nodes:
-            self.player_stats.score += 10
-            self.salamander.position = self.salamander_initial_position
+            reset_position = False
+
+            if 'enemy' in collided_node.tags:
+                reset_position = True
+                self.player_stats.lives -= 1
+            elif 'goal' in collided_node.tags:
+                reset_position = True
+                self.player_stats.score += 10
+
+            if reset_position:
+                self.salamander.position = self.salamander_initial_position
             break
 
     # TODO: Test function for spawning.  Move logic into proper place!
