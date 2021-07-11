@@ -47,7 +47,7 @@ class Game(Node2D):
             game_object_pool=GameObjectPool(
                 game=self,
                 snake_node_names=["Snake0", "Snake1"],
-                spider_node_names=["Spider0"],
+                spider_node_names=["Spider0", "Spider1"],
             )
         )
 

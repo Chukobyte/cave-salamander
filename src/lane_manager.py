@@ -1,4 +1,6 @@
-from seika.math import Vector2
+from seika.color import Color
+from seika.math import Vector2, Rect2
+from seika.renderer import Renderer
 
 from src.game_object import GameObjectType
 from src.util.game_object_pool import GameObjectPool
@@ -17,6 +19,17 @@ class Lane:
     def can_spawn(self) -> bool:
         return self.capacity > 0
 
+    def draw(self, camera_zoom=Vector2(2, 2)) -> None:
+        Renderer.draw_texture(
+            texture_path="assets/images/white_square.png",
+            source_rect=Rect2(0, 0, 2, 2),
+            dest_rect=Rect2(
+                self.position.x * camera_zoom.x, self.position.y * camera_zoom.y, 16, 16
+            ),
+            z_index=-1,
+            color=Color(1.0, 1.0, 1.0),
+        )
+
 
 class LaneManager:
     def __init__(self, game_object_pool: GameObjectPool):
@@ -31,15 +44,34 @@ class LaneManager:
                 index=0,
                 game_object_type=GameObjectType.SPIDER,
             ),
+            1: Lane(
+                position=Vector2(384, 152),
+                capacity=1,
+                index=1,
+                game_object_type=GameObjectType.SNAKE,
+            ),
+            2: Lane(
+                position=Vector2(0, 136),
+                capacity=1,
+                index=2,
+                game_object_type=GameObjectType.SPIDER,
+            ),
+            3: Lane(
+                position=Vector2(384, 120),
+                capacity=1,
+                index=3,
+                game_object_type=GameObjectType.SNAKE,
+            ),
         }
 
     def process(self, delta_time: float) -> None:
         for lane_index in self._lanes:
             lane = self._lanes[lane_index]
+            lane.draw()
             # Always checking if can spawn for now
             if lane.can_spawn():
                 game_object = self._game_object_pool.attempt_spawn(
-                    type=GameObjectType.SPIDER
+                    type=lane.game_object_type
                 )
                 game_object.position = lane.position
                 game_object.spawn_lane_index = lane.index

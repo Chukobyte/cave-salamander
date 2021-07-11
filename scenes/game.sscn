@@ -147,7 +147,7 @@
                     "transform2D": {
                         "position": {
                             "x": 192.0,
-                            "y": 70.0
+                            "y": 60.0
                         },
                         "scale": {
                             "x": 1.0,
@@ -228,7 +228,7 @@
                     "transform2D": {
                         "position": {
                             "x": 115.0,
-                            "y": 70.0
+                            "y": 60.0
                         },
                         "scale": {
                             "x": 1.0,
@@ -309,7 +309,7 @@
                     "transform2D": {
                         "position": {
                             "x": 40.0,
-                            "y": 70.0
+                            "y": 60.0
                         },
                         "scale": {
                             "x": 1.0,
@@ -390,7 +390,7 @@
                     "transform2D": {
                         "position": {
                             "x": 270.0,
-                            "y": 70.0
+                            "y": 60.0
                         },
                         "scale": {
                             "x": 1.0,
@@ -471,7 +471,7 @@
                     "transform2D": {
                         "position": {
                             "x": 340.0,
-                            "y": 70.0
+                            "y": 60.0
                         },
                         "scale": {
                             "x": 1.0,
@@ -942,6 +942,100 @@
                     "children": [
                         {
                             "name": "Spider0Collider",
+                            "type": "CollisionShape2D",
+                            "tags": [
+                                "enemy"
+                            ],
+                            "external_scene_source": "",
+                            "components": [
+                                {
+                                    "transform2D": {
+                                        "position": {
+                                            "x": 0.0,
+                                            "y": 0.0
+                                        },
+                                        "scale": {
+                                            "x": 1.0,
+                                            "y": 1.0
+                                        },
+                                        "rotation": 0.0,
+                                        "z_index": 0,
+                                        "z_index_relative_to_parent": true,
+                                        "ignore_camera": false
+                                    }
+                                },
+                                {
+                                    "collider": {
+                                        "rectangle": {
+                                            "x": 0.0,
+                                            "y": 0.0,
+                                            "width": 16.0,
+                                            "height": 16.0
+                                        },
+                                        "color": {
+                                            "red": 0.41018596291542053,
+                                            "green": 0.9729729890823364,
+                                            "blue": 0.06761974096298218,
+                                            "alpha": 0.75
+                                        }
+                                    }
+                                }
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "name": "Spider1",
+                    "type": "Sprite",
+                    "tags": [],
+                    "external_scene_source": "",
+                    "components": [
+                        {
+                            "transform2D": {
+                                "position": {
+                                    "x": -1100.0,
+                                    "y": -1100.0
+                                },
+                                "scale": {
+                                    "x": 1.0,
+                                    "y": 1.0
+                                },
+                                "rotation": 0.0,
+                                "z_index": 0,
+                                "z_index_relative_to_parent": true,
+                                "ignore_camera": false
+                            }
+                        },
+                        {
+                            "sprite": {
+                                "texture_path": "assets/images/spider.png",
+                                "draw_source": {
+                                    "x": 0.0,
+                                    "y": 0.0,
+                                    "width": 16.0,
+                                    "height": 16.0
+                                },
+                                "flip_x": false,
+                                "flip_y": false,
+                                "modulate": {
+                                    "red": 1.0,
+                                    "green": 1.0,
+                                    "blue": 1.0,
+                                    "alpha": 1.0
+                                }
+                            }
+                        },
+                        {
+                            "scriptable_class": {
+                                "class_path": "src.game_object",
+                                "class_name": "GameObject"
+                            }
+                        }
+                    ],
+                    "children": [
+                        {
+                            "name": "Spider1Collider",
                             "type": "CollisionShape2D",
                             "tags": [
                                 "enemy"
