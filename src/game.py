@@ -40,14 +40,13 @@ class Game(Node2D):
         self.total_salamander_frames = self.salamander.animation_frames
         Audio.play_music(music_id="assets/audio/music/cave_salamander_theme.wav")
 
-        #self.spawn_test_game_objects()
+        # self.spawn_test_game_objects()
         # z = dir(Camera)
         # for x in z:
         #     print(x)
 
         self.screen_width_scaled = GameScreen().getScreenScaled().x
         self.screen_height_scaled = GameScreen().getScreenScaled().y
-        #self.game_object_pool.spawn(type=GameObjectType.SNAKE)
 
     def _physics_process(self, delta_time: float) -> None:
         if Input.is_action_just_pressed(action_name="ui_quit"):
@@ -117,12 +116,12 @@ class Game(Node2D):
         for collided_node in collided_nodes:
             reset_position = False
 
-            if 'enemy' in collided_node.tags:
+            if "enemy" in collided_node.tags:
                 reset_position = True
                 self.player_stats.lives -= 1
-            elif 'goal' in collided_node.tags:
+            elif "goal" in collided_node.tags:
                 reset_position = True
-                points = int(self.game_gui.bottom_gui.timer.time/ 1000)
+                points = int(self.game_gui.bottom_gui.timer.time / 1000)
                 self.player_stats.score += points
 
             if reset_position:
@@ -136,5 +135,5 @@ class Game(Node2D):
         Audio.play_sound(sound_id="assets/audio/sound_effect/frog_move_sound.wav")
 
     def death_check(self):
-        if self.player_stats.lives<= 0 or self.game_gui.bottom_gui.timer.time <= 0:
+        if self.player_stats.lives <= 0 or self.game_gui.bottom_gui.timer.time <= 0:
             SceneTree.change_scene(scene_path="scenes/end_screen.sscn")

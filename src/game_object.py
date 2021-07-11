@@ -10,7 +10,7 @@ class GameObjectType:
 
 class GameObjectProperties:
     # The properties are based on the game object's sprite properties (which we can not directly get)
-    def __init__(self, w=0, h=0, x_s=1, y_s=1, t=2, v=Vector2(-8,0)):
+    def __init__(self, w=0, h=0, x_s=1, y_s=1, t=2, v=Vector2(-8, 0)):
         self.width = w
         self.height = h
         self.x_scale = x_s
@@ -21,10 +21,15 @@ class GameObjectProperties:
     def __str__(self):
         return f"\nWidth: {self.width} Height: {self.height}\nX Scale: {self.x_scale} Y Scale: {self.y_scale}\nWalking Timer: {self.walk_timer}\n"
 
+
 class DefaultGameObjectProperties:
     default_properties = {
-        GameObjectType.SNAKE: GameObjectProperties(w=2, h=2, x_s=8, y_s=8, t=0.01, v=Vector2(-8,0)),
-        GameObjectType.ROCK: GameObjectProperties(w=16,h=16,x_s=1,y_s=1,v=Vector2(-16,0))
+        GameObjectType.SNAKE: GameObjectProperties(
+            w=2, h=2, x_s=8, y_s=8, t=0.01, v=Vector2(-8, 0)
+        ),
+        GameObjectType.ROCK: GameObjectProperties(
+            w=16, h=16, x_s=1, y_s=1, v=Vector2(-16, 0)
+        ),
     }
 
 
@@ -68,11 +73,11 @@ class GameObject(Sprite):
 
             # modified so gameobjects are off screen
             if (
-                new_x > 0 - (width*2)
+                new_x > 0 - (width * 2)
                 and new_x < GameScreen().getScreenScaled().x + width
                 and new_y >= 0
                 and new_y + height < GameScreen().getScreenScaled().y
             ):
                 self.set_position(Vector2(new_x, new_y))
             else:
-                self.active=False
+                self.active = False

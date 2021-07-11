@@ -21,13 +21,14 @@ class TopGUI:
 
 class BottomGUI:
     RECT_WIDTH = 800
-    RECT_HEIGHT = 100
+    RECT_HEIGHT = 60
 
     def __init__(self, time_label: TextLabel):
+        self.position = Vector2(0, 400)
         self.time_label = time_label
         self.time = 120000
         self.timer = Timer(time_in_millis=self.time)
-        self.lives_position = Vector2(500, 560)
+        self.lives_position = self.position + Vector2(560, 10)
         self.lives_size = Vector2(16, 16)
         self.lives_size_scaled = self.lives_size * Vector2(2, 2)
 
@@ -36,7 +37,9 @@ class BottomGUI:
         Renderer.draw_texture(
             texture_path="assets/images/white_square.png",
             source_rect=Rect2(0, 0, 2, 2),
-            dest_rect=Rect2(0, 550, self.RECT_WIDTH, self.RECT_HEIGHT),
+            dest_rect=Rect2(
+                self.position.x, self.position.y, self.RECT_WIDTH, self.RECT_HEIGHT
+            ),
             z_index=-1,
             color=Color(0.2, 0.2, 0.2),
         )

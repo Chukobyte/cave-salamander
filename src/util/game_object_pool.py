@@ -5,36 +5,45 @@ from src.game_object import GameObjectType, GameObject
 NEGATIVE_SPACE_POSITION = Vector2(-1000, -1000)
 MAX_LIVE_OBJECTS = 20
 
-class SpawnLaneManger():
-    '''
+
+class SpawnLaneManger:
+    """
     position: represents the spawner's sprite's position of where the game object will spawn
     capactiy: how many game objects can be in this lane
-    '''
+    """
+
     class SpawnLane:
-        def __init__(self, lane_index: int = 0, position: Vector2 = Vector2(0,0),  capacity: int=1):
+        def __init__(
+            self,
+            lane_index: int = 0,
+            position: Vector2 = Vector2(0, 0),
+            capacity: int = 1,
+        ):
             self.position = position
-            self.capacity=capacity
+            self.capacity = capacity
             self.spawns = 0
-            #self.spawns = []
-            self.direction = 1 if self.position.x <= 0 else -1 #determines the direction of the spawns; 1 means LTR; -1 means RTL
+            # self.spawns = []
+            self.direction = (
+                1 if self.position.x <= 0 else -1
+            )  # determines the direction of the spawns; 1 means LTR; -1 means RTL
             self.lane_index = lane_index
 
         def add_spawn(self, gameObject):
-            #if len(self.spawns)< self.capacity:
-            if self.spawns< self.capacity:
+            # if len(self.spawns)< self.capacity:
+            if self.spawns < self.capacity:
                 gameObject.position = self.position
                 v_x = abs(gameObject.velocity.x) * self.direction
                 v_y = abs(gameObject.velocity.y) * self.direction
 
-                gameObject.velocity = Vector2(v_x,v_y)
+                gameObject.velocity = Vector2(v_x, v_y)
                 gameObject.spawn_lane_index = self.lane_index
                 self.spawns += 1
                 print(self.lane_index)
-                #self.spawns.append(gameObject)
+                # self.spawns.append(gameObject)
             else:
                 print(f">>Capacity meet {self.capacity} at position {self.position}")
 
-        #def remove_spawn(self, gameObject):
+        # def remove_spawn(self, gameObject):
         def remove_spawn(self):
             print(f"Removing spawn from index: {self.lane_index}")
             if self.spawns > 0:
@@ -44,22 +53,57 @@ class SpawnLaneManger():
             # if gameObject in self.spawns:
             #     self.spawns.remove(gameObject)
 
-
     def __init__(self, gameNode):
-        self.gameNode= gameNode
+        self.gameNode = gameNode
         # Have to manually add them, since I can't get SpawnObjects' child nodes
         self.spawn_lanes = []
-        self.spawn_lanes.append(self.SpawnLane(lane_index=0,position = self.gameNode.get_node(name="Spawn_lane_01").get_position(), capacity=1))
-        self.spawn_lanes.append(self.SpawnLane(lane_index=1,position = self.gameNode.get_node(name="Spawn_lane_02").get_position(), capacity=1))
-        self.spawn_lanes.append(self.SpawnLane(lane_index=2,position = self.gameNode.get_node(name="Spawn_lane_03").get_position(), capacity=0))
-        self.spawn_lanes.append(self.SpawnLane(lane_index=3,position = self.gameNode.get_node(name="Spawn_lane_04").get_position(), capacity=0))
-        self.spawn_lanes.append(self.SpawnLane(lane_index=4,position = self.gameNode.get_node(name="Spawn_lane_05").get_position(), capacity=0))
-        self.spawn_lanes.append(self.SpawnLane(lane_index=5,position = self.gameNode.get_node(name="Spawn_lane_06").get_position(), capacity=0))
+        self.spawn_lanes.append(
+            self.SpawnLane(
+                lane_index=0,
+                position=self.gameNode.get_node(name="Spawn_lane_01").get_position(),
+                capacity=1,
+            )
+        )
+        self.spawn_lanes.append(
+            self.SpawnLane(
+                lane_index=1,
+                position=self.gameNode.get_node(name="Spawn_lane_02").get_position(),
+                capacity=1,
+            )
+        )
+        self.spawn_lanes.append(
+            self.SpawnLane(
+                lane_index=2,
+                position=self.gameNode.get_node(name="Spawn_lane_03").get_position(),
+                capacity=0,
+            )
+        )
+        self.spawn_lanes.append(
+            self.SpawnLane(
+                lane_index=3,
+                position=self.gameNode.get_node(name="Spawn_lane_04").get_position(),
+                capacity=0,
+            )
+        )
+        self.spawn_lanes.append(
+            self.SpawnLane(
+                lane_index=4,
+                position=self.gameNode.get_node(name="Spawn_lane_05").get_position(),
+                capacity=0,
+            )
+        )
+        self.spawn_lanes.append(
+            self.SpawnLane(
+                lane_index=5,
+                position=self.gameNode.get_node(name="Spawn_lane_06").get_position(),
+                capacity=0,
+            )
+        )
 
-    def is_spawn_lane_available(self, lane) ->bool:
-        if lane.capacity >0:
-            #if len(lane.spawns)<lane.capacity:
-            if lane.spawns<lane.capacity:
+    def is_spawn_lane_available(self, lane) -> bool:
+        if lane.capacity > 0:
+            # if len(lane.spawns)<lane.capacity:
+            if lane.spawns < lane.capacity:
                 return True
         return False
 
@@ -68,6 +112,7 @@ class SpawnLaneManger():
             if self.is_spawn_lane_available(lane=lane):
                 return lane
         return None
+
 
 class GameObjectPool:
     def __init__(self, game: Node2D, snake_node_names=[]):
@@ -81,20 +126,20 @@ class GameObjectPool:
         self._live_pool = []
         self._spawn_manager = SpawnLaneManger(gameNode=game)
 
-    def spawn(self, type:str):
+    def spawn(self, type: str):
         # this needs to be created since we are removing objects from the _object_pools list
         object_pool_list = [obj for obj in self._object_pools[type]]
         # if len(object_pool_list)>0:
         #     print(object_pool_list)
 
         for gameobject in object_pool_list:
-            #print(f"Object: {gameobject}")
+            # print(f"Object: {gameobject}")
             available_lane = self._spawn_manager.get_first_available_lane()
             if available_lane is not None:
                 new_gameobject = self.create(type=type)
                 new_gameobject.update_properties_based_on_type()
                 available_lane.add_spawn(gameObject=new_gameobject)
-            #print("")
+            # print("")
 
     def create(self, type: str) -> GameObject:
         self.live_objects += 1
@@ -107,7 +152,9 @@ class GameObjectPool:
 
     def remove(self, game_object: GameObject) -> None:
         print("Removing")
-        if game_object.spawn_lane_index >0 and game_object.spawn_lane_index < len(self._spawn_manager.spawn_lanes):
+        if game_object.spawn_lane_index > 0 and game_object.spawn_lane_index < len(
+            self._spawn_manager.spawn_lanes
+        ):
             self._spawn_manager.spawn_lanes[game_object.spawn_lane_index].remove_spawn()
 
         self.live_objects -= 1

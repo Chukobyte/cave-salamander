@@ -23,7 +23,7 @@ class GameScreen:
         if not cls._instance:
             cls._instance = object.__new__(cls)
             cls.SCREEN_WIDTH = 800
-            cls.SCREEN_HEIGHT = 600
+            cls.SCREEN_HEIGHT = 450 - 16
             cls.GRID_X, cls.GRID_Y = 16, 16
             cls.ZOOM_X, cls.ZOOM_Y = 2, 2
             cls.TOP_UI_BUFFER = (
