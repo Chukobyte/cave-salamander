@@ -62,6 +62,10 @@ class Lane:
         )
 
 
+STEP_ON_OBJECT_TYPES = [
+    GameObjectType.BIG_ROCK,
+]
+
 class LaneManager:
     def __init__(self, game_object_pool: GameObjectPool):
         self.game_object_movement_context = GameObjectMovementContext()
@@ -125,7 +129,7 @@ class LaneManager:
         for live_game_object in self._game_object_pool.live_pool:
             if (
                 live_game_object.move_object(delta_time=delta_time)
-                and live_game_object.type == GameObjectType.BIG_ROCK
+                and live_game_object.type in STEP_ON_OBJECT_TYPES
             ):
                 self.game_object_movement_context.add(game_object=live_game_object)
             if not live_game_object.active:
