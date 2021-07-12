@@ -15,7 +15,7 @@
     "assets": [
         {
             "type": "texture",
-            "file_path": "assets/images/big_rock.png"
+            "file_path": "assets/images/rock_big.png"
         },
         {
             "type": "texture",
