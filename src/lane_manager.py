@@ -79,6 +79,13 @@ class LaneManager:
                 game_object_type=GameObjectType.SMALL_ROCK,
                 max_time=1.5,
             ),
+            4: Lane(
+                position=Vector2(384, 88),
+                capacity=1,
+                index=4,
+                game_object_type=GameObjectType.BIG_ROCK,
+                max_time=1.5,
+            ),
         }
 
     def process(self, delta_time: float) -> None:

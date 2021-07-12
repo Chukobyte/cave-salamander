@@ -15,6 +15,11 @@ from src.util.game_object_pool import GameObjectPool
 from src.util.util import GameScreen
 
 
+class Abyss:
+    TOP_Y_LIMIT = 22.0
+    BOTTOM_Y_LIMIT = 88.0
+
+
 class Game(Node2D):
     def _start(self) -> None:
         # GameScreen().BOTTOM_UI_BUFFER = BottomGUI.RECT_HEIGHT
@@ -70,17 +75,17 @@ class Game(Node2D):
         if Input.is_action_just_pressed(action_name="ui_quit"):
             Engine.exit()
 
-        self.handle_game_input()
+        self._handle_game_input()
 
         self.game_gui.update()
 
         self.lane_manager.process(delta_time=delta_time)
 
-        self.process_collisions()
+        self._process_collisions()
 
-        self.death_check()
+        self._death_check()
 
-    def handle_game_input(self) -> None:
+    def _handle_game_input(self) -> None:
         player_moved = True
         new_x, new_y = 0, 0
         curr_x = self.salamander.get_position().x
@@ -122,7 +127,10 @@ class Game(Node2D):
             and player_moved
         ):
             self.salamander.add_to_position(Vector2(new_x, new_y))
-            self.cycle_salamander_animation()
+            if self._is_salamander_in_abyss():
+                self._process_salamander_death()
+            else:
+                self._cycle_salamander_animation()
         elif (
             curr_x < 0
             or curr_y < 0
@@ -132,17 +140,13 @@ class Game(Node2D):
             # reset position if somehow outside of screen
             self.salamander.position = self.salamander_initial_position
 
-    def process_collisions(self) -> None:
+    def _process_collisions(self) -> None:
         collided_nodes = Collision.get_collided_nodes(node=self.salamander_collider)
         for collided_node in collided_nodes:
             reset_position = False
 
             if "enemy" in collided_node.tags:
-                reset_position = True
-                self.player_stats.lives -= 1
-                if self.player_stats.lives > 0:
-                    Audio.play_sound(sound_id="assets/audio/sound_effect/lose_life.wav")
-                    # self.salamander.play(animation_name="death")
+                self._process_salamander_death()
             elif any(item in self.goals for item in collided_node.tags):
                 goal_tag = collided_node.tags[
                     0
@@ -158,13 +162,27 @@ class Game(Node2D):
                 self.salamander.position = self.salamander_initial_position
             break
 
-    def cycle_salamander_animation(self):
+    def _cycle_salamander_animation(self):
         self.salamander.frame = (
             self.salamander.frame + 1
         ) % self.total_salamander_frames
         Audio.play_sound(sound_id="assets/audio/sound_effect/frog_move_sound.wav")
 
-    def death_check(self):
+    def _is_salamander_in_abyss(self) -> bool:
+        pos_y = self.salamander.position.y
+        if Abyss.TOP_Y_LIMIT <= pos_y <= Abyss.BOTTOM_Y_LIMIT:
+            return True
+        return False
+
+    def _process_salamander_death(self) -> None:
+        # reset_position = True
+        self.player_stats.lives -= 1
+        if self.player_stats.lives > 0:
+            Audio.play_sound(sound_id="assets/audio/sound_effect/lose_life.wav")
+            # self.salamander.play(animation_name="death")
+        self.salamander.position = self.salamander_initial_position
+
+    def _death_check(self):
         if (
             self.player_stats.lives <= 0
             or self.player_stats.goals <= 0
