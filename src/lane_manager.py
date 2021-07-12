@@ -26,7 +26,6 @@ class Lane:
         self.timer = self.MAX_SPAWN_TIME
         # print(self.MAX_SPAWN_TIME)
 
-    # TODO: add in a timer for some thing when capacity is above 1
     def can_spawn(self, delta_time) -> bool:
         if self.timer <= 0:
             self.timer = self.MAX_SPAWN_TIME
@@ -77,7 +76,7 @@ class LaneManager:
                 position=Vector2(384, 120),
                 capacity=1,
                 index=3,
-                game_object_type=GameObjectType.ROCK,
+                game_object_type=GameObjectType.SMALL_ROCK,
                 max_time=1.5,
             ),
         }
