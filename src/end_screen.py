@@ -28,10 +28,14 @@ class EndScreen(Node2D):
         game_gui.bottom_gui.time_label.text = (
             f"Time: {self.player_stats.end_time / 1000}"
         )
+        if self.player_stats.goals <= 0:
+            end_title_label = self.get_node(name="EndTitle")
+            end_title_label.text = "You Win !"
 
     def _physics_process(self, delta_time: float) -> None:
         if Input.is_action_just_pressed(action_name="ui_menu_confirm"):
             self.player_stats.reset()
+            Audio.play_sound(sound_id="assets/audio/sound_effect/frog_move_sound.wav")
             SceneTree.change_scene(scene_path="scenes/title_screen.sscn")
 
         if Input.is_action_just_pressed(action_name="ui_quit"):
