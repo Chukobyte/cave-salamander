@@ -102,6 +102,12 @@
             ]
         },
         {
+            "name": "GetLife",
+            "values": [
+                "space"
+            ]
+        },
+        {
             "name": "RESET",
             "values": [
                 "r"

@@ -34,9 +34,15 @@ class EndScreen(Node2D):
 
     def _physics_process(self, delta_time: float) -> None:
         if Input.is_action_just_pressed(action_name="ui_menu_confirm"):
-            self.player_stats.reset()
-            Audio.play_sound(sound_id="assets/audio/sound_effect/frog_move_sound.wav")
-            SceneTree.change_scene(scene_path="scenes/title_screen.sscn")
+            if self.player_stats.goals <= 0:
+                self.player_stats.sub_reset()
+                Audio.play_sound(sound_id="assets/audio/sound_effect/frog_move_sound.wav")
+                SceneTree.change_scene(scene_path="scenes/game.sscn")
+            else:
+                self.player_stats.reset()
+                Audio.play_sound(sound_id="assets/audio/sound_effect/frog_move_sound.wav")
+                SceneTree.change_scene(scene_path="scenes/title_screen.sscn")
+
 
         if Input.is_action_just_pressed(action_name="ui_quit"):
             Engine.exit()
