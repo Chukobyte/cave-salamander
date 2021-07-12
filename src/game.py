@@ -53,8 +53,8 @@ class Game(Node2D):
             game_object_pool=GameObjectPool(
                 game=self,
                 small_rock_node_names=["SmallRock0"],
-                big_rock_left_node_names=["BigRock0", "BigRock1", "BigRock2"],
-                big_rock_right_node_names=["BigRock3", "BigRock4"],
+                big_rock_left_node_names=["BigRock0", "BigRock1", "BigRock2", "BigRock3", "BigRock4"],
+                big_rock_right_node_names=["BigRock5", "BigRock6", "BigRock7", "BigRock8"],
                 snake_node_names=["Snake0", "Snake1"],
                 spider_node_names=["Spider0", "Spider1"],
             )
