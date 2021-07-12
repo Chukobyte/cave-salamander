@@ -37,7 +37,6 @@ class Game(Node2D):
         )
         zoom_vector = GameScreen().getZoom()  # Vector2(2, 2)
         Camera.set_zoom(zoom=zoom_vector)
-        self.total_salamander_frames = self.salamander.animation_frames
         Audio.play_music(
             music_id="assets/audio/music/cave_salamander_theme.wav", loops=True
         )
@@ -79,12 +78,11 @@ class Game(Node2D):
 
         self.game_gui.update()
 
+        # If player is dying, stop enemies from spawning and moving
         if not self.player_stats.dying:
             self.lane_manager.process(delta_time=delta_time)
 
         self.process_collisions()
-
-        # self.dying_check(delta_time=delta_time)
 
         self.death_check(delta_time=delta_time)
 
@@ -148,19 +146,18 @@ class Game(Node2D):
     def process_collisions(self) -> None:
         if not self.player_stats.dying:
             collided_nodes = Collision.get_collided_nodes(node=self.salamander_collider)
+
             for collided_node in collided_nodes:
                 reset_position = False
                 if "enemy" in collided_node.tags:
-                    # reset_position = True
                     self.player_stats.lives -= 1
                     if self.player_stats.lives >= 0:
                         self.player_stats.dying = True
                         Audio.play_sound(
                             sound_id="assets/audio/sound_effect/lose_life.wav"
                         )
-                        self.salamander.frame = 0
+                        self.salamander.frame = 0  # have to set since 'death' animation doesn't have more than 1 frame
                         self.salamander.set_animation(animation_name="death")
-                        # self.salamander.stop()
 
                 elif any(item in self.goals for item in collided_node.tags):
                     goal_tag = collided_node.tags[
@@ -175,6 +172,7 @@ class Game(Node2D):
                         sound_id="assets/audio/sound_effect/score_goal.wav"
                     )
 
+                    # Keep player where they are once they get all the goals
                     if self.player_stats.goals <= 0:
                         reset_position = False
 
@@ -183,17 +181,14 @@ class Game(Node2D):
                 break
 
     def reset_salamander_position(self):
-        # print("reset player")
         self.salamander.position = self.salamander_initial_position
-
         self.salamander.set_animation(animation_name="walk")
-        # self.salamander.frame = 0
         self.player_stats.dying = False
 
     def cycle_salamander_animation(self):
         self.salamander.frame = (
             self.salamander.frame + 1
-        ) % self.salamander.animation_frames  # self.total_salamander_frames
+        ) % self.salamander.animation_frames
         Audio.play_sound(sound_id="assets/audio/sound_effect/frog_move_sound.wav")
 
     def death_check(self, delta_time):
@@ -203,28 +198,12 @@ class Game(Node2D):
             or self.player_stats.goals <= 0
             or self.game_gui.bottom_gui.timer.time <= 0
         ):
+            # Run transition timer to end screen
             self.player_stats.dying = True
-            # want to check if player is still alive before going to end screen
-            # if not self.player_stats.dying:
             if self.end_scene_transition_timer.tick_n_check(delta_time=delta_time):
-                # self.end_scene_transition_timer.reset_timer()
                 SceneTree.change_scene(scene_path="scenes/end_screen.sscn")
 
-        else:
-            # If dying aka got hit
-            if self.player_stats.dying:
-                # if self.player_stats.dying_timer > 0:
-                #     self.player_stats.dying_timer -= delta_time
-                # else:
-                if self.player_stats.dying_timer.tick_n_check(delta_time=delta_time):
-                    # self.player_stats.dying_timer = self.player_stats.MAX_DYING_TIMER
-                    self.reset_salamander_position()
-
-    # def dying_check(self, delta_time):
-    #     if(self.player_stats.dying):
-    #         # if self.player_stats.dying_timer > 0:
-    #         #     self.player_stats.dying_timer -= delta_time
-    #         # else:
-    #         if self.player_stats.dying_timer.tick_n_check(delta_time = delta_time):
-    #             #self.player_stats.dying_timer = self.player_stats.MAX_DYING_TIMER
-    #             self.reset_salamander_position()
+        elif self.player_stats.dying:
+            if self.player_stats.dying_timer.tick_n_check(delta_time=delta_time):
+                # self.player_stats.dying_timer = self.player_stats.MAX_DYING_TIMER
+                self.reset_salamander_position()

@@ -47,7 +47,7 @@ class BottomGUI:
             color=Color(0.2, 0.2, 0.2),
         )
 
-        # if player is not dying (currently hit), then update timer
+        # if there is time left in timer and player is not dying (currently hit), then update timer
         if self.timer.time > 0 and not player_stats.dying:
             self.timer.tick()
         self.time_label.text = f"Time: {self.timer.time / 1000}"
