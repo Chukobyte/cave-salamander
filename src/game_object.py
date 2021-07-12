@@ -1,6 +1,7 @@
 from seika.node import Sprite
 from seika.math import Vector2
 from src.util.util import GameScreen
+from seika.node import Node2D
 
 
 class GameObjectType:
@@ -40,7 +41,7 @@ class DefaultGameObjectProperties:
     }
 
 
-class GameObject(Sprite):
+class GameObject(Node2D):
     def __init__(self, entity_id: int):
         super().__init__(entity_id)
         self.properties = GameObjectProperties()

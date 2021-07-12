@@ -6,20 +6,28 @@ from src.game_object import GameObjectType
 from src.util.game_object_pool import GameObjectPool
 import random
 
+
 class Lane:
     def __init__(
-        self, position: Vector2, capacity: int, index: int, game_object_type: str, max_time: float = -1
+        self,
+        position: Vector2,
+        capacity: int,
+        index: int,
+        game_object_type: str,
+        max_time: float = -1,
     ):
         self.position = position
         self.capacity = capacity
         self.index = index
         self.game_object_type = game_object_type
-        self.MAX_SPAWN_TIME = max_time if max_time >= 0 else round(random.uniform(0.5,1.5), 1) # for seconds
+        self.MAX_SPAWN_TIME = (
+            max_time if max_time >= 0 else round(random.uniform(0.5, 1.5), 1)
+        )  # for seconds
         self.timer = self.MAX_SPAWN_TIME
-        #print(self.MAX_SPAWN_TIME)
+        # print(self.MAX_SPAWN_TIME)
 
     # TODO: add in a timer for some thing when capacity is above 1
-    def can_spawn(self,delta_time) -> bool:
+    def can_spawn(self, delta_time) -> bool:
         if self.timer <= 0:
             self.timer = self.MAX_SPAWN_TIME
             return self.capacity > 0
