@@ -10,6 +10,7 @@ class GameObjectType:
     BIG_ROCK_RIGHT = "Big Rock Right"
     SNAKE = "Snake"
     SPIDER = "Spider"
+    BAT_LEFT = "Bat Left"
     GOAL = "Goal"
 
 
@@ -36,6 +37,9 @@ class DefaultGameObjectProperties:
         ),
         GameObjectType.BIG_ROCK_RIGHT: GameObjectProperties(
             w=48, h=16, s=Vector2(1, 1), t=0.3, v=Vector2(16, 0)
+        ),
+        GameObjectType.BAT_LEFT: GameObjectProperties(
+            w=48, h=16, s=Vector2(1, 1), t=0.3, v=Vector2(-16, 0)
         ),
         GameObjectType.SNAKE: GameObjectProperties(
             w=2, h=2, s=Vector2(8, 8), t=0.02, v=Vector2(-8, 0)

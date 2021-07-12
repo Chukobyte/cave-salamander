@@ -62,7 +62,7 @@ class Lane:
         )
 
 
-STEP_ON_OBJECT_TYPES = [GameObjectType.BIG_ROCK_LEFT, GameObjectType.BIG_ROCK_RIGHT]
+STEP_ON_OBJECT_TYPES = [GameObjectType.BIG_ROCK_LEFT, GameObjectType.BIG_ROCK_RIGHT, GameObjectType.BAT_LEFT]
 
 
 class LaneManager:
@@ -131,7 +131,7 @@ class LaneManager:
                 position=Vector2(384, 24),
                 capacity=2,
                 index=8,
-                game_object_type=GameObjectType.BIG_ROCK_LEFT,
+                game_object_type=GameObjectType.BAT_LEFT,
                 max_time=2.5,
             ),
         }

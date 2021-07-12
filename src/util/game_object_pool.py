@@ -13,6 +13,7 @@ class GameObjectPool:
         small_rock_node_names=[],
         big_rock_left_node_names=[],
         big_rock_right_node_names=[],
+        bat_left_node_names=[],
         snake_node_names=[],
         spider_node_names=[],
     ):
@@ -31,6 +32,9 @@ class GameObjectPool:
             ),
             GameObjectType.SPIDER: self._get_game_object_pool(
                 game=game, node_name_list=spider_node_names
+            ),
+            GameObjectType.BAT_LEFT: self._get_game_object_pool(
+                game=game, node_name_list=bat_left_node_names
             ),
         }
         self.live_pool = []
