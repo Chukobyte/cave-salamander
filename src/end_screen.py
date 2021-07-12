@@ -25,7 +25,9 @@ class EndScreen(Node2D):
         )
         final_score_text = "Final Score: {0}".format(self.player_stats.score)
         game_gui.top_gui.update_text(text=final_score_text)
-        game_gui.bottom_gui.time_label.text = f"Time: {self.player_stats.end_time / 1000}"
+        game_gui.bottom_gui.time_label.text = (
+            f"Time: {self.player_stats.end_time / 1000}"
+        )
 
     def _physics_process(self, delta_time: float) -> None:
         if Input.is_action_just_pressed(action_name="ui_menu_confirm"):
