@@ -1723,6 +1723,476 @@
                             "children": []
                         }
                     ]
+                },
+                {
+                    "name": "BigRock5",
+                    "type": "Sprite",
+                    "tags": [],
+                    "external_scene_source": "",
+                    "components": [
+                        {
+                            "transform2D": {
+                                "position": {
+                                    "x": -1700.0,
+                                    "y": -1700.0
+                                },
+                                "scale": {
+                                    "x": 1.0,
+                                    "y": 1.0
+                                },
+                                "rotation": 0.0,
+                                "z_index": 1,
+                                "z_index_relative_to_parent": true,
+                                "ignore_camera": false
+                            }
+                        },
+                        {
+                            "sprite": {
+                                "texture_path": "assets/images/rock_big.png",
+                                "draw_source": {
+                                    "x": 0.0,
+                                    "y": 0.0,
+                                    "width": 48.0,
+                                    "height": 16.0
+                                },
+                                "flip_x": false,
+                                "flip_y": false,
+                                "modulate": {
+                                    "red": 1.0,
+                                    "green": 1.0,
+                                    "blue": 1.0,
+                                    "alpha": 1.0
+                                }
+                            }
+                        },
+                        {
+                            "scriptable_class": {
+                                "class_path": "src.game_object",
+                                "class_name": "GameObject"
+                            }
+                        }
+                    ],
+                    "children": [
+                        {
+                            "name": "BigRock5Collider",
+                            "type": "CollisionShape2D",
+                            "tags": [
+                                "step_on"
+                            ],
+                            "external_scene_source": "",
+                            "components": [
+                                {
+                                    "transform2D": {
+                                        "position": {
+                                            "x": 0.0,
+                                            "y": 0.0
+                                        },
+                                        "scale": {
+                                            "x": 1.0,
+                                            "y": 1.0
+                                        },
+                                        "rotation": 0.0,
+                                        "z_index": 1,
+                                        "z_index_relative_to_parent": true,
+                                        "ignore_camera": false
+                                    }
+                                },
+                                {
+                                    "collider": {
+                                        "rectangle": {
+                                            "x": 0.0,
+                                            "y": 0.0,
+                                            "width": 48.0,
+                                            "height": 16.0
+                                        },
+                                        "color": {
+                                            "red": 0.41018596291542053,
+                                            "green": 0.9729729890823364,
+                                            "blue": 0.06761974096298218,
+                                            "alpha": 0.75
+                                        }
+                                    }
+                                }
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "name": "BigRock6",
+                    "type": "Sprite",
+                    "tags": [],
+                    "external_scene_source": "",
+                    "components": [
+                        {
+                            "transform2D": {
+                                "position": {
+                                    "x": -1700.0,
+                                    "y": -1700.0
+                                },
+                                "scale": {
+                                    "x": 1.0,
+                                    "y": 1.0
+                                },
+                                "rotation": 0.0,
+                                "z_index": 1,
+                                "z_index_relative_to_parent": true,
+                                "ignore_camera": false
+                            }
+                        },
+                        {
+                            "sprite": {
+                                "texture_path": "assets/images/rock_big.png",
+                                "draw_source": {
+                                    "x": 0.0,
+                                    "y": 0.0,
+                                    "width": 48.0,
+                                    "height": 16.0
+                                },
+                                "flip_x": false,
+                                "flip_y": false,
+                                "modulate": {
+                                    "red": 1.0,
+                                    "green": 1.0,
+                                    "blue": 1.0,
+                                    "alpha": 1.0
+                                }
+                            }
+                        },
+                        {
+                            "scriptable_class": {
+                                "class_path": "src.game_object",
+                                "class_name": "GameObject"
+                            }
+                        }
+                    ],
+                    "children": [
+                        {
+                            "name": "BigRock6Collider",
+                            "type": "CollisionShape2D",
+                            "tags": [
+                                "step_on"
+                            ],
+                            "external_scene_source": "",
+                            "components": [
+                                {
+                                    "transform2D": {
+                                        "position": {
+                                            "x": 0.0,
+                                            "y": 0.0
+                                        },
+                                        "scale": {
+                                            "x": 1.0,
+                                            "y": 1.0
+                                        },
+                                        "rotation": 0.0,
+                                        "z_index": 1,
+                                        "z_index_relative_to_parent": true,
+                                        "ignore_camera": false
+                                    }
+                                },
+                                {
+                                    "collider": {
+                                        "rectangle": {
+                                            "x": 0.0,
+                                            "y": 0.0,
+                                            "width": 48.0,
+                                            "height": 16.0
+                                        },
+                                        "color": {
+                                            "red": 0.41018596291542053,
+                                            "green": 0.9729729890823364,
+                                            "blue": 0.06761974096298218,
+                                            "alpha": 0.75
+                                        }
+                                    }
+                                }
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "name": "BigRock7",
+                    "type": "Sprite",
+                    "tags": [],
+                    "external_scene_source": "",
+                    "components": [
+                        {
+                            "transform2D": {
+                                "position": {
+                                    "x": -1800.0,
+                                    "y": -1800.0
+                                },
+                                "scale": {
+                                    "x": 1.0,
+                                    "y": 1.0
+                                },
+                                "rotation": 0.0,
+                                "z_index": 1,
+                                "z_index_relative_to_parent": true,
+                                "ignore_camera": false
+                            }
+                        },
+                        {
+                            "sprite": {
+                                "texture_path": "assets/images/rock_big.png",
+                                "draw_source": {
+                                    "x": 0.0,
+                                    "y": 0.0,
+                                    "width": 48.0,
+                                    "height": 16.0
+                                },
+                                "flip_x": false,
+                                "flip_y": false,
+                                "modulate": {
+                                    "red": 1.0,
+                                    "green": 1.0,
+                                    "blue": 1.0,
+                                    "alpha": 1.0
+                                }
+                            }
+                        },
+                        {
+                            "scriptable_class": {
+                                "class_path": "src.game_object",
+                                "class_name": "GameObject"
+                            }
+                        }
+                    ],
+                    "children": [
+                        {
+                            "name": "BigRock7Collider",
+                            "type": "CollisionShape2D",
+                            "tags": [
+                                "step_on"
+                            ],
+                            "external_scene_source": "",
+                            "components": [
+                                {
+                                    "transform2D": {
+                                        "position": {
+                                            "x": 0.0,
+                                            "y": 0.0
+                                        },
+                                        "scale": {
+                                            "x": 1.0,
+                                            "y": 1.0
+                                        },
+                                        "rotation": 0.0,
+                                        "z_index": 1,
+                                        "z_index_relative_to_parent": true,
+                                        "ignore_camera": false
+                                    }
+                                },
+                                {
+                                    "collider": {
+                                        "rectangle": {
+                                            "x": 0.0,
+                                            "y": 0.0,
+                                            "width": 48.0,
+                                            "height": 16.0
+                                        },
+                                        "color": {
+                                            "red": 0.41018596291542053,
+                                            "green": 0.9729729890823364,
+                                            "blue": 0.06761974096298218,
+                                            "alpha": 0.75
+                                        }
+                                    }
+                                }
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "name": "Bat0",
+                    "type": "Sprite",
+                    "tags": [],
+                    "external_scene_source": "",
+                    "components": [
+                        {
+                            "transform2D": {
+                                "position": {
+                                    "x": -1900.0,
+                                    "y": -1900.0
+                                },
+                                "scale": {
+                                    "x": 1.0,
+                                    "y": 1.0
+                                },
+                                "rotation": 0.0,
+                                "z_index": 1,
+                                "z_index_relative_to_parent": true,
+                                "ignore_camera": false
+                            }
+                        },
+                        {
+                            "sprite": {
+                                "texture_path": "assets/images/bat.png",
+                                "draw_source": {
+                                    "x": 0.0,
+                                    "y": 0.0,
+                                    "width": 48.0,
+                                    "height": 16.0
+                                },
+                                "flip_x": false,
+                                "flip_y": false,
+                                "modulate": {
+                                    "red": 1.0,
+                                    "green": 1.0,
+                                    "blue": 1.0,
+                                    "alpha": 1.0
+                                }
+                            }
+                        },
+                        {
+                            "scriptable_class": {
+                                "class_path": "src.game_object",
+                                "class_name": "GameObject"
+                            }
+                        }
+                    ],
+                    "children": [
+                        {
+                            "name": "Bat0Collider",
+                            "type": "CollisionShape2D",
+                            "tags": [
+                                "step_on"
+                            ],
+                            "external_scene_source": "",
+                            "components": [
+                                {
+                                    "transform2D": {
+                                        "position": {
+                                            "x": 0.0,
+                                            "y": 0.0
+                                        },
+                                        "scale": {
+                                            "x": 1.0,
+                                            "y": 1.0
+                                        },
+                                        "rotation": 0.0,
+                                        "z_index": 1,
+                                        "z_index_relative_to_parent": true,
+                                        "ignore_camera": false
+                                    }
+                                },
+                                {
+                                    "collider": {
+                                        "rectangle": {
+                                            "x": 0.0,
+                                            "y": 0.0,
+                                            "width": 48.0,
+                                            "height": 16.0
+                                        },
+                                        "color": {
+                                            "red": 0.41018596291542053,
+                                            "green": 0.9729729890823364,
+                                            "blue": 0.06761974096298218,
+                                            "alpha": 0.75
+                                        }
+                                    }
+                                }
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "name": "Bat1",
+                    "type": "Sprite",
+                    "tags": [],
+                    "external_scene_source": "",
+                    "components": [
+                        {
+                            "transform2D": {
+                                "position": {
+                                    "x": -2000.0,
+                                    "y": -2000.0
+                                },
+                                "scale": {
+                                    "x": 1.0,
+                                    "y": 1.0
+                                },
+                                "rotation": 0.0,
+                                "z_index": 1,
+                                "z_index_relative_to_parent": true,
+                                "ignore_camera": false
+                            }
+                        },
+                        {
+                            "sprite": {
+                                "texture_path": "assets/images/bat.png",
+                                "draw_source": {
+                                    "x": 0.0,
+                                    "y": 0.0,
+                                    "width": 48.0,
+                                    "height": 16.0
+                                },
+                                "flip_x": false,
+                                "flip_y": false,
+                                "modulate": {
+                                    "red": 1.0,
+                                    "green": 1.0,
+                                    "blue": 1.0,
+                                    "alpha": 1.0
+                                }
+                            }
+                        },
+                        {
+                            "scriptable_class": {
+                                "class_path": "src.game_object",
+                                "class_name": "GameObject"
+                            }
+                        }
+                    ],
+                    "children": [
+                        {
+                            "name": "Bat1Collider",
+                            "type": "CollisionShape2D",
+                            "tags": [
+                                "step_on"
+                            ],
+                            "external_scene_source": "",
+                            "components": [
+                                {
+                                    "transform2D": {
+                                        "position": {
+                                            "x": 0.0,
+                                            "y": 0.0
+                                        },
+                                        "scale": {
+                                            "x": 1.0,
+                                            "y": 1.0
+                                        },
+                                        "rotation": 0.0,
+                                        "z_index": 1,
+                                        "z_index_relative_to_parent": true,
+                                        "ignore_camera": false
+                                    }
+                                },
+                                {
+                                    "collider": {
+                                        "rectangle": {
+                                            "x": 0.0,
+                                            "y": 0.0,
+                                            "width": 48.0,
+                                            "height": 16.0
+                                        },
+                                        "color": {
+                                            "red": 0.41018596291542053,
+                                            "green": 0.9729729890823364,
+                                            "blue": 0.06761974096298218,
+                                            "alpha": 0.75
+                                        }
+                                    }
+                                }
+                            ],
+                            "children": []
+                        }
+                    ]
                 }
             ]
         },

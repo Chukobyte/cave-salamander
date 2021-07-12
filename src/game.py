@@ -53,8 +53,19 @@ class Game(Node2D):
             game_object_pool=GameObjectPool(
                 game=self,
                 small_rock_node_names=["SmallRock0"],
-                big_rock_left_node_names=["BigRock0", "BigRock1", "BigRock2"],
-                big_rock_right_node_names=["BigRock3", "BigRock4"],
+                big_rock_left_node_names=[
+                    "BigRock0",
+                    "BigRock1",
+                    "BigRock2",
+                    "BigRock3",
+                ],
+                big_rock_right_node_names=[
+                    "BigRock4",
+                    "BigRock5",
+                    "BigRock6",
+                    "BigRock7",
+                ],
+                bat_left_node_names=["Bat0", "Bat1"],
                 snake_node_names=["Snake0", "Snake1"],
                 spider_node_names=["Spider0", "Spider1"],
             )
@@ -79,6 +90,8 @@ class Game(Node2D):
     def _physics_process(self, delta_time: float) -> None:
         if Input.is_action_just_pressed(action_name="ui_quit"):
             Engine.exit()
+
+        # print(f"fps = {Engine.get_fps()}")
 
         self.handle_game_input(delta_time=delta_time)
 
@@ -128,6 +141,7 @@ class Game(Node2D):
             elif Input.is_action_just_pressed(
                 action_name="End"
             ):  # pressing 'e' for debugging
+                self.player_stats.end_time = self.game_gui.bottom_gui.timer.time
                 SceneTree.change_scene(scene_path="scenes/end_screen.sscn")
 
         # checks if player is within screen boundary. IF so, move player and update animation.
@@ -249,6 +263,7 @@ class Game(Node2D):
         ):
             # Run transition timer get to end screen
             self.player_stats.dying = True
+            self.player_stats.end_time = self.game_gui.bottom_gui.timer.time
             if self.end_scene_transition_timer.tick_n_check(delta_time=delta_time):
                 SceneTree.change_scene(scene_path="scenes/end_screen.sscn")
 

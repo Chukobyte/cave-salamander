@@ -62,7 +62,11 @@ class Lane:
         )
 
 
-STEP_ON_OBJECT_TYPES = [GameObjectType.BIG_ROCK_LEFT, GameObjectType.BIG_ROCK_RIGHT]
+STEP_ON_OBJECT_TYPES = [
+    GameObjectType.BIG_ROCK_LEFT,
+    GameObjectType.BIG_ROCK_RIGHT,
+    GameObjectType.BAT_LEFT,
+]
 
 
 class LaneManager:
@@ -101,37 +105,37 @@ class LaneManager:
             ),
             4: Lane(
                 position=Vector2(384, 88),
-                capacity=1,
+                capacity=2,
                 index=4,
                 game_object_type=GameObjectType.BIG_ROCK_LEFT,
                 max_time=1.5,
             ),
             5: Lane(
                 position=Vector2(0, 72),
-                capacity=1,
+                capacity=2,
                 index=5,
                 game_object_type=GameObjectType.BIG_ROCK_RIGHT,
                 max_time=1.5,
             ),
             6: Lane(
                 position=Vector2(384, 56),
-                capacity=1,
+                capacity=2,
                 index=6,
                 game_object_type=GameObjectType.BIG_ROCK_LEFT,
                 max_time=2.0,
             ),
             7: Lane(
                 position=Vector2(0, 40),
-                capacity=1,
+                capacity=2,
                 index=7,
                 game_object_type=GameObjectType.BIG_ROCK_RIGHT,
                 max_time=2.0,
             ),
             8: Lane(
                 position=Vector2(384, 24),
-                capacity=1,
+                capacity=2,
                 index=8,
-                game_object_type=GameObjectType.BIG_ROCK_LEFT,
+                game_object_type=GameObjectType.BAT_LEFT,
                 max_time=2.5,
             ),
         }
@@ -139,7 +143,6 @@ class LaneManager:
     def process(self, delta_time: float) -> None:
         for lane_index in self._lanes:
             lane = self._lanes[lane_index]
-            lane.draw()
             # Always checking if can spawn for now
             if lane.can_spawn(delta_time=delta_time):
                 # a minor redundant but necessary call, since attempt_spawn can return None and crash game

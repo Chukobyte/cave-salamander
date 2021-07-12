@@ -6,13 +6,17 @@
         "height": 450
     },
     "colliders_visible": false,
-    "target_fps": 66,
+    "target_fps": 199,
     "background_color": {
         "red": 0.0,
         "green": 0.0,
         "blue": 0.0
     },
     "assets": [
+        {
+            "type": "texture",
+            "file_path": "assets/images/bat.png"
+        },
         {
             "type": "texture",
             "file_path": "assets/images/cave_background.png"
