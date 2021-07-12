@@ -16,7 +16,7 @@ class Lane:
         self.game_object_type = game_object_type
         self.MAX_SPAWN_TIME = max_time if max_time >= 0 else round(random.uniform(0.5,1.5), 1) # for seconds
         self.timer = self.MAX_SPAWN_TIME
-        print(self.MAX_SPAWN_TIME)
+        #print(self.MAX_SPAWN_TIME)
 
     # TODO: add in a timer for some thing when capacity is above 1
     def can_spawn(self,delta_time) -> bool:
@@ -51,6 +51,7 @@ class LaneManager:
                 capacity=1,
                 index=0,
                 game_object_type=GameObjectType.SPIDER,
+                max_time=0.5,
             ),
             1: Lane(
                 position=Vector2(384, 152),
@@ -69,7 +70,7 @@ class LaneManager:
                 capacity=1,
                 index=3,
                 game_object_type=GameObjectType.ROCK,
-                max_time=1.5
+                max_time=1.5,
             ),
         }
 
@@ -79,12 +80,14 @@ class LaneManager:
             lane.draw()
             # Always checking if can spawn for now
             if lane.can_spawn(delta_time=delta_time):
-                game_object = self._game_object_pool.attempt_spawn(
-                    type=lane.game_object_type
-                )
-                game_object.position = lane.position
-                game_object.spawn_lane_index = lane.index
-                lane.capacity -= 1
+                # a minor redundant but necessary call, since attempt_spawn can return None and crash game
+                if self._game_object_pool.is_spawnable(lane.game_object_type):
+                    game_object = self._game_object_pool.attempt_spawn(
+                        type=lane.game_object_type
+                    )
+                    game_object.position = lane.position
+                    game_object.spawn_lane_index = lane.index
+                    lane.capacity -= 1
 
         # Movement
         dead_game_object_pool = []
