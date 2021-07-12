@@ -132,16 +132,19 @@ class Game(Node2D):
             if "enemy" in collided_node.tags:
                 reset_position = True
                 self.player_stats.lives -= 1
+                if self.player_stats.lives > 0:
+                    Audio.play_sound(sound_id="assets/audio/sound_effect/lose_life.wav")
             elif any(item in self.goals for item in collided_node.tags):
                 goal_tag = collided_node.tags[0] # assumes the goal tag is the first element
-                print(goal_tag)
-                print(self.goals[goal_tag])
+                #print(goal_tag)
+                #print(self.goals[goal_tag])
                 reset_position = True
                 points = int(self.game_gui.bottom_gui.timer.time / 1000)
                 self.player_stats.score += points
                 self.player_stats.goals -= 1
                 self.goals[goal_tag].move_off_screen()
-
+                Audio.play_sound(sound_id="assets/audio/sound_effect/score_goal.wav")
+                
             if reset_position:
                 self.salamander.position = self.salamander_initial_position
             break
