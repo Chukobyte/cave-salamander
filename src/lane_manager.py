@@ -2,9 +2,25 @@ from seika.color import Color
 from seika.math import Vector2, Rect2
 from seika.renderer import Renderer
 
-from src.game_object import GameObjectType
+from src.game_object import GameObjectType, GameObject
 from src.util.game_object_pool import GameObjectPool
 import random
+
+
+class GameObjectMovementContext:
+    def __init__(self):
+        self._moved_game_objects = []
+        self.player_step_on_game_object = None
+
+    @property
+    def moved_game_objects(self) -> list:
+        return self._moved_game_objects.copy()
+
+    def add(self, game_object: GameObject) -> None:
+        self._moved_game_objects.append(game_object)
+
+    def clear(self) -> None:
+        self._moved_game_objects.clear()
 
 
 class Lane:
@@ -46,8 +62,12 @@ class Lane:
         )
 
 
+STEP_ON_OBJECT_TYPES = [GameObjectType.BIG_ROCK_LEFT, GameObjectType.BIG_ROCK_RIGHT]
+
+
 class LaneManager:
     def __init__(self, game_object_pool: GameObjectPool):
+        self.game_object_movement_context = GameObjectMovementContext()
         self._game_object_pool = game_object_pool
         self._lanes = self._get_initial_lanes()
 
@@ -79,6 +99,41 @@ class LaneManager:
                 game_object_type=GameObjectType.SMALL_ROCK,
                 max_time=1.5,
             ),
+            4: Lane(
+                position=Vector2(384, 88),
+                capacity=1,
+                index=4,
+                game_object_type=GameObjectType.BIG_ROCK_LEFT,
+                max_time=1.5,
+            ),
+            5: Lane(
+                position=Vector2(0, 72),
+                capacity=1,
+                index=5,
+                game_object_type=GameObjectType.BIG_ROCK_RIGHT,
+                max_time=1.5,
+            ),
+            6: Lane(
+                position=Vector2(384, 56),
+                capacity=1,
+                index=6,
+                game_object_type=GameObjectType.BIG_ROCK_LEFT,
+                max_time=2.0,
+            ),
+            7: Lane(
+                position=Vector2(0, 40),
+                capacity=1,
+                index=7,
+                game_object_type=GameObjectType.BIG_ROCK_RIGHT,
+                max_time=2.0,
+            ),
+            8: Lane(
+                position=Vector2(384, 24),
+                capacity=1,
+                index=8,
+                game_object_type=GameObjectType.BIG_ROCK_LEFT,
+                max_time=2.5,
+            ),
         }
 
     def process(self, delta_time: float) -> None:
@@ -99,7 +154,11 @@ class LaneManager:
         # Movement
         dead_game_object_pool = []
         for live_game_object in self._game_object_pool.live_pool:
-            live_game_object.move_object(delta_time=delta_time)
+            if (
+                live_game_object.move_object(delta_time=delta_time)
+                and live_game_object.type in STEP_ON_OBJECT_TYPES
+            ):
+                self.game_object_movement_context.add(game_object=live_game_object)
             if not live_game_object.active:
                 dead_game_object_pool.append(live_game_object)
 

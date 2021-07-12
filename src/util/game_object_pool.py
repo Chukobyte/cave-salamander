@@ -11,27 +11,37 @@ class GameObjectPool:
         self,
         game: Node2D,
         small_rock_node_names=[],
-        big_rock_node_names=[],
+        big_rock_left_node_names=[],
+        big_rock_right_node_names=[],
         snake_node_names=[],
         spider_node_names=[],
     ):
         self._object_pools = {
-            GameObjectType.SMALL_ROCK: [
-                game.get_node(name=small_rock_node_name) for small_rock_node_name in small_rock_node_names
-            ],
-            GameObjectType.BIG_ROCK: [
-                game.get_node(name=big_rock_node_name) for big_rock_node_name in big_rock_node_names
-            ],
-            GameObjectType.SNAKE: [
-                game.get_node(name=snake_node_name)
-                for snake_node_name in snake_node_names
-            ],
-            GameObjectType.SPIDER: [
-                game.get_node(name=spider_node_name)
-                for spider_node_name in spider_node_names
-            ],
+            GameObjectType.SMALL_ROCK: self._get_game_object_pool(
+                game=game, node_name_list=small_rock_node_names
+            ),
+            GameObjectType.BIG_ROCK_LEFT: self._get_game_object_pool(
+                game=game, node_name_list=big_rock_left_node_names
+            ),
+            GameObjectType.BIG_ROCK_RIGHT: self._get_game_object_pool(
+                game=game, node_name_list=big_rock_right_node_names
+            ),
+            GameObjectType.SNAKE: self._get_game_object_pool(
+                game=game, node_name_list=snake_node_names
+            ),
+            GameObjectType.SPIDER: self._get_game_object_pool(
+                game=game, node_name_list=spider_node_names
+            ),
         }
         self.live_pool = []
+
+    def _get_game_object_pool(self, game: Node2D, node_name_list: list) -> list:
+        new_pool = []
+        for node_name in node_name_list:
+            game_object = game.get_node(name=node_name)
+            game_object.collider = game.get_node(name=f"{node_name}Collider")
+            new_pool.append(game_object)
+        return new_pool
 
     def process(self) -> None:
         self.attempt_spawn(type=GameObjectType.SPIDER)
