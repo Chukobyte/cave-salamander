@@ -153,7 +153,9 @@ class Game(Node2D):
             if "enemy" in collided_node.tags:
                 self._process_salamander_death()
             elif "step_on" in collided_node.tags:
-                # TOOD: check if step on object has moved
+                for moved_object in self.lane_manager.game_object_movement_context.moved_game_objects:
+                    if collided_node.entity_id == moved_object.entity_id:
+                        self.salamander.add_to_position(Vector2(-self.grid_size.x, 0))
                 step_on = True
             elif any(item in self.goals for item in collided_node.tags):
                 goal_tag = collided_node.tags[
@@ -171,6 +173,7 @@ class Game(Node2D):
             break
         if not step_on and self._is_salamander_in_abyss():
             self._process_salamander_death()
+        self.lane_manager.game_object_movement_context.clear()
 
     def _cycle_salamander_animation(self):
         self.salamander.frame = (

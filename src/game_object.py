@@ -54,6 +54,7 @@ class GameObject(AnimatedSprite):
         self.type = None
         self.timer = self.properties.walk_timer
         self.spawn_lane_index = -1
+        self.collider = None
 
     def update_properties(self, new_property: GameObjectProperties):
         self.properties = new_property
@@ -66,9 +67,10 @@ class GameObject(AnimatedSprite):
             self.timer = self.properties.walk_timer
             self.velocity = self.properties.velocity
 
-    def move_object(self, delta_time: float) -> None:
+    def move_object(self, delta_time: float) -> bool:
         if self.timer > 0:
             self.timer -= delta_time
+            return False
         else:
             self.timer = self.properties.walk_timer
             curr_x = self.get_position().x
@@ -93,6 +95,7 @@ class GameObject(AnimatedSprite):
                 self.set_position(Vector2(new_x, new_y))
             else:
                 self.active = False
+            return True
 
     # Mainly for the goal game object types
     def move_off_screen(self) -> None:
