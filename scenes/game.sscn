@@ -672,7 +672,7 @@
                         {
                             "text_label": {
                                 "text": "Time",
-                                "font_path": "assets/fonts/verdana.ttf",
+                                "font_path": "assets/fonts/pine_type.ttf",
                                 "color": {
                                     "red": 1.0,
                                     "green": 1.0,
@@ -709,7 +709,7 @@
                         {
                             "text_label": {
                                 "text": "Score",
-                                "font_path": "assets/fonts/verdana.ttf",
+                                "font_path": "assets/fonts/pine_type.ttf",
                                 "color": {
                                     "red": 0.8610038757324219,
                                     "green": 0.14294661581516266,
@@ -730,7 +730,7 @@
                         {
                             "transform2D": {
                                 "position": {
-                                    "x": 650.0,
+                                    "x": 660.0,
                                     "y": 710.0
                                 },
                                 "scale": {
@@ -746,7 +746,7 @@
                         {
                             "text_label": {
                                 "text": "0",
-                                "font_path": "assets/fonts/verdana.ttf",
+                                "font_path": "assets/fonts/pine_type.ttf",
                                 "color": {
                                     "red": 1.0,
                                     "green": 1.0,
