@@ -51,6 +51,12 @@ class Game(Node2D):
                 spider_node_names=["Spider0", "Spider1"],
             )
         )
+        self.goals = {}
+        goal_objects = [
+                self.get_node(name=goal_node_name) for goal_node_name in ["EndGoalLabel0","EndGoalLabel1","EndGoalLabel2","EndGoalLabel3","EndGoalLabel4"]
+            ]
+        for x in range(0, len(goal_objects)):
+            self.goals[f"goal{x}"] = goal_objects[x]
 
     def _physics_process(self, delta_time: float) -> None:
         if Input.is_action_just_pressed(action_name="ui_quit"):
@@ -128,12 +134,17 @@ class Game(Node2D):
                 self.player_stats.lives -= 1
                 if self.player_stats.lives > 0:
                     Audio.play_sound(sound_id="assets/audio/sound_effect/lose_life.wav")
-            elif "goal" in collided_node.tags:
+            elif any(item in self.goals for item in collided_node.tags):
+                goal_tag = collided_node.tags[0] # assumes the goal tag is the first element
+                #print(goal_tag)
+                #print(self.goals[goal_tag])
                 reset_position = True
                 points = int(self.game_gui.bottom_gui.timer.time / 1000)
                 self.player_stats.score += points
+                self.player_stats.goals -= 1
+                self.goals[goal_tag].move_off_screen()
                 Audio.play_sound(sound_id="assets/audio/sound_effect/score_goal.wav")
-
+                
             if reset_position:
                 self.salamander.position = self.salamander_initial_position
             break
@@ -145,5 +156,5 @@ class Game(Node2D):
         Audio.play_sound(sound_id="assets/audio/sound_effect/frog_move_sound.wav")
 
     def death_check(self):
-        if self.player_stats.lives <= 0 or self.game_gui.bottom_gui.timer.time <= 0:
+        if self.player_stats.lives <= 0 or self.player_stats.goals <= 0 or self.game_gui.bottom_gui.timer.time <= 0:
             SceneTree.change_scene(scene_path="scenes/end_screen.sscn")
