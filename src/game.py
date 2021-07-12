@@ -53,7 +53,7 @@ class Game(Node2D):
             game_object_pool=GameObjectPool(
                 game=self,
                 small_rock_node_names=["SmallRock0"],
-                big_rock_left_node_names=["BigRock0", "BigRock1", "BigRock2", "BigRock3", "BigRock4"],
+                big_rock_left_node_names=["BigRock0", "BigRock1", "BigRock2", "BigRock3", "BigRock4", "BigRock9"],
                 big_rock_right_node_names=["BigRock5", "BigRock6", "BigRock7", "BigRock8"],
                 snake_node_names=["Snake0", "Snake1"],
                 spider_node_names=["Spider0", "Spider1"],
@@ -79,6 +79,8 @@ class Game(Node2D):
     def _physics_process(self, delta_time: float) -> None:
         if Input.is_action_just_pressed(action_name="ui_quit"):
             Engine.exit()
+
+        # print(f"fps = {Engine.get_fps()}")
 
         self.handle_game_input(delta_time=delta_time)
 

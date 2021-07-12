@@ -129,7 +129,7 @@ class LaneManager:
             ),
             8: Lane(
                 position=Vector2(384, 24),
-                capacity=1,
+                capacity=2,
                 index=8,
                 game_object_type=GameObjectType.BIG_ROCK_LEFT,
                 max_time=2.5,
@@ -139,7 +139,6 @@ class LaneManager:
     def process(self, delta_time: float) -> None:
         for lane_index in self._lanes:
             lane = self._lanes[lane_index]
-            lane.draw()
             # Always checking if can spawn for now
             if lane.can_spawn(delta_time=delta_time):
                 # a minor redundant but necessary call, since attempt_spawn can return None and crash game
