@@ -15,6 +15,10 @@
     "assets": [
         {
             "type": "texture",
+            "file_path": "assets/images/big_rock.png"
+        },
+        {
+            "type": "texture",
             "file_path": "assets/images/cave_background.png"
         },
         {
