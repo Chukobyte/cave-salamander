@@ -62,6 +62,14 @@
         {
             "type": "sound",
             "file_path": "assets/audio/sound_effect/frog_move_sound.wav"
+        },
+        {
+            "type": "sound",
+            "file_path": "assets/audio/sound_effect/lose_life.wav"
+        },
+        {
+            "type": "sound",
+            "file_path": "assets/audio/sound_effect/score_goal.wav"
         }
     ],
     "input_actions": [
