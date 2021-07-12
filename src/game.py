@@ -74,7 +74,7 @@ class Game(Node2D):
         if Input.is_action_just_pressed(action_name="ui_quit"):
             Engine.exit()
 
-        self.handle_game_input()
+        self.handle_game_input(delta_time=delta_time)
 
         self.game_gui.update()
 
@@ -86,25 +86,29 @@ class Game(Node2D):
 
         self.death_check(delta_time=delta_time)
 
-    def handle_game_input(self) -> None:
+    def handle_game_input(self, delta_time) -> None:
         player_moved = False
         new_x, new_y = 0, 0
         curr_x = self.salamander.get_position().x
         curr_y = self.salamander.get_position().y
 
+        # can_walk = self.player_stats.walking_timer.tick_n_check(delta_time=delta_time)
+        can_walk = self.player_stats.check_can_walk(delta_time=delta_time)
+
         if not self.player_stats.dying:
-            if Input.is_action_just_pressed(action_name="move_left"):
-                player_moved = True
-                new_x = -self.grid_size.x
-            elif Input.is_action_just_pressed(action_name="move_right"):
-                player_moved = True
-                new_x = self.grid_size.x
-            elif Input.is_action_just_pressed(action_name="move_up"):
-                player_moved = True
-                new_y = -self.grid_size.y
-            elif Input.is_action_just_pressed(action_name="move_down"):
-                player_moved = True
-                new_y = self.grid_size.y
+            if can_walk:
+                if Input.is_action_just_pressed(action_name="move_left"):
+                    player_moved = True
+                    new_x = -self.grid_size.x
+                elif Input.is_action_just_pressed(action_name="move_right"):
+                    player_moved = True
+                    new_x = self.grid_size.x
+                elif Input.is_action_just_pressed(action_name="move_up"):
+                    player_moved = True
+                    new_y = -self.grid_size.y
+                elif Input.is_action_just_pressed(action_name="move_down"):
+                    player_moved = True
+                    new_y = self.grid_size.y
 
         # Keeping outside of dying check for debugging
         if Input.is_action_just_pressed(
@@ -132,6 +136,7 @@ class Game(Node2D):
             and curr_y + new_y < self.screen_height_scaled
             and player_moved
         ):
+            self.player_stats.can_walk = False
             self.salamander.add_to_position(Vector2(new_x, new_y))
             self.cycle_salamander_animation()
         elif (
