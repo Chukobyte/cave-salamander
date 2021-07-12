@@ -6,7 +6,8 @@ from seika.node import AnimatedSprite
 
 class GameObjectType:
     SMALL_ROCK = "Small Rock"
-    BIG_ROCK = "Big Rock"
+    BIG_ROCK_LEFT = "Big Rock Left"
+    BIG_ROCK_RIGHT = "Big Rock Right"
     SNAKE = "Snake"
     SPIDER = "Spider"
     GOAL = "Goal"
@@ -30,8 +31,11 @@ class DefaultGameObjectProperties:
         GameObjectType.SMALL_ROCK: GameObjectProperties(
             w=16, h=16, s=Vector2(1, 1), t=0.1, v=Vector2(-16, 0)
         ),
-        GameObjectType.BIG_ROCK: GameObjectProperties(
+        GameObjectType.BIG_ROCK_LEFT: GameObjectProperties(
             w=48, h=16, s=Vector2(1, 1), t=0.3, v=Vector2(-16, 0)
+        ),
+        GameObjectType.BIG_ROCK_RIGHT: GameObjectProperties(
+            w=48, h=16, s=Vector2(1, 1), t=0.3, v=Vector2(16, 0)
         ),
         GameObjectType.SNAKE: GameObjectProperties(
             w=2, h=2, s=Vector2(8, 8), t=0.02, v=Vector2(-8, 0)

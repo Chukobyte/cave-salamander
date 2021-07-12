@@ -11,7 +11,8 @@ class GameObjectPool:
         self,
         game: Node2D,
         small_rock_node_names=[],
-        big_rock_node_names=[],
+        big_rock_left_node_names=[],
+        big_rock_right_node_names=[],
         snake_node_names=[],
         spider_node_names=[],
     ):
@@ -19,8 +20,11 @@ class GameObjectPool:
             GameObjectType.SMALL_ROCK: self._get_game_object_pool(
                 game=game, node_name_list=small_rock_node_names
             ),
-            GameObjectType.BIG_ROCK: self._get_game_object_pool(
-                game=game, node_name_list=big_rock_node_names
+            GameObjectType.BIG_ROCK_LEFT: self._get_game_object_pool(
+                game=game, node_name_list=big_rock_left_node_names
+            ),
+            GameObjectType.BIG_ROCK_RIGHT: self._get_game_object_pool(
+                game=game, node_name_list=big_rock_right_node_names
             ),
             GameObjectType.SNAKE: self._get_game_object_pool(
                 game=game, node_name_list=snake_node_names
