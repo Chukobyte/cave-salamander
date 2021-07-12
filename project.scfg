@@ -27,6 +27,10 @@
         },
         {
             "type": "texture",
+            "file_path": "assets/images/health.png"
+        },
+        {
+            "type": "texture",
             "file_path": "assets/images/rock_big.png"
         },
         {

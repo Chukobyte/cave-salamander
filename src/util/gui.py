@@ -31,21 +31,21 @@ class BottomGUI:
         self.time_label = time_label
         self.time = 120000
         self.timer = Timer(time_in_millis=self.time)
-        self.lives_position = self.position + Vector2(25, 10)
+        self.lives_position = self.position + Vector2(60, 10)
         self.lives_size = Vector2(16, 16)
         self.lives_size_scaled = self.lives_size * Vector2(2, 2)
 
     def update(self, player_stats: PlayerStats) -> None:
         # BACKGROUND
-        Renderer.draw_texture(
-            texture_path="assets/images/white_square.png",
-            source_rect=Rect2(0, 0, 2, 2),
-            dest_rect=Rect2(
-                self.position.x, self.position.y, self.RECT_WIDTH, self.RECT_HEIGHT
-            ),
-            z_index=GUI_Z_INDEX,
-            color=Color(0.2, 0.2, 0.2),
-        )
+        # Renderer.draw_texture(
+        #     texture_path="assets/images/white_square.png",
+        #     source_rect=Rect2(0, 0, 2, 2),
+        #     dest_rect=Rect2(
+        #         self.position.x, self.position.y, self.RECT_WIDTH, self.RECT_HEIGHT
+        #     ),
+        #     z_index=GUI_Z_INDEX,
+        #     color=Color(0.2, 0.2, 0.2),
+        # )
 
         # if there is time left in timer and player is not dying (currently hit), then update timer
         if self.timer.time > 0 and not player_stats.dying:
@@ -55,7 +55,7 @@ class BottomGUI:
         # LIVES
         for life_count in range(player_stats.lives):
             Renderer.draw_texture(
-                texture_path="assets/images/salamander.png",
+                texture_path="assets/images/health.png",
                 source_rect=Rect2(0, 0, self.lives_size.x, self.lives_size.y),
                 dest_rect=Rect2(
                     self.lives_position.x + (life_count * 32),
