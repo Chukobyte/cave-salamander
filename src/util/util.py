@@ -11,6 +11,25 @@ class Timer:
         self.time -= TICK_RATE
 
 
+# Uses delta time
+class Timer_delta:
+    def __init__(self, max_time_in_seconds: float = 2):
+        self.MAX_TIME = max_time_in_seconds
+        self.time = self.MAX_TIME
+
+    def reset_timer(self):
+        self.time = self.MAX_TIME
+
+    # returns True if timer is done
+    def tick_n_check(self, delta_time):
+        self.time -= delta_time
+
+        if self.time <= 0:
+            self.reset_timer()
+            return True
+        return False
+
+
 # For the playable screen only (not menus)
 class GameScreen:
     _instance = None

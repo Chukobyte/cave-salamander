@@ -17,10 +17,12 @@ class GameObjectPool:
     ):
         self._object_pools = {
             GameObjectType.SMALL_ROCK: [
-                game.get_node(name=small_rock_node_name) for small_rock_node_name in small_rock_node_names
+                game.get_node(name=small_rock_node_name)
+                for small_rock_node_name in small_rock_node_names
             ],
             GameObjectType.BIG_ROCK: [
-                game.get_node(name=big_rock_node_name) for big_rock_node_name in big_rock_node_names
+                game.get_node(name=big_rock_node_name)
+                for big_rock_node_name in big_rock_node_names
             ],
             GameObjectType.SNAKE: [
                 game.get_node(name=snake_node_name)

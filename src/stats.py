@@ -1,3 +1,6 @@
+from src.util.util import Timer_delta
+
+
 class PlayerStats:
     _instance = None
 
@@ -7,9 +10,16 @@ class PlayerStats:
             cls.goals = 5
             cls.lives = 3
             cls.score = 0
+            cls.dying_timer = Timer_delta(max_time_in_seconds=0.5)
+            # cls.MAX_DYING_TIMER = 0.5 #in seconds
+            # cls.dying_timer = cls.MAX_DYING_TIMER
+            cls.dying = False
         return cls._instance
 
     def reset(self):
         self.goals = 5
         self.lives = 3
         self.score = 0
+        # self.dying_timer = self.MAX_DYING_TIMER
+        # self.dying = False
+        self.dying_timer.reset_timer()

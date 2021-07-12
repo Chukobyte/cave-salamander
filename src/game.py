@@ -13,12 +13,14 @@ from src.stats import PlayerStats
 from src.util.gui import GUI, BottomGUI
 from src.util.game_object_pool import GameObjectPool
 from src.util.util import GameScreen
+from src.util.util import Timer_delta
 
 
 class Game(Node2D):
     def _start(self) -> None:
-        # GameScreen().BOTTOM_UI_BUFFER = BottomGUI.RECT_HEIGHT
         GameScreen().setBottomBuffer(buffer=BottomGUI.RECT_HEIGHT)
+        self.end_scene_transition_timer = Timer_delta(max_time_in_seconds=0.5)
+        self.ready_to_transition = False
 
         self.salamander = self.get_node(name="Salamander")
         self.salamander_collider = self.get_node(name="SalamanderCollider")
@@ -52,6 +54,9 @@ class Game(Node2D):
                 spider_node_names=["Spider0", "Spider1"],
             )
         )
+
+        # Grabbing a dictionary of goal collision node tags as the keys where the value is the Goal Game Object
+        # Assumes the Goal's collision's tags and numbering align with the what appears in the game.sscn file, respectively
         self.goals = {}
         goal_objects = [
             self.get_node(name=goal_node_name)
@@ -74,27 +79,37 @@ class Game(Node2D):
 
         self.game_gui.update()
 
-        self.lane_manager.process(delta_time=delta_time)
+        if not self.player_stats.dying:
+            self.lane_manager.process(delta_time=delta_time)
 
         self.process_collisions()
 
-        self.death_check()
+        # self.dying_check(delta_time=delta_time)
+
+        self.death_check(delta_time=delta_time)
 
     def handle_game_input(self) -> None:
-        player_moved = True
+        player_moved = False
         new_x, new_y = 0, 0
         curr_x = self.salamander.get_position().x
         curr_y = self.salamander.get_position().y
 
-        if Input.is_action_just_pressed(action_name="move_left"):
-            new_x = -self.grid_size.x
-        elif Input.is_action_just_pressed(action_name="move_right"):
-            new_x = self.grid_size.x
-        elif Input.is_action_just_pressed(action_name="move_up"):
-            new_y = -self.grid_size.y
-        elif Input.is_action_just_pressed(action_name="move_down"):
-            new_y = self.grid_size.y
-        elif Input.is_action_just_pressed(
+        if not self.player_stats.dying:
+            if Input.is_action_just_pressed(action_name="move_left"):
+                player_moved = True
+                new_x = -self.grid_size.x
+            elif Input.is_action_just_pressed(action_name="move_right"):
+                player_moved = True
+                new_x = self.grid_size.x
+            elif Input.is_action_just_pressed(action_name="move_up"):
+                player_moved = True
+                new_y = -self.grid_size.y
+            elif Input.is_action_just_pressed(action_name="move_down"):
+                player_moved = True
+                new_y = self.grid_size.y
+
+        # Keeping outside of dying check for debugging
+        if Input.is_action_just_pressed(
             action_name="RESET"
         ):  # pressing 'r' for debugging
             self.salamander.position = self.salamander_initial_position
@@ -103,15 +118,13 @@ class Game(Node2D):
             SceneTree.change_scene(scene_path="scenes/title_screen.sscn")
         elif Input.is_action_just_pressed(
             action_name="End"
-        ):  # pressing 'r' for debugging
+        ):  # pressing 'e' for debugging
             SceneTree.change_scene(scene_path="scenes/end_screen.sscn")
         elif Input.is_action_just_pressed(
             action_name="Score"
         ):  # pressing 'm' for adding to score points
             self.player_stats.score = (self.player_stats.score + 1) % 10
             self.game_object_pool.move_gameobjects_in_pool()
-        else:
-            player_moved = False
 
         # checks if player is within screen boundary. IF so, move player and update animation.
         if (
@@ -133,41 +146,85 @@ class Game(Node2D):
             self.salamander.position = self.salamander_initial_position
 
     def process_collisions(self) -> None:
-        collided_nodes = Collision.get_collided_nodes(node=self.salamander_collider)
-        for collided_node in collided_nodes:
-            reset_position = False
+        if not self.player_stats.dying:
+            collided_nodes = Collision.get_collided_nodes(node=self.salamander_collider)
+            for collided_node in collided_nodes:
+                reset_position = False
+                if "enemy" in collided_node.tags:
+                    # reset_position = True
+                    self.player_stats.lives -= 1
+                    if self.player_stats.lives >= 0:
+                        self.player_stats.dying = True
+                        Audio.play_sound(
+                            sound_id="assets/audio/sound_effect/lose_life.wav"
+                        )
+                        self.salamander.frame = 0
+                        self.salamander.set_animation(animation_name="death")
+                        # self.salamander.stop()
 
-            if "enemy" in collided_node.tags:
-                reset_position = True
-                self.player_stats.lives -= 1
-                if self.player_stats.lives > 0:
-                    Audio.play_sound(sound_id="assets/audio/sound_effect/lose_life.wav")
-                    # self.salamander.play(animation_name="death")
-            elif any(item in self.goals for item in collided_node.tags):
-                goal_tag = collided_node.tags[
-                    0
-                ]  # assumes the goal tag is the first element
-                reset_position = True
-                points = int(self.game_gui.bottom_gui.timer.time / 1000)
-                self.player_stats.score += points
-                self.player_stats.goals -= 1
-                self.goals[goal_tag].move_off_screen()
-                Audio.play_sound(sound_id="assets/audio/sound_effect/score_goal.wav")
+                elif any(item in self.goals for item in collided_node.tags):
+                    goal_tag = collided_node.tags[
+                        0
+                    ]  # assumes the goal tag is the first element
+                    reset_position = True
+                    points = int(self.game_gui.bottom_gui.timer.time / 1000)
+                    self.player_stats.score += points
+                    self.player_stats.goals -= 1
+                    self.goals[goal_tag].move_off_screen()
+                    Audio.play_sound(
+                        sound_id="assets/audio/sound_effect/score_goal.wav"
+                    )
 
-            if reset_position:
-                self.salamander.position = self.salamander_initial_position
-            break
+                    if self.player_stats.goals <= 0:
+                        reset_position = False
+
+                if reset_position:
+                    self.reset_salamander_position()
+                break
+
+    def reset_salamander_position(self):
+        # print("reset player")
+        self.salamander.position = self.salamander_initial_position
+
+        self.salamander.set_animation(animation_name="walk")
+        # self.salamander.frame = 0
+        self.player_stats.dying = False
 
     def cycle_salamander_animation(self):
         self.salamander.frame = (
             self.salamander.frame + 1
-        ) % self.total_salamander_frames
+        ) % self.salamander.animation_frames  # self.total_salamander_frames
         Audio.play_sound(sound_id="assets/audio/sound_effect/frog_move_sound.wav")
 
-    def death_check(self):
+    def death_check(self, delta_time):
+        # Death check
         if (
             self.player_stats.lives <= 0
             or self.player_stats.goals <= 0
             or self.game_gui.bottom_gui.timer.time <= 0
         ):
-            SceneTree.change_scene(scene_path="scenes/end_screen.sscn")
+            self.player_stats.dying = True
+            # want to check if player is still alive before going to end screen
+            # if not self.player_stats.dying:
+            if self.end_scene_transition_timer.tick_n_check(delta_time=delta_time):
+                # self.end_scene_transition_timer.reset_timer()
+                SceneTree.change_scene(scene_path="scenes/end_screen.sscn")
+
+        else:
+            # If dying aka got hit
+            if self.player_stats.dying:
+                # if self.player_stats.dying_timer > 0:
+                #     self.player_stats.dying_timer -= delta_time
+                # else:
+                if self.player_stats.dying_timer.tick_n_check(delta_time=delta_time):
+                    # self.player_stats.dying_timer = self.player_stats.MAX_DYING_TIMER
+                    self.reset_salamander_position()
+
+    # def dying_check(self, delta_time):
+    #     if(self.player_stats.dying):
+    #         # if self.player_stats.dying_timer > 0:
+    #         #     self.player_stats.dying_timer -= delta_time
+    #         # else:
+    #         if self.player_stats.dying_timer.tick_n_check(delta_time = delta_time):
+    #             #self.player_stats.dying_timer = self.player_stats.MAX_DYING_TIMER
+    #             self.reset_salamander_position()
