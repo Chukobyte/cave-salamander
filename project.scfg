@@ -51,7 +51,17 @@
         },
         {
             "type": "font",
+            "file_path": "assets/fonts/big_pine_type.ttf",
+            "size": 60
+        },
+        {
+            "type": "font",
             "file_path": "assets/fonts/big_verdana.ttf",
+            "size": 40
+        },
+        {
+            "type": "font",
+            "file_path": "assets/fonts/pine_type.ttf",
             "size": 40
         },
         {
