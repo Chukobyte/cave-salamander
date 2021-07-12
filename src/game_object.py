@@ -89,6 +89,6 @@ class GameObject(Sprite):
             else:
                 self.active = False
 
-    #Mainly for the goal game object types
+    # Mainly for the goal game object types
     def move_off_screen(self) -> None:
-        self.position = Vector2(-32,0)
+        self.position = Vector2(-32, 0)
