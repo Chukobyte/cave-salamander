@@ -4,20 +4,28 @@ from seika.renderer import Renderer
 
 from src.game_object import GameObjectType
 from src.util.game_object_pool import GameObjectPool
-
+import random
 
 class Lane:
     def __init__(
-        self, position: Vector2, capacity: int, index: int, game_object_type: str
+        self, position: Vector2, capacity: int, index: int, game_object_type: str, max_time: float = -1
     ):
         self.position = position
         self.capacity = capacity
         self.index = index
         self.game_object_type = game_object_type
+        self.MAX_SPAWN_TIME = max_time if max_time >= 0 else round(random.uniform(0.5,1.5), 1) # for seconds
+        self.timer = self.MAX_SPAWN_TIME
+        print(self.MAX_SPAWN_TIME)
 
     # TODO: add in a timer for some thing when capacity is above 1
-    def can_spawn(self) -> bool:
-        return self.capacity > 0
+    def can_spawn(self,delta_time) -> bool:
+        if self.timer <= 0:
+            self.timer = self.MAX_SPAWN_TIME
+            return self.capacity > 0
+        else:
+            self.timer -= delta_time
+            return False
 
     def draw(self, camera_zoom=Vector2(2, 2)) -> None:
         Renderer.draw_texture(
@@ -61,6 +69,7 @@ class LaneManager:
                 capacity=1,
                 index=3,
                 game_object_type=GameObjectType.ROCK,
+                max_time=1.5
             ),
         }
 
@@ -69,7 +78,7 @@ class LaneManager:
             lane = self._lanes[lane_index]
             lane.draw()
             # Always checking if can spawn for now
-            if lane.can_spawn():
+            if lane.can_spawn(delta_time=delta_time):
                 game_object = self._game_object_pool.attempt_spawn(
                     type=lane.game_object_type
                 )

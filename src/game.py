@@ -142,9 +142,7 @@ class Game(Node2D):
                 if self.player_stats.lives > 0:
                     Audio.play_sound(sound_id="assets/audio/sound_effect/lose_life.wav")
             elif any(item in self.goals for item in collided_node.tags):
-                goal_tag = collided_node.tags[
-                    0
-                ]  # assumes the goal tag is the first element
+                goal_tag = collided_node.tags[0]  # assumes the goal tag is the first element
                 # print(goal_tag)
                 # print(self.goals[goal_tag])
                 reset_position = True
