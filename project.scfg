@@ -15,15 +15,15 @@
     "assets": [
         {
             "type": "texture",
-            "file_path": "assets/images/rock_big.png"
-        },
-        {
-            "type": "texture",
             "file_path": "assets/images/cave_background.png"
         },
         {
             "type": "texture",
             "file_path": "assets/images/fruit.png"
+        },
+        {
+            "type": "texture",
+            "file_path": "assets/images/rock_big.png"
         },
         {
             "type": "texture",
