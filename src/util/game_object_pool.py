@@ -36,8 +36,11 @@ class GameObjectPool:
     def process(self) -> None:
         self.attempt_spawn(type=GameObjectType.SPIDER)
 
+    def is_spawnable(self, type: str):
+        return len(self._object_pools[type]) > 0
+
     def attempt_spawn(self, type: str) -> GameObject:
-        if len(self._object_pools[type]) > 0:
+        if self.is_spawnable(type=type):
             game_object = self._spawn_object(type=type)
             game_object.position = Vector2(100, 100)
             return game_object

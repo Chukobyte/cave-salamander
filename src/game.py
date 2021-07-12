@@ -146,8 +146,6 @@ class Game(Node2D):
                 goal_tag = collided_node.tags[
                     0
                 ]  # assumes the goal tag is the first element
-                # print(goal_tag)
-                # print(self.goals[goal_tag])
                 reset_position = True
                 points = int(self.game_gui.bottom_gui.timer.time / 1000)
                 self.player_stats.score += points
