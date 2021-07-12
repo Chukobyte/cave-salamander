@@ -22,6 +22,8 @@ class Abyss:
 
 
 class Game(Node2D):
+    DEBUG = False
+
     def _start(self) -> None:
         GameScreen().setBottomBuffer(buffer=BottomGUI.RECT_HEIGHT)
         self.end_scene_transition_timer = Timer_delta(max_time_in_seconds=0.5)
@@ -133,18 +135,20 @@ class Game(Node2D):
             # Keeping outside of dying check for debugging
             if Input.is_action_just_pressed(
                 action_name="RESET"
-            ):  # pressing 'r' for debugging
+            ) and self.DEBUG:  # pressing 'r' for debugging
                 self.salamander.position = self.salamander_initial_position
                 player_moved = False
                 self.player_stats.reset()
                 SceneTree.change_scene(scene_path="scenes/title_screen.sscn")
             elif Input.is_action_just_pressed(
                 action_name="End"
-            ):  # pressing 'e' for debugging
+            ) and self.DEBUG:  # pressing 'e' for debugging
                 #self.player_stats.end_time = self.game_gui.bottom_gui.timer.time
                 #SceneTree.change_scene(scene_path="scenes/end_screen.sscn")
                 self.salamander.position= Vector2(
                     self.salamander_initial_position.x,4)
+            elif Input.is_action_just_pressed(action_name="GetLife"): #pressing 'Space' bar
+                self.check_if_can_add_lives()
         # checks if player is within screen boundary. IF so, move player and update animation.
         if (
             GameScreen.is_position_within_screen(
@@ -208,7 +212,6 @@ class Game(Node2D):
                     Audio.play_sound(
                         sound_id="assets/audio/sound_effect/score_goal.wav"
                     )
-                    self.check_if_can_add_lives()
 
                     # Keep player where they are once they get all the goals
                     if self.player_stats.goals <= 0:
