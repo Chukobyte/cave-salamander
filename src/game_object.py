@@ -4,7 +4,8 @@ from src.util.util import GameScreen
 
 
 class GameObjectType:
-    ROCK = "Rock"
+    SMALL_ROCK = "Small Rock"
+    BIG_ROCK = "Big Rock"
     SNAKE = "Snake"
     SPIDER = "Spider"
     GOAL = "Goal"
@@ -25,8 +26,11 @@ class GameObjectProperties:
 
 class DefaultGameObjectProperties:
     default_properties = {
-        GameObjectType.ROCK: GameObjectProperties(
+        GameObjectType.SMALL_ROCK: GameObjectProperties(
             w=16, h=16, s=Vector2(1, 1), t=0.1, v=Vector2(-16, 0)
+        ),
+        GameObjectType.BIG_ROCK: GameObjectProperties(
+            w=48, h=16, s=Vector2(1, 1), t=0.1, v=Vector2(-16, 0)
         ),
         GameObjectType.SNAKE: GameObjectProperties(
             w=2, h=2, s=Vector2(8, 8), t=0.02, v=Vector2(-8, 0)
