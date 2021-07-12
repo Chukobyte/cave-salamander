@@ -177,6 +177,12 @@
                             "alpha": 1.0
                         }
                     }
+                },
+                {
+                    "scriptable_class": {
+                        "class_path": "src.game_object",
+                        "class_name": "GameObject"
+                    }
                 }
             ],
             "children": [
@@ -184,7 +190,7 @@
                     "name": "EndGoalCollider0",
                     "type": "CollisionShape2D",
                     "tags": [
-                        "goal"
+                        "goal0"
                     ],
                     "external_scene_source": "",
                     "components": [
@@ -265,6 +271,12 @@
                             "alpha": 1.0
                         }
                     }
+                },
+                {
+                    "scriptable_class": {
+                        "class_path": "src.game_object",
+                        "class_name": "GameObject"
+                    }
                 }
             ],
             "children": [
@@ -272,7 +284,7 @@
                     "name": "EndGoalCollider1",
                     "type": "CollisionShape2D",
                     "tags": [
-                        "goal"
+                        "goal1"
                     ],
                     "external_scene_source": "",
                     "components": [
@@ -353,6 +365,12 @@
                             "alpha": 1.0
                         }
                     }
+                },
+                {
+                    "scriptable_class": {
+                        "class_path": "src.game_object",
+                        "class_name": "GameObject"
+                    }
                 }
             ],
             "children": [
@@ -360,7 +378,7 @@
                     "name": "EndGoalCollider2",
                     "type": "CollisionShape2D",
                     "tags": [
-                        "goal"
+                        "goal2"
                     ],
                     "external_scene_source": "",
                     "components": [
@@ -441,6 +459,12 @@
                             "alpha": 1.0
                         }
                     }
+                },
+                {
+                    "scriptable_class": {
+                        "class_path": "src.game_object",
+                        "class_name": "GameObject"
+                    }
                 }
             ],
             "children": [
@@ -448,7 +472,7 @@
                     "name": "EndGoalCollider3",
                     "type": "CollisionShape2D",
                     "tags": [
-                        "goal"
+                        "goal3"
                     ],
                     "external_scene_source": "",
                     "components": [
@@ -529,6 +553,12 @@
                             "alpha": 1.0
                         }
                     }
+                },
+                {
+                    "scriptable_class": {
+                        "class_path": "src.game_object",
+                        "class_name": "GameObject"
+                    }
                 }
             ],
             "children": [
@@ -536,7 +566,7 @@
                     "name": "EndGoalCollider4",
                     "type": "CollisionShape2D",
                     "tags": [
-                        "goal"
+                        "goal4"
                     ],
                     "external_scene_source": "",
                     "components": [

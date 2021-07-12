@@ -9,6 +9,7 @@ from src.util.util import Timer
 
 GUI_Z_INDEX = 2
 
+
 class TopGUI:
     def __init__(self, score_label: TextLabel):
         self.score_label = score_label
