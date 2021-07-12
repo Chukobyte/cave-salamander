@@ -62,7 +62,11 @@ class Lane:
         )
 
 
-STEP_ON_OBJECT_TYPES = [GameObjectType.BIG_ROCK_LEFT, GameObjectType.BIG_ROCK_RIGHT, GameObjectType.BAT_LEFT]
+STEP_ON_OBJECT_TYPES = [
+    GameObjectType.BIG_ROCK_LEFT,
+    GameObjectType.BIG_ROCK_RIGHT,
+    GameObjectType.BAT_LEFT,
+]
 
 
 class LaneManager:
