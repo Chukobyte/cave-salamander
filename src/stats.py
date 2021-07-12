@@ -14,6 +14,7 @@ class PlayerStats:
             cls.walking_timer = Timer_delta(max_time_in_seconds=0.13)
             cls.dying = False
             cls.can_walk = False
+            cls.end_time = 120.0
         return cls._instance
 
     def reset(self):
