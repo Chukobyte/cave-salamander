@@ -153,7 +153,6 @@ class Game(Node2D):
         ):
             self.player_stats.can_walk = False
             self.salamander.add_to_position(Vector2(new_x, new_y))
-            Collision.update_collisions()
             if (
                 self._is_salamander_in_abyss()
                 and not self._is_salamander_on_step_on_object()
@@ -173,6 +172,7 @@ class Game(Node2D):
     def _process_collisions(self) -> None:
         if not self.player_stats.dying:
             step_on = False
+            Collision.update_collisions(node=self.salamander_collider)
             collided_nodes = Collision.get_collided_nodes(node=self.salamander_collider)
             for collided_node in collided_nodes:
                 reset_position = False
@@ -237,6 +237,7 @@ class Game(Node2D):
         return False
 
     def _is_salamander_on_step_on_object(self) -> bool:
+        Collision.update_collisions(node=self.salamander_collider)
         for collided_node in Collision.get_collided_nodes(
             node=self.salamander_collider
         ):
