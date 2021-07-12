@@ -53,7 +53,7 @@
                 {
                     "text_label": {
                         "text": "Game  Over",
-                        "font_path": "assets/fonts/big_verdana.ttf",
+                        "font_path": "assets/fonts/big_pine_type.ttf",
                         "color": {
                             "red": 0.8339999914169312,
                             "green": 0.32499998807907104,
@@ -74,7 +74,7 @@
                 {
                     "transform2D": {
                         "position": {
-                            "x": 300.0,
+                            "x": 260.0,
                             "y": 290.0
                         },
                         "scale": {
@@ -90,7 +90,7 @@
                 {
                     "text_label": {
                         "text": "FINAL SCORE: ",
-                        "font_path": "assets/fonts/verdana.ttf",
+                        "font_path": "assets/fonts/pine_type.ttf",
                         "color": {
                             "red": 0.7104247212409973,
                             "green": 0.6657524704933167,
@@ -111,7 +111,7 @@
                 {
                     "transform2D": {
                         "position": {
-                            "x": 300.0,
+                            "x": 260.0,
                             "y": 340.0
                         },
                         "scale": {
@@ -127,7 +127,7 @@
                 {
                     "text_label": {
                         "text": "Time: ",
-                        "font_path": "assets/fonts/verdana.ttf",
+                        "font_path": "assets/fonts/pine_type.ttf",
                         "color": {
                             "red": 0.7104247212409973,
                             "green": 0.6657524704933167,
@@ -148,7 +148,7 @@
                 {
                     "transform2D": {
                         "position": {
-                            "x": 200.0,
+                            "x": 150.0,
                             "y": 450.0
                         },
                         "scale": {
@@ -164,7 +164,7 @@
                 {
                     "text_label": {
                         "text": "Press Enter to get back to Main Menu",
-                        "font_path": "assets/fonts/verdana.ttf",
+                        "font_path": "assets/fonts/pine_type.ttf",
                         "color": {
                             "red": 1.0,
                             "green": 1.0,

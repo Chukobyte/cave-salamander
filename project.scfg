@@ -27,6 +27,10 @@
         },
         {
             "type": "texture",
+            "file_path": "assets/images/health.png"
+        },
+        {
+            "type": "texture",
             "file_path": "assets/images/rock_big.png"
         },
         {
@@ -51,7 +55,17 @@
         },
         {
             "type": "font",
+            "file_path": "assets/fonts/big_pine_type.ttf",
+            "size": 80
+        },
+        {
+            "type": "font",
             "file_path": "assets/fonts/big_verdana.ttf",
+            "size": 40
+        },
+        {
+            "type": "font",
+            "file_path": "assets/fonts/pine_type.ttf",
             "size": 40
         },
         {

@@ -37,7 +37,7 @@
                 {
                     "transform2D": {
                         "position": {
-                            "x": 240.0,
+                            "x": 200.0,
                             "y": 200.0
                         },
                         "scale": {
@@ -53,7 +53,7 @@
                 {
                     "text_label": {
                         "text": "Cave Salamander",
-                        "font_path": "assets/fonts/big_verdana.ttf",
+                        "font_path": "assets/fonts/big_pine_type.ttf",
                         "color": {
                             "red": 0.8339768052101135,
                             "green": 0.32521873712539673,
@@ -74,7 +74,7 @@
                 {
                     "transform2D": {
                         "position": {
-                            "x": 298.0,
+                            "x": 260.0,
                             "y": 450.0
                         },
                         "scale": {
@@ -90,7 +90,7 @@
                 {
                     "text_label": {
                         "text": "Press Enter to Play!",
-                        "font_path": "assets/fonts/verdana.ttf",
+                        "font_path": "assets/fonts/pine_type.ttf",
                         "color": {
                             "red": 1.0,
                             "green": 1.0,
