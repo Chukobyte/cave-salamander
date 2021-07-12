@@ -110,11 +110,11 @@ class Game(Node2D):
             action_name="End"
         ):  # pressing 'r' for debugging
             SceneTree.change_scene(scene_path="scenes/end_screen.sscn")
-        elif Input.is_action_just_pressed(
-            action_name="Score"
-        ):  # pressing 'm' for adding to score points
-            self.player_stats.score = (self.player_stats.score + 1) % 10
-            self.game_object_pool.move_gameobjects_in_pool()
+        # elif Input.is_action_just_pressed(
+        #     action_name="Score"
+        # ):  # pressing 'm' for adding to score points
+        #     self.player_stats.score = (self.player_stats.score + 1) % 10
+        #     self.game_object_pool.move_gameobjects_in_pool()
         else:
             player_moved = False
 
@@ -145,6 +145,7 @@ class Game(Node2D):
             self.salamander.position = self.salamander_initial_position
 
     def _process_collisions(self) -> None:
+        step_on = False
         collided_nodes = Collision.get_collided_nodes(node=self.salamander_collider)
         for collided_node in collided_nodes:
             reset_position = False
@@ -152,7 +153,8 @@ class Game(Node2D):
             if "enemy" in collided_node.tags:
                 self._process_salamander_death()
             elif "step_on" in collided_node.tags:
-                pass
+                # TOOD: check if step on object has moved
+                step_on = True
             elif any(item in self.goals for item in collided_node.tags):
                 goal_tag = collided_node.tags[
                     0
@@ -167,6 +169,8 @@ class Game(Node2D):
             if reset_position:
                 self.salamander.position = self.salamander_initial_position
             break
+        if not step_on and self._is_salamander_in_abyss():
+            self._process_salamander_death()
 
     def _cycle_salamander_animation(self):
         self.salamander.frame = (

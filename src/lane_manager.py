@@ -2,9 +2,25 @@ from seika.color import Color
 from seika.math import Vector2, Rect2
 from seika.renderer import Renderer
 
-from src.game_object import GameObjectType
+from src.game_object import GameObjectType, GameObject
 from src.util.game_object_pool import GameObjectPool
 import random
+
+
+class GameObjectMovementContext:
+    def __init__(self):
+        self._moved_game_objects = []
+        self.player_step_on_game_object = None
+
+    @property
+    def moved_game_objects(self) -> list:
+        return self._moved_game_objects.copy()
+
+    def add(self, game_object: GameObject) -> None:
+        self._moved_game_objects.append(game_object)
+
+    def clear(self) -> None:
+        self._moved_game_objects.clear()
 
 
 class Lane:
@@ -48,6 +64,7 @@ class Lane:
 
 class LaneManager:
     def __init__(self, game_object_pool: GameObjectPool):
+        self.game_object_movement_context = GameObjectMovementContext()
         self._game_object_pool = game_object_pool
         self._lanes = self._get_initial_lanes()
 
@@ -107,6 +124,7 @@ class LaneManager:
         dead_game_object_pool = []
         for live_game_object in self._game_object_pool.live_pool:
             live_game_object.move_object(delta_time=delta_time)
+            # self.game_object_movement_context.add(game_object=live_game_object)
             if not live_game_object.active:
                 dead_game_object_pool.append(live_game_object)
 
