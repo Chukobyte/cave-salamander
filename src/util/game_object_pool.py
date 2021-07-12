@@ -10,13 +10,17 @@ class GameObjectPool:
     def __init__(
         self,
         game: Node2D,
-        rock_node_names=[],
+        small_rock_node_names=[],
+        big_rock_node_names=[],
         snake_node_names=[],
         spider_node_names=[],
     ):
         self._object_pools = {
-            GameObjectType.ROCK: [
-                game.get_node(name=rock_node_name) for rock_node_name in rock_node_names
+            GameObjectType.SMALL_ROCK: [
+                game.get_node(name=small_rock_node_name) for small_rock_node_name in small_rock_node_names
+            ],
+            GameObjectType.BIG_ROCK: [
+                game.get_node(name=big_rock_node_name) for big_rock_node_name in big_rock_node_names
             ],
             GameObjectType.SNAKE: [
                 game.get_node(name=snake_node_name)
@@ -28,7 +32,6 @@ class GameObjectPool:
             ],
         }
         self.live_pool = []
-        # self._spawn_manager = SpawnLaneManger(gameNode=game)
 
     def process(self) -> None:
         self.attempt_spawn(type=GameObjectType.SPIDER)

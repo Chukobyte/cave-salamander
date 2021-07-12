@@ -46,7 +46,8 @@ class Game(Node2D):
         self.lane_manager = LaneManager(
             game_object_pool=GameObjectPool(
                 game=self,
-                rock_node_names=["SmallRock0"],
+                small_rock_node_names=["SmallRock0"],
+                big_rock_node_names=["BigRock0"],
                 snake_node_names=["Snake0", "Snake1"],
                 spider_node_names=["Spider0", "Spider1"],
             )
