@@ -64,6 +64,22 @@
                         },
                         "animations": [
                             {
+                                "name": "death",
+                                "speed": 1000,
+                                "frames": [
+                                    {
+                                        "frame": 0,
+                                        "texture_path": "assets/images/salamander.png",
+                                        "draw_source": {
+                                            "x": 32.0,
+                                            "y": 0.0,
+                                            "width": 16.0,
+                                            "height": 16.0
+                                        }
+                                    }
+                                ]
+                            },
+                            {
                                 "name": "walk",
                                 "speed": 2,
                                 "frames": [

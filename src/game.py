@@ -142,6 +142,7 @@ class Game(Node2D):
                 self.player_stats.lives -= 1
                 if self.player_stats.lives > 0:
                     Audio.play_sound(sound_id="assets/audio/sound_effect/lose_life.wav")
+                    # self.salamander.play(animation_name="death")
             elif any(item in self.goals for item in collided_node.tags):
                 goal_tag = collided_node.tags[
                     0
