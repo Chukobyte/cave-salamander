@@ -66,6 +66,7 @@ STEP_ON_OBJECT_TYPES = [
     GameObjectType.BIG_ROCK,
 ]
 
+
 class LaneManager:
     def __init__(self, game_object_pool: GameObjectPool):
         self.game_object_movement_context = GameObjectMovementContext()

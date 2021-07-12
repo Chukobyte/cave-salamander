@@ -120,10 +120,9 @@ class Game(Node2D):
 
         # checks if player is within screen boundary. IF so, move player and update animation.
         if (
-            curr_x + new_x >= 0
-            and curr_x + new_x < self.screen_width_scaled
-            and curr_y + new_y >= 0
-            and curr_y + new_y < self.screen_height_scaled
+            GameScreen.is_position_within_screen(
+                position=Vector2(curr_x + new_x, curr_y + new_y)
+            )
             and player_moved
         ):
             self.salamander.add_to_position(Vector2(new_x, new_y))
@@ -158,9 +157,13 @@ class Game(Node2D):
                 ) in self.lane_manager.game_object_movement_context.moved_game_objects:
                     if moved_object.collider == collided_node:
                         # TODO: may need to adjust for different speeds
-                        self.salamander.add_to_position(
-                            moved_object.last_moved_velocity
-                        )
+                        if GameScreen.is_position_within_screen(
+                            position=self.salamander.position
+                            + moved_object.last_moved_velocity
+                        ):
+                            self.salamander.add_to_position(
+                                moved_object.last_moved_velocity
+                            )
                         break
                 step_on = True
             elif any(item in self.goals for item in collided_node.tags):

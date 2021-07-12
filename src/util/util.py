@@ -13,6 +13,8 @@ class Timer:
 
 # For the playable screen only (not menus)
 class GameScreen:
+    SCREEN_HEIGHT_SCALED = 0
+    SCREEN_WIDTH_SCALED = 0
     _instance = None
 
     """
@@ -65,3 +67,12 @@ class GameScreen:
 
     def getZoom(cls):
         return Vector2(cls.ZOOM_X, cls.ZOOM_Y)
+
+    @classmethod
+    def is_position_within_screen(cls, position: Vector2) -> bool:
+        return (
+            position.x >= 0
+            and position.x < cls.SCREEN_WIDTH_SCALED
+            and position.y >= 0
+            and position.y < cls.SCREEN_HEIGHT_SCALED
+        )
