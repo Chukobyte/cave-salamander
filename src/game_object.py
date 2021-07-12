@@ -55,6 +55,7 @@ class GameObject(AnimatedSprite):
         self.timer = self.properties.walk_timer
         self.spawn_lane_index = -1
         self.collider = None
+        self.last_moved_velocity = Vector2(0, 0)
 
     def update_properties(self, new_property: GameObjectProperties):
         self.properties = new_property
@@ -82,17 +83,17 @@ class GameObject(AnimatedSprite):
             width = self.properties.width * self.properties.scale.x
             height = self.properties.height * self.properties.scale.y
 
-            new_x = curr_x + velocity_x
-            new_y = curr_y + velocity_y
+            new_pos = Vector2(curr_x + velocity_x, curr_y + velocity_y)
 
             # modified so gameobjects are off screen
             if (
-                new_x > 0 - (width * 2)
-                and new_x < GameScreen().getScreenScaled().x + width
-                and new_y >= 0
-                and new_y + height < GameScreen().getScreenScaled().y
+                new_pos.x > 0 - (width * 2)
+                and new_pos.x < GameScreen().getScreenScaled().x + width
+                and new_pos.y >= 0
+                and new_pos.y + height < GameScreen().getScreenScaled().y
             ):
-                self.set_position(Vector2(new_x, new_y))
+                self.set_position(new_pos)
+                self.last_moved_velocity = Vector2(velocity_x, velocity_y)
             else:
                 self.active = False
             return True

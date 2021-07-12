@@ -16,10 +16,18 @@ class GameObjectPool:
         spider_node_names=[],
     ):
         self._object_pools = {
-            GameObjectType.SMALL_ROCK: self._get_game_object_pool(game=game, node_name_list=small_rock_node_names),
-            GameObjectType.BIG_ROCK: self._get_game_object_pool(game=game, node_name_list=big_rock_node_names),
-            GameObjectType.SNAKE: self._get_game_object_pool(game=game, node_name_list=snake_node_names),
-            GameObjectType.SPIDER: self._get_game_object_pool(game=game, node_name_list=spider_node_names),
+            GameObjectType.SMALL_ROCK: self._get_game_object_pool(
+                game=game, node_name_list=small_rock_node_names
+            ),
+            GameObjectType.BIG_ROCK: self._get_game_object_pool(
+                game=game, node_name_list=big_rock_node_names
+            ),
+            GameObjectType.SNAKE: self._get_game_object_pool(
+                game=game, node_name_list=snake_node_names
+            ),
+            GameObjectType.SPIDER: self._get_game_object_pool(
+                game=game, node_name_list=spider_node_names
+            ),
         }
         self.live_pool = []
 

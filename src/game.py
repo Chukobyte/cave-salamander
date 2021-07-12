@@ -153,9 +153,15 @@ class Game(Node2D):
             if "enemy" in collided_node.tags:
                 self._process_salamander_death()
             elif "step_on" in collided_node.tags:
-                for moved_object in self.lane_manager.game_object_movement_context.moved_game_objects:
-                    if collided_node.entity_id == moved_object.entity_id:
-                        self.salamander.add_to_position(Vector2(-self.grid_size.x, 0))
+                for (
+                    moved_object
+                ) in self.lane_manager.game_object_movement_context.moved_game_objects:
+                    if moved_object.collider == collided_node:
+                        # TODO: may need to adjust for different speeds
+                        self.salamander.add_to_position(
+                            moved_object.last_moved_velocity
+                        )
+                        break
                 step_on = True
             elif any(item in self.goals for item in collided_node.tags):
                 goal_tag = collided_node.tags[

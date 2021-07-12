@@ -123,8 +123,11 @@ class LaneManager:
         # Movement
         dead_game_object_pool = []
         for live_game_object in self._game_object_pool.live_pool:
-            if live_game_object.move_object(delta_time=delta_time) and live_game_object.type == GameObjectType.BIG_ROCK:
-                self.game_object_movement_context.add(game_object=live_game_object.collider)
+            if (
+                live_game_object.move_object(delta_time=delta_time)
+                and live_game_object.type == GameObjectType.BIG_ROCK
+            ):
+                self.game_object_movement_context.add(game_object=live_game_object)
             if not live_game_object.active:
                 dead_game_object_pool.append(live_game_object)
 
