@@ -7,6 +7,7 @@ class GameObjectType:
     ROCK = "Rock"
     SNAKE = "Snake"
     SPIDER = "Spider"
+    GOAL = "Goal"
 
 
 class GameObjectProperties:
@@ -32,6 +33,9 @@ class DefaultGameObjectProperties:
         ),
         GameObjectType.SPIDER: GameObjectProperties(
             w=2, h=2, s=Vector2(1, 1), t=0.01, v=Vector2(8, 0)
+        ),
+        GameObjectType.GOAL: GameObjectProperties(
+            w=14, h=14, s=Vector2(1, 1), t=0.5, v=Vector2(0, 0)
         ),
     }
 
@@ -84,3 +88,7 @@ class GameObject(Sprite):
                 self.set_position(Vector2(new_x, new_y))
             else:
                 self.active = False
+
+    #Mainly for the goal game object types
+    def move_off_screen(self) -> None:
+        self.position = Vector2(-32,0)
