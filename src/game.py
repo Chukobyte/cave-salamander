@@ -127,7 +127,11 @@ class Game(Node2D):
             and player_moved
         ):
             self.salamander.add_to_position(Vector2(new_x, new_y))
-            if self._is_salamander_in_abyss():
+            Collision.update_collisions()
+            if (
+                self._is_salamander_in_abyss()
+                and not self._is_salamander_on_step_on_object()
+            ):
                 self._process_salamander_death()
             else:
                 self._cycle_salamander_animation()
@@ -147,6 +151,8 @@ class Game(Node2D):
 
             if "enemy" in collided_node.tags:
                 self._process_salamander_death()
+            elif "step_on" in collided_node.tags:
+                pass
             elif any(item in self.goals for item in collided_node.tags):
                 goal_tag = collided_node.tags[
                     0
@@ -172,6 +178,14 @@ class Game(Node2D):
         pos_y = self.salamander.position.y
         if Abyss.TOP_Y_LIMIT <= pos_y <= Abyss.BOTTOM_Y_LIMIT:
             return True
+        return False
+
+    def _is_salamander_on_step_on_object(self) -> bool:
+        for collided_node in Collision.get_collided_nodes(
+            node=self.salamander_collider
+        ):
+            if "step_on" in collided_node.tags:
+                return True
         return False
 
     def _process_salamander_death(self) -> None:

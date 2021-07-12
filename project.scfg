@@ -5,7 +5,7 @@
         "width": 800,
         "height": 450
     },
-    "colliders_visible": false,
+    "colliders_visible": true,
     "target_fps": 66,
     "background_color": {
         "red": 0.0,
@@ -15,15 +15,15 @@
     "assets": [
         {
             "type": "texture",
-            "file_path": "assets/images/rock_big.png"
-        },
-        {
-            "type": "texture",
             "file_path": "assets/images/cave_background.png"
         },
         {
             "type": "texture",
             "file_path": "assets/images/fruit.png"
+        },
+        {
+            "type": "texture",
+            "file_path": "assets/images/rock_big.png"
         },
         {
             "type": "texture",

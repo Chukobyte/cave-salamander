@@ -1307,7 +1307,7 @@
                             "name": "BigRock0Collider",
                             "type": "CollisionShape2D",
                             "tags": [
-                                "enemy"
+                                "step_on"
                             ],
                             "external_scene_source": "",
                             "components": [
