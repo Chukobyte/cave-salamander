@@ -74,7 +74,7 @@
                 {
                     "transform2D": {
                         "position": {
-                            "x": 260.0,
+                            "x": 256.0,
                             "y": 450.0
                         },
                         "scale": {
@@ -138,6 +138,545 @@
                 }
             ],
             "children": []
+        },
+        {
+            "name": "ControlLabelsGroup",
+            "type": "Node2D",
+            "tags": [],
+            "external_scene_source": "",
+            "components": [
+                {
+                    "transform2D": {
+                        "position": {
+                            "x": 150.0,
+                            "y": 600.0
+                        },
+                        "scale": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "rotation": 0.0,
+                        "z_index": 0,
+                        "z_index_relative_to_parent": true,
+                        "ignore_camera": false
+                    }
+                }
+            ],
+            "children": [
+                {
+                    "name": "WASD_Text",
+                    "type": "TextLabel",
+                    "tags": [],
+                    "external_scene_source": "",
+                    "components": [
+                        {
+                            "transform2D": {
+                                "position": {
+                                    "x": 0.0,
+                                    "y": 0.0
+                                },
+                                "scale": {
+                                    "x": 1.0,
+                                    "y": 1.0
+                                },
+                                "rotation": 0.0,
+                                "z_index": 0,
+                                "z_index_relative_to_parent": true,
+                                "ignore_camera": false
+                            }
+                        },
+                        {
+                            "text_label": {
+                                "text": "WASD, ARROW Keys :",
+                                "font_path": "assets/fonts/small_pine_type.ttf",
+                                "color": {
+                                    "red": 0.8339999914169312,
+                                    "green": 0.32499998807907104,
+                                    "blue": 0.32499998807907104,
+                                    "alpha": 1.0
+                                }
+                            }
+                        }
+                    ],
+                    "children": [
+                        {
+                            "name": "MovementText",
+                            "type": "TextLabel",
+                            "tags": [],
+                            "external_scene_source": "",
+                            "components": [
+                                {
+                                    "transform2D": {
+                                        "position": {
+                                            "x": 190.0,
+                                            "y": 0.0
+                                        },
+                                        "scale": {
+                                            "x": 1.0,
+                                            "y": 1.0
+                                        },
+                                        "rotation": 0.0,
+                                        "z_index": 0,
+                                        "z_index_relative_to_parent": true,
+                                        "ignore_camera": false
+                                    }
+                                },
+                                {
+                                    "text_label": {
+                                        "text": "Movment",
+                                        "font_path": "assets/fonts/small_pine_type.ttf",
+                                        "color": {
+                                            "red": 1.0,
+                                            "green": 1.0,
+                                            "blue": 1.0,
+                                            "alpha": 1.0
+                                        }
+                                    }
+                                }
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "name": "SpaceText",
+                    "type": "TextLabel",
+                    "tags": [],
+                    "external_scene_source": "",
+                    "components": [
+                        {
+                            "transform2D": {
+                                "position": {
+                                    "x": 0.0,
+                                    "y": 30.0
+                                },
+                                "scale": {
+                                    "x": 1.0,
+                                    "y": 1.0
+                                },
+                                "rotation": 0.0,
+                                "z_index": 0,
+                                "z_index_relative_to_parent": true,
+                                "ignore_camera": false
+                            }
+                        },
+                        {
+                            "text_label": {
+                                "text": "Space :",
+                                "font_path": "assets/fonts/small_pine_type.ttf",
+                                "color": {
+                                    "red": 0.8339999914169312,
+                                    "green": 0.32499998807907104,
+                                    "blue": 0.32499998807907104,
+                                    "alpha": 1.0
+                                }
+                            }
+                        }
+                    ],
+                    "children": [
+                        {
+                            "name": "GainLifeText",
+                            "type": "TextLabel",
+                            "tags": [],
+                            "external_scene_source": "",
+                            "components": [
+                                {
+                                    "transform2D": {
+                                        "position": {
+                                            "x": 80.0,
+                                            "y": 0.0
+                                        },
+                                        "scale": {
+                                            "x": 1.0,
+                                            "y": 1.0
+                                        },
+                                        "rotation": 0.0,
+                                        "z_index": 0,
+                                        "z_index_relative_to_parent": true,
+                                        "ignore_camera": false
+                                    }
+                                },
+                                {
+                                    "text_label": {
+                                        "text": "Gain life if over 1000 points",
+                                        "font_path": "assets/fonts/small_pine_type.ttf",
+                                        "color": {
+                                            "red": 1.0,
+                                            "green": 1.0,
+                                            "blue": 1.0,
+                                            "alpha": 1.0
+                                        }
+                                    }
+                                }
+                            ],
+                            "children": []
+                        },
+                        {
+                            "name": "5LivesText",
+                            "type": "TextLabel",
+                            "tags": [],
+                            "external_scene_source": "",
+                            "components": [
+                                {
+                                    "transform2D": {
+                                        "position": {
+                                            "x": 80.0,
+                                            "y": 30.0
+                                        },
+                                        "scale": {
+                                            "x": 1.0,
+                                            "y": 1.0
+                                        },
+                                        "rotation": 0.0,
+                                        "z_index": 0,
+                                        "z_index_relative_to_parent": true,
+                                        "ignore_camera": false
+                                    }
+                                },
+                                {
+                                    "text_label": {
+                                        "text": "(and less than five lives)",
+                                        "font_path": "assets/fonts/small_pine_type.ttf",
+                                        "color": {
+                                            "red": 1.0,
+                                            "green": 1.0,
+                                            "blue": 1.0,
+                                            "alpha": 1.0
+                                        }
+                                    }
+                                }
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "name": "ESC",
+                    "type": "TextLabel",
+                    "tags": [],
+                    "external_scene_source": "",
+                    "components": [
+                        {
+                            "transform2D": {
+                                "position": {
+                                    "x": 0.0,
+                                    "y": 90.0
+                                },
+                                "scale": {
+                                    "x": 1.0,
+                                    "y": 1.0
+                                },
+                                "rotation": 0.0,
+                                "z_index": 0,
+                                "z_index_relative_to_parent": true,
+                                "ignore_camera": false
+                            }
+                        },
+                        {
+                            "text_label": {
+                                "text": "ESC :",
+                                "font_path": "assets/fonts/small_pine_type.ttf",
+                                "color": {
+                                    "red": 0.8339999914169312,
+                                    "green": 0.32499998807907104,
+                                    "blue": 0.32499998807907104,
+                                    "alpha": 1.0
+                                }
+                            }
+                        }
+                    ],
+                    "children": [
+                        {
+                            "name": "ExitText",
+                            "type": "TextLabel",
+                            "tags": [],
+                            "external_scene_source": "",
+                            "components": [
+                                {
+                                    "transform2D": {
+                                        "position": {
+                                            "x": 60.0,
+                                            "y": 0.0
+                                        },
+                                        "scale": {
+                                            "x": 1.0,
+                                            "y": 1.0
+                                        },
+                                        "rotation": 0.0,
+                                        "z_index": 0,
+                                        "z_index_relative_to_parent": true,
+                                        "ignore_camera": false
+                                    }
+                                },
+                                {
+                                    "text_label": {
+                                        "text": "Exit game",
+                                        "font_path": "assets/fonts/small_pine_type.ttf",
+                                        "color": {
+                                            "red": 1.0,
+                                            "green": 1.0,
+                                            "blue": 1.0,
+                                            "alpha": 1.0
+                                        }
+                                    }
+                                }
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Credits",
+            "type": "Node2D",
+            "tags": [],
+            "external_scene_source": "",
+            "components": [
+                {
+                    "transform2D": {
+                        "position": {
+                            "x": 580.0,
+                            "y": 550.0
+                        },
+                        "scale": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "rotation": 0.0,
+                        "z_index": 0,
+                        "z_index_relative_to_parent": true,
+                        "ignore_camera": false
+                    }
+                }
+            ],
+            "children": [
+                {
+                    "name": "ProgAudioText",
+                    "type": "TextLabel",
+                    "tags": [],
+                    "external_scene_source": "",
+                    "components": [
+                        {
+                            "transform2D": {
+                                "position": {
+                                    "x": 0.0,
+                                    "y": 0.0
+                                },
+                                "scale": {
+                                    "x": 1.0,
+                                    "y": 1.0
+                                },
+                                "rotation": 0.0,
+                                "z_index": 0,
+                                "z_index_relative_to_parent": true,
+                                "ignore_camera": false
+                            }
+                        },
+                        {
+                            "text_label": {
+                                "text": "Programmer/Audio: ",
+                                "font_path": "assets/fonts/small_pine_type.ttf",
+                                "color": {
+                                    "red": 0.8339999914169312,
+                                    "green": 0.32499998807907104,
+                                    "blue": 0.32499998807907104,
+                                    "alpha": 1.0
+                                }
+                            }
+                        }
+                    ],
+                    "children": [
+                        {
+                            "name": "ChukobyteText",
+                            "type": "TextLabel",
+                            "tags": [],
+                            "external_scene_source": "",
+                            "components": [
+                                {
+                                    "transform2D": {
+                                        "position": {
+                                            "x": 40.0,
+                                            "y": 30.0
+                                        },
+                                        "scale": {
+                                            "x": 1.0,
+                                            "y": 1.0
+                                        },
+                                        "rotation": 0.0,
+                                        "z_index": 0,
+                                        "z_index_relative_to_parent": true,
+                                        "ignore_camera": false
+                                    }
+                                },
+                                {
+                                    "text_label": {
+                                        "text": "@Chukobyte",
+                                        "font_path": "assets/fonts/small_pine_type.ttf",
+                                        "color": {
+                                            "red": 1.0,
+                                            "green": 1.0,
+                                            "blue": 1.0,
+                                            "alpha": 1.0
+                                        }
+                                    }
+                                }
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "name": "ProgText",
+                    "type": "TextLabel",
+                    "tags": [],
+                    "external_scene_source": "",
+                    "components": [
+                        {
+                            "transform2D": {
+                                "position": {
+                                    "x": 0.0,
+                                    "y": 60.0
+                                },
+                                "scale": {
+                                    "x": 1.0,
+                                    "y": 1.0
+                                },
+                                "rotation": 0.0,
+                                "z_index": 0,
+                                "z_index_relative_to_parent": true,
+                                "ignore_camera": false
+                            }
+                        },
+                        {
+                            "text_label": {
+                                "text": "Programmer:",
+                                "font_path": "assets/fonts/small_pine_type.ttf",
+                                "color": {
+                                    "red": 0.8339999914169312,
+                                    "green": 0.32499998807907104,
+                                    "blue": 0.32499998807907104,
+                                    "alpha": 1.0
+                                }
+                            }
+                        }
+                    ],
+                    "children": [
+                        {
+                            "name": "CodeTheMuffinText",
+                            "type": "TextLabel",
+                            "tags": [],
+                            "external_scene_source": "",
+                            "components": [
+                                {
+                                    "transform2D": {
+                                        "position": {
+                                            "x": 40.0,
+                                            "y": 30.0
+                                        },
+                                        "scale": {
+                                            "x": 1.0,
+                                            "y": 1.0
+                                        },
+                                        "rotation": 0.0,
+                                        "z_index": 0,
+                                        "z_index_relative_to_parent": true,
+                                        "ignore_camera": false
+                                    }
+                                },
+                                {
+                                    "text_label": {
+                                        "text": "@CodeTheMuffin",
+                                        "font_path": "assets/fonts/small_pine_type.ttf",
+                                        "color": {
+                                            "red": 1.0,
+                                            "green": 1.0,
+                                            "blue": 1.0,
+                                            "alpha": 1.0
+                                        }
+                                    }
+                                }
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "name": "ArtText",
+                    "type": "TextLabel",
+                    "tags": [],
+                    "external_scene_source": "",
+                    "components": [
+                        {
+                            "transform2D": {
+                                "position": {
+                                    "x": 0.0,
+                                    "y": 120.0
+                                },
+                                "scale": {
+                                    "x": 1.0,
+                                    "y": 1.0
+                                },
+                                "rotation": 0.0,
+                                "z_index": 0,
+                                "z_index_relative_to_parent": true,
+                                "ignore_camera": false
+                            }
+                        },
+                        {
+                            "text_label": {
+                                "text": "Art:",
+                                "font_path": "assets/fonts/small_pine_type.ttf",
+                                "color": {
+                                    "red": 0.8339999914169312,
+                                    "green": 0.32499998807907104,
+                                    "blue": 0.32499998807907104,
+                                    "alpha": 1.0
+                                }
+                            }
+                        }
+                    ],
+                    "children": [
+                        {
+                            "name": "PineTreePizzaText",
+                            "type": "TextLabel",
+                            "tags": [],
+                            "external_scene_source": "",
+                            "components": [
+                                {
+                                    "transform2D": {
+                                        "position": {
+                                            "x": 40.0,
+                                            "y": 30.0
+                                        },
+                                        "scale": {
+                                            "x": 1.0,
+                                            "y": 1.0
+                                        },
+                                        "rotation": 0.0,
+                                        "z_index": 0,
+                                        "z_index_relative_to_parent": true,
+                                        "ignore_camera": false
+                                    }
+                                },
+                                {
+                                    "text_label": {
+                                        "text": "@PineTreePizza",
+                                        "font_path": "assets/fonts/small_pine_type.ttf",
+                                        "color": {
+                                            "red": 1.0,
+                                            "green": 1.0,
+                                            "blue": 1.0,
+                                            "alpha": 1.0
+                                        }
+                                    }
+                                }
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
         }
     ]
 }
