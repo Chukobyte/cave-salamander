@@ -1,5 +1,3 @@
-from seika.node import Node2D
-from seika.camera import Camera
 from seika.color import Color
 from seika.node import Node2D
 from seika.input import Input
@@ -9,6 +7,7 @@ from seika.audio import Audio
 from seika.camera import Camera
 from seika.math import Vector2
 from src.util.util import Timer_delta
+
 
 class Control_screen(Node2D):
     def _start(self):
