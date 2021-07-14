@@ -1,0 +1,579 @@
+{
+    "name": "ControlScreen",
+    "type": "Node2D",
+    "tags": [],
+    "external_scene_source": "",
+    "components": [
+        {
+            "transform2D": {
+                "position": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "scale": {
+                    "x": 1.0,
+                    "y": 1.0
+                },
+                "rotation": 0.0,
+                "z_index": 0,
+                "z_index_relative_to_parent": true,
+                "ignore_camera": false
+            }
+        },
+        {
+            "scriptable_class": {
+                "class_path": "src.control_screen",
+                "class_name": "Control_screen"
+            }
+        }
+    ],
+    "children": [
+        {
+            "name": "TitleScreen",
+            "type": "TextLabel",
+            "tags": [],
+            "external_scene_source": "",
+            "components": [
+                {
+                    "transform2D": {
+                        "position": {
+                            "x": 285.0,
+                            "y": 100.0
+                        },
+                        "scale": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "rotation": 0.0,
+                        "z_index": 0,
+                        "z_index_relative_to_parent": true,
+                        "ignore_camera": false
+                    }
+                },
+                {
+                    "text_label": {
+                        "text": "Controls",
+                        "font_path": "assets/fonts/big_pine_type.ttf",
+                        "color": {
+                            "red": 0.8339768052101135,
+                            "green": 0.32521873712539673,
+                            "blue": 0.32521873712539673,
+                            "alpha": 1.0
+                        }
+                    }
+                }
+            ],
+            "children": []
+        },
+        {
+            "name": "InstructionLabel",
+            "type": "TextLabel",
+            "tags": [],
+            "external_scene_source": "",
+            "components": [
+                {
+                    "transform2D": {
+                        "position": {
+                            "x": 270.0,
+                            "y": 250.0
+                        },
+                        "scale": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "rotation": 0.0,
+                        "z_index": 0,
+                        "z_index_relative_to_parent": true,
+                        "ignore_camera": false
+                    }
+                },
+                {
+                    "text_label": {
+                        "text": "Press Enter to Play!",
+                        "font_path": "assets/fonts/pine_type.ttf",
+                        "color": {
+                            "red": 1.0,
+                            "green": 1.0,
+                            "blue": 1.0,
+                            "alpha": 1.0
+                        }
+                    }
+                }
+            ],
+            "children": []
+        },
+        {
+            "name": "ControlLabelsGroup",
+            "type": "Node2D",
+            "tags": [],
+            "external_scene_source": "",
+            "components": [
+                {
+                    "transform2D": {
+                        "position": {
+                            "x": 150.0,
+                            "y": 400.0
+                        },
+                        "scale": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "rotation": 0.0,
+                        "z_index": 0,
+                        "z_index_relative_to_parent": true,
+                        "ignore_camera": false
+                    }
+                }
+            ],
+            "children": [
+                {
+                    "name": "WASD_Text",
+                    "type": "TextLabel",
+                    "tags": [],
+                    "external_scene_source": "",
+                    "components": [
+                        {
+                            "transform2D": {
+                                "position": {
+                                    "x": 0.0,
+                                    "y": 0.0
+                                },
+                                "scale": {
+                                    "x": 1.0,
+                                    "y": 1.0
+                                },
+                                "rotation": 0.0,
+                                "z_index": 0,
+                                "z_index_relative_to_parent": true,
+                                "ignore_camera": false
+                            }
+                        },
+                        {
+                            "text_label": {
+                                "text": "WASD, ARROW Keys",
+                                "font_path": "assets/fonts/small_pine_type.ttf",
+                                "color": {
+                                    "red": 0.8339999914169312,
+                                    "green": 0.32499998807907104,
+                                    "blue": 0.32499998807907104,
+                                    "alpha": 1.0
+                                }
+                            }
+                        }
+                    ],
+                    "children": [
+                        {
+                            "name": "StickMovementText",
+                            "type": "TextLabel",
+                            "tags": [],
+                            "external_scene_source": "",
+                            "components": [
+                                {
+                                    "transform2D": {
+                                        "position": {
+                                            "x": 0.0,
+                                            "y": 30.0
+                                        },
+                                        "scale": {
+                                            "x": 1.0,
+                                            "y": 1.0
+                                        },
+                                        "rotation": 0.0,
+                                        "z_index": 0,
+                                        "z_index_relative_to_parent": true,
+                                        "ignore_camera": false
+                                    }
+                                },
+                                {
+                                    "text_label": {
+                                        "text": "Joystick Stick/D-PAD",
+                                        "font_path": "assets/fonts/small_pine_type.ttf",
+                                        "color": {
+                                            "red": 0.8339999914169312,
+                                            "green": 0.32499998807907104,
+                                            "blue": 0.32499998807907104,
+                                            "alpha": 1.0
+                                        }
+                                    }
+                                }
+                            ],
+                            "children": []
+                        },
+                        {
+                            "name": "MovementText",
+                            "type": "TextLabel",
+                            "tags": [],
+                            "external_scene_source": "",
+                            "components": [
+                                {
+                                    "transform2D": {
+                                        "position": {
+                                            "x": 250.0,
+                                            "y": 15.0
+                                        },
+                                        "scale": {
+                                            "x": 1.0,
+                                            "y": 1.0
+                                        },
+                                        "rotation": 0.0,
+                                        "z_index": 0,
+                                        "z_index_relative_to_parent": true,
+                                        "ignore_camera": false
+                                    }
+                                },
+                                {
+                                    "text_label": {
+                                        "text": "Movement",
+                                        "font_path": "assets/fonts/small_pine_type.ttf",
+                                        "color": {
+                                            "red": 1.0,
+                                            "green": 1.0,
+                                            "blue": 1.0,
+                                            "alpha": 1.0
+                                        }
+                                    }
+                                }
+                            ],
+                            "children": []
+                        },
+                        {
+                            "name": "WASD_BarText",
+                            "type": "TextLabel",
+                            "tags": [],
+                            "external_scene_source": "",
+                            "components": [
+                                {
+                                    "transform2D": {
+                                        "position": {
+                                            "x": 0.0,
+                                            "y": 70.0
+                                        },
+                                        "scale": {
+                                            "x": 1.0,
+                                            "y": 1.0
+                                        },
+                                        "rotation": 0.0,
+                                        "z_index": 0,
+                                        "z_index_relative_to_parent": true,
+                                        "ignore_camera": false
+                                    }
+                                },
+                                {
+                                    "text_label": {
+                                        "text": "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -",
+                                        "font_path": "assets/fonts/small_pine_type.ttf",
+                                        "color": {
+                                            "red": 0.6899999976158142,
+                                            "green": 0.6899999976158142,
+                                            "blue": 0.6899999976158142,
+                                            "alpha": 1.0
+                                        }
+                                    }
+                                }
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "name": "SpaceText",
+                    "type": "TextLabel",
+                    "tags": [],
+                    "external_scene_source": "",
+                    "components": [
+                        {
+                            "transform2D": {
+                                "position": {
+                                    "x": 0.0,
+                                    "y": 125.0
+                                },
+                                "scale": {
+                                    "x": 1.0,
+                                    "y": 1.0
+                                },
+                                "rotation": 0.0,
+                                "z_index": 0,
+                                "z_index_relative_to_parent": true,
+                                "ignore_camera": false
+                            }
+                        },
+                        {
+                            "text_label": {
+                                "text": "Space",
+                                "font_path": "assets/fonts/small_pine_type.ttf",
+                                "color": {
+                                    "red": 0.8339999914169312,
+                                    "green": 0.32499998807907104,
+                                    "blue": 0.32499998807907104,
+                                    "alpha": 1.0
+                                }
+                            }
+                        }
+                    ],
+                    "children": [
+                        {
+                            "name": "StickStartText",
+                            "type": "TextLabel",
+                            "tags": [],
+                            "external_scene_source": "",
+                            "components": [
+                                {
+                                    "transform2D": {
+                                        "position": {
+                                            "x": 0.0,
+                                            "y": 30.0
+                                        },
+                                        "scale": {
+                                            "x": 1.0,
+                                            "y": 1.0
+                                        },
+                                        "rotation": 0.0,
+                                        "z_index": 0,
+                                        "z_index_relative_to_parent": true,
+                                        "ignore_camera": false
+                                    }
+                                },
+                                {
+                                    "text_label": {
+                                        "text": "Joystick Start",
+                                        "font_path": "assets/fonts/small_pine_type.ttf",
+                                        "color": {
+                                            "red": 0.8339999914169312,
+                                            "green": 0.32499998807907104,
+                                            "blue": 0.32499998807907104,
+                                            "alpha": 1.0
+                                        }
+                                    }
+                                }
+                            ],
+                            "children": []
+                        },
+                        {
+                            "name": "GainLifeText",
+                            "type": "TextLabel",
+                            "tags": [],
+                            "external_scene_source": "",
+                            "components": [
+                                {
+                                    "transform2D": {
+                                        "position": {
+                                            "x": 250.0,
+                                            "y": 0.0
+                                        },
+                                        "scale": {
+                                            "x": 1.0,
+                                            "y": 1.0
+                                        },
+                                        "rotation": 0.0,
+                                        "z_index": 0,
+                                        "z_index_relative_to_parent": true,
+                                        "ignore_camera": false
+                                    }
+                                },
+                                {
+                                    "text_label": {
+                                        "text": "Gain life if over 1000 points",
+                                        "font_path": "assets/fonts/small_pine_type.ttf",
+                                        "color": {
+                                            "red": 1.0,
+                                            "green": 1.0,
+                                            "blue": 1.0,
+                                            "alpha": 1.0
+                                        }
+                                    }
+                                }
+                            ],
+                            "children": []
+                        },
+                        {
+                            "name": "5LivesText",
+                            "type": "TextLabel",
+                            "tags": [],
+                            "external_scene_source": "",
+                            "components": [
+                                {
+                                    "transform2D": {
+                                        "position": {
+                                            "x": 250.0,
+                                            "y": 30.0
+                                        },
+                                        "scale": {
+                                            "x": 1.0,
+                                            "y": 1.0
+                                        },
+                                        "rotation": 0.0,
+                                        "z_index": 0,
+                                        "z_index_relative_to_parent": true,
+                                        "ignore_camera": false
+                                    }
+                                },
+                                {
+                                    "text_label": {
+                                        "text": "(and less than five lives)",
+                                        "font_path": "assets/fonts/small_pine_type.ttf",
+                                        "color": {
+                                            "red": 1.0,
+                                            "green": 1.0,
+                                            "blue": 1.0,
+                                            "alpha": 1.0
+                                        }
+                                    }
+                                }
+                            ],
+                            "children": []
+                        },
+                        {
+                            "name": "SpaceBarText",
+                            "type": "TextLabel",
+                            "tags": [],
+                            "external_scene_source": "",
+                            "components": [
+                                {
+                                    "transform2D": {
+                                        "position": {
+                                            "x": 0.0,
+                                            "y": 70.0
+                                        },
+                                        "scale": {
+                                            "x": 1.0,
+                                            "y": 1.0
+                                        },
+                                        "rotation": 0.0,
+                                        "z_index": 0,
+                                        "z_index_relative_to_parent": true,
+                                        "ignore_camera": false
+                                    }
+                                },
+                                {
+                                    "text_label": {
+                                        "text": "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -",
+                                        "font_path": "assets/fonts/small_pine_type.ttf",
+                                        "color": {
+                                            "red": 0.6899999976158142,
+                                            "green": 0.6899999976158142,
+                                            "blue": 0.6899999976158142,
+                                            "alpha": 1.0
+                                        }
+                                    }
+                                }
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "name": "ESC",
+                    "type": "TextLabel",
+                    "tags": [],
+                    "external_scene_source": "",
+                    "components": [
+                        {
+                            "transform2D": {
+                                "position": {
+                                    "x": 0.0,
+                                    "y": 250.0
+                                },
+                                "scale": {
+                                    "x": 1.0,
+                                    "y": 1.0
+                                },
+                                "rotation": 0.0,
+                                "z_index": 0,
+                                "z_index_relative_to_parent": true,
+                                "ignore_camera": false
+                            }
+                        },
+                        {
+                            "text_label": {
+                                "text": "ESC",
+                                "font_path": "assets/fonts/small_pine_type.ttf",
+                                "color": {
+                                    "red": 0.8339999914169312,
+                                    "green": 0.32499998807907104,
+                                    "blue": 0.32499998807907104,
+                                    "alpha": 1.0
+                                }
+                            }
+                        }
+                    ],
+                    "children": [
+                        {
+                            "name": "StickBackText",
+                            "type": "TextLabel",
+                            "tags": [],
+                            "external_scene_source": "",
+                            "components": [
+                                {
+                                    "transform2D": {
+                                        "position": {
+                                            "x": 0.0,
+                                            "y": 30.0
+                                        },
+                                        "scale": {
+                                            "x": 1.0,
+                                            "y": 1.0
+                                        },
+                                        "rotation": 0.0,
+                                        "z_index": 0,
+                                        "z_index_relative_to_parent": true,
+                                        "ignore_camera": false
+                                    }
+                                },
+                                {
+                                    "text_label": {
+                                        "text": "Joystick Back",
+                                        "font_path": "assets/fonts/small_pine_type.ttf",
+                                        "color": {
+                                            "red": 0.8339999914169312,
+                                            "green": 0.32499998807907104,
+                                            "blue": 0.32499998807907104,
+                                            "alpha": 1.0
+                                        }
+                                    }
+                                }
+                            ],
+                            "children": []
+                        },
+                        {
+                            "name": "ExitText",
+                            "type": "TextLabel",
+                            "tags": [],
+                            "external_scene_source": "",
+                            "components": [
+                                {
+                                    "transform2D": {
+                                        "position": {
+                                            "x": 250.0,
+                                            "y": 15.0
+                                        },
+                                        "scale": {
+                                            "x": 1.0,
+                                            "y": 1.0
+                                        },
+                                        "rotation": 0.0,
+                                        "z_index": 0,
+                                        "z_index_relative_to_parent": true,
+                                        "ignore_camera": false
+                                    }
+                                },
+                                {
+                                    "text_label": {
+                                        "text": "Exit game",
+                                        "font_path": "assets/fonts/small_pine_type.ttf",
+                                        "color": {
+                                            "red": 1.0,
+                                            "green": 1.0,
+                                            "blue": 1.0,
+                                            "alpha": 1.0
+                                        }
+                                    }
+                                }
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

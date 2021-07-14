@@ -70,6 +70,11 @@
         },
         {
             "type": "font",
+            "file_path": "assets/fonts/small_pine_type.ttf",
+            "size": 30
+        },
+        {
+            "type": "font",
             "file_path": "assets/fonts/verdana.ttf",
             "size": 20
         },
