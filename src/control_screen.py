@@ -1,3 +1,5 @@
+from seika.node import Node2D
+from seika.camera import Camera
 from seika.color import Color
 from seika.node import Node2D
 from seika.input import Input
@@ -7,27 +9,18 @@ from seika.audio import Audio
 from seika.camera import Camera
 from seika.math import Vector2
 from src.util.util import Timer_delta
-import json
 
-class Title_screen(Node2D):
+class Control_screen(Node2D):
     def _start(self):
         Camera.set_zoom(Vector2(1, 1))
-        Audio.stop_music()
         self.instruction_label = self.get_node(name="InstructionLabel")
         self.instruction_flash_timer = Timer_delta(max_time_in_seconds=0.75)
         self.instruction_show = True
-        self.version_label = self.get_node(name="VersionLabel")
-        with open("version.json") as version_file:
-            version_data = json.load(version_file)
-            self.version = version_data['version']
-            self.version_label.text = f"v{self.version}"
-
 
     def _physics_process(self, delta_time: float) -> None:
         if Input.is_action_just_pressed(action_name="ui_menu_confirm"):
             Audio.play_sound(sound_id="assets/audio/sound_effect/frog_move_sound.wav")
-            SceneTree.change_scene(scene_path="scenes/control_screen.sscn")
-            #SceneTree.change_scene(scene_path="scenes/game.sscn")
+            SceneTree.change_scene(scene_path="scenes/game.sscn")
 
         if Input.is_action_just_pressed(action_name="ui_quit"):
             Engine.exit()
