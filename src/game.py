@@ -22,7 +22,7 @@ class Abyss:
 
 
 class Game(Node2D):
-    DEBUG = False
+    DEBUG = True
 
     def _start(self) -> None:
         GameScreen().setBottomBuffer(buffer=BottomGUI.RECT_HEIGHT)

@@ -15,6 +15,9 @@ class EndScreen(Node2D):
         Audio.stop_music()
         Audio.play_music(music_id="assets/audio/music/end_game_jingle.wav", loops=False)
         self.player_stats = PlayerStats()
+        self.instruction_label = self.get_node(name="InstructionLabel")
+        self.LOSE_TEXT = "Press Enter to get back to Main Menu"
+        self.WIN_TEXT  = "Press Enter to continue playing"
         self.update_screen()
 
     def update_screen(self):
@@ -31,6 +34,9 @@ class EndScreen(Node2D):
         if self.player_stats.goals <= 0:
             end_title_label = self.get_node(name="EndTitle")
             end_title_label.text = "You Win !"
+            self.instruction_label.text = self.WIN_TEXT
+        else:
+            self.instruction_label.text = self.LOSE_TEXT
 
     def _physics_process(self, delta_time: float) -> None:
         if Input.is_action_just_pressed(action_name="ui_menu_confirm"):
@@ -42,8 +48,6 @@ class EndScreen(Node2D):
                 self.player_stats.reset()
                 Audio.play_sound(sound_id="assets/audio/sound_effect/frog_move_sound.wav")
                 SceneTree.change_scene(scene_path="scenes/title_screen.sscn")
-                #SceneTree.change_scene(scene_path="scenes/control_screen.sscn")
-
 
         if Input.is_action_just_pressed(action_name="ui_quit"):
             Engine.exit()

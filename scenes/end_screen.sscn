@@ -163,7 +163,7 @@
                 },
                 {
                     "text_label": {
-                        "text": "Press Enter to get back to Main Menu",
+                        "text": " Press Enter to get back to Main Menu",
                         "font_path": "assets/fonts/pine_type.ttf",
                         "color": {
                             "red": 1.0,

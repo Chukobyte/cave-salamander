@@ -27,7 +27,6 @@ class Title_screen(Node2D):
         if Input.is_action_just_pressed(action_name="ui_menu_confirm"):
             Audio.play_sound(sound_id="assets/audio/sound_effect/frog_move_sound.wav")
             SceneTree.change_scene(scene_path="scenes/control_screen.sscn")
-            #SceneTree.change_scene(scene_path="scenes/game.sscn")
 
         if Input.is_action_just_pressed(action_name="ui_quit"):
             Engine.exit()
