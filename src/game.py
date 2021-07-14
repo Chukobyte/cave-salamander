@@ -133,21 +133,24 @@ class Game(Node2D):
                     new_y = self.grid_size.y
 
             # Keeping outside of dying check for debugging
-            if Input.is_action_just_pressed(
-                action_name="RESET"
-            ) and self.DEBUG:  # pressing 'r' for debugging
+            if (
+                Input.is_action_just_pressed(action_name="RESET") and self.DEBUG
+            ):  # pressing 'r' for debugging
                 self.salamander.position = self.salamander_initial_position
                 player_moved = False
                 self.player_stats.reset()
                 SceneTree.change_scene(scene_path="scenes/title_screen.sscn")
+            elif (
+                Input.is_action_just_pressed(action_name="End") and self.DEBUG
+            ):  # pressing 'e' for debugging
+                # self.player_stats.end_time = self.game_gui.bottom_gui.timer.time
+                # SceneTree.change_scene(scene_path="scenes/end_screen.sscn")
+                self.salamander.position = Vector2(
+                    self.salamander_initial_position.x, 4
+                )
             elif Input.is_action_just_pressed(
-                action_name="End"
-            ) and self.DEBUG:  # pressing 'e' for debugging
-                #self.player_stats.end_time = self.game_gui.bottom_gui.timer.time
-                #SceneTree.change_scene(scene_path="scenes/end_screen.sscn")
-                self.salamander.position= Vector2(
-                    self.salamander_initial_position.x,4)
-            elif Input.is_action_just_pressed(action_name="GetLife"): #pressing 'Space' bar
+                action_name="GetLife"
+            ):  # pressing 'Space' bar
                 self.check_if_can_add_lives()
         # checks if player is within screen boundary. IF so, move player and update animation.
         if (
@@ -206,7 +209,7 @@ class Game(Node2D):
                     goal_tag = collided_node.tags[0]
                     reset_position = True
                     points = int(self.game_gui.bottom_gui.timer.time / 1000)
-                    self.player_stats.score += (points*2)
+                    self.player_stats.score += points * 2
                     self.player_stats.goals -= 1
                     self.goals[goal_tag].move_off_screen()
                     Audio.play_sound(
@@ -277,8 +280,11 @@ class Game(Node2D):
             if self.player_stats.dying_timer.tick_n_check(delta_time=delta_time):
                 self.reset_salamander_position()
 
-    #only intended for when getting goal
+    # only intended for when getting goal
     def check_if_can_add_lives(self):
-        if self.player_stats.lives < self.player_stats.MAX_LIVES and self.player_stats.score >= 1000:
+        if (
+            self.player_stats.lives < self.player_stats.MAX_LIVES
+            and self.player_stats.score >= 1000
+        ):
             self.player_stats.lives += 1
             self.player_stats.score -= 1000

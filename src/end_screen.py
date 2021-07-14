@@ -17,7 +17,7 @@ class EndScreen(Node2D):
         self.player_stats = PlayerStats()
         self.instruction_label = self.get_node(name="InstructionLabel")
         self.LOSE_TEXT = "Press Enter to get back to Main Menu"
-        self.WIN_TEXT  = "Press Enter to continue playing"
+        self.WIN_TEXT = "Press Enter to continue playing"
         self.update_screen()
 
     def update_screen(self):
@@ -42,12 +42,21 @@ class EndScreen(Node2D):
         if Input.is_action_just_pressed(action_name="ui_menu_confirm"):
             if self.player_stats.goals <= 0:
                 self.player_stats.sub_reset()
-                Audio.play_sound(sound_id="assets/audio/sound_effect/frog_move_sound.wav")
+                Audio.play_sound(
+                    sound_id="assets/audio/sound_effect/frog_move_sound.wav"
+                )
                 SceneTree.change_scene(scene_path="scenes/game.sscn")
             else:
                 self.player_stats.reset()
-                Audio.play_sound(sound_id="assets/audio/sound_effect/frog_move_sound.wav")
+                Audio.play_sound(
+                    sound_id="assets/audio/sound_effect/frog_move_sound.wav"
+                )
                 SceneTree.change_scene(scene_path="scenes/title_screen.sscn")
+
+        if Input.is_action_just_pressed(action_name="RESET"):
+            self.player_stats.reset()
+            Audio.play_sound(sound_id="assets/audio/sound_effect/frog_move_sound.wav")
+            SceneTree.change_scene(scene_path="scenes/game.sscn")
 
         if Input.is_action_just_pressed(action_name="ui_quit"):
             Engine.exit()

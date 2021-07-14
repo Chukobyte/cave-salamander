@@ -140,7 +140,44 @@
             "children": []
         },
         {
-            "name": "InstructionLabel",
+            "name": "RestartInstructionLabel",
+            "type": "TextLabel",
+            "tags": [],
+            "external_scene_source": "",
+            "components": [
+                {
+                    "transform2D": {
+                        "position": {
+                            "x": 280.0,
+                            "y": 550.0
+                        },
+                        "scale": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "rotation": 0.0,
+                        "z_index": 0,
+                        "z_index_relative_to_parent": true,
+                        "ignore_camera": false
+                    }
+                },
+                {
+                    "text_label": {
+                        "text": "Press R to retry",
+                        "font_path": "assets/fonts/pine_type.ttf",
+                        "color": {
+                            "red": 1.0,
+                            "green": 1.0,
+                            "blue": 1.0,
+                            "alpha": 1.0
+                        }
+                    }
+                }
+            ],
+            "children": []
+        },
+        {
+            "name": "MainMenuInstructionLabel",
             "type": "TextLabel",
             "tags": [],
             "external_scene_source": "",
@@ -163,7 +200,7 @@
                 },
                 {
                     "text_label": {
-                        "text": " Press Enter to get back to Main Menu",
+                        "text": "Press Enter to get back to Main Menu",
                         "font_path": "assets/fonts/pine_type.ttf",
                         "color": {
                             "red": 1.0,

@@ -26,7 +26,7 @@ class PlayerStats:
         self.score = 0
         self.sub_reset()
 
-    #for when you don't want to reset lives and scores
+    # for when you don't want to reset lives and scores
     def sub_reset(self):
         self.goals = self._MAX_GOALS
         self.dying_timer.reset_timer()
