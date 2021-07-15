@@ -180,7 +180,6 @@ class Game(Node2D):
     def _process_collisions(self) -> None:
         if not self.player_stats.dying:
             step_on = False
-            Collision.update_collisions(node=self.salamander_collider)
             collided_nodes = Collision.get_collided_nodes(node=self.salamander_collider)
             for collided_node in collided_nodes:
                 reset_position = False
@@ -245,7 +244,6 @@ class Game(Node2D):
         return False
 
     def _is_salamander_on_step_on_object(self) -> bool:
-        Collision.update_collisions(node=self.salamander_collider)
         for collided_node in Collision.get_collided_nodes(
             node=self.salamander_collider
         ):
